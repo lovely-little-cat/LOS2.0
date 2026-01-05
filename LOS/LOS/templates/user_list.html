@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>订单列表</title>
+    <title>用户列表</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/root.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/common.css') }}">
 </head>
@@ -15,15 +15,15 @@
                 <li class="nav-label">导航菜单</li>
                 <li><a href="{{ url_for('index.index') }}">首页</a></li>
                 <li><a href="{{ url_for('order.show_order_list') }}">订单查看</a></li>
-                <li><a href="{{ url_for('manage.manage_order') }}">订单管理</a></li>
-                <li><a href="{{ url_for('order.export_order_excel') }}">导出Excel</a></li>  
+                <li><a href="{{ url_for('manage.manage_user') }}">用户管理</a></li>
+                <li><a href="{{ url_for('order.export_user_excel') }}">导出Excel</a></li>  
                 <li><a href="{{ url_for('login.logout') }}">退出登录</a></li>
             </ul>
         </div>
     </nav>
 
     <div class="container">
-        <h1>订单列表</h1>
+        <h1>用户列表</h1>
 
         <table class="order-table">
             <thead>

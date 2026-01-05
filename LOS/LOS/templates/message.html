@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>消息查看</title>
+</head>
+<body>
+    <nav class="nav">
+        <div class="container">
+            <ul class="nav-list">
+                <li class="nav-label">导航菜单</li>
+                <li><a href="{{ url_for('index.index') }}">首页</a></li>
+                <li><a href="{{ url_for('order.show_order_list') }}">订单查看</a></li>
+                <li><a href="{{ url_for('manage.show_manage') }}">用户查看</a></li>  
+                <li><a href="{{ url_for('message.show_message_list') }}">消息查看</a></li>
+                <li><a href="{{ url_for('analyse.show_analyse') }}">利润分析</a></li>
+                <li><a href="{{ url_for('login.logout') }}">退出登录</a></li>  
+            </ul>
+        </div>
+    </nav>    
+    <h3>消息查看</h3>
+    <!-- 添加模态框 -->
+<div class="modal-box">
+   <!-- 顶部 -->
+   <div class="modal-box-top">
+       <div class="modal-box-title">消息详情</div>
+       <button onclick="modalClose()" class="modal-close">×</button>
+   </div>
+   <!-- 主体 -->
+   <div class="modal-box-content">
+       
+   </div>
+   <!-- 底部 -->
+   <div class="modal-box-bottom">
+       <button type="button" onclick="modalClose()">关闭</button>
+   </div>
+</div>
+</body>
+</html>

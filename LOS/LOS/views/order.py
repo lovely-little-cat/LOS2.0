@@ -10,9 +10,9 @@ from ..utils.STATUS_map import STATUS_MAP
 
 ord = Blueprint('order', __name__)
 
-# 原订单列表路由（重命名函数名，避免冲突）
+
 @ord.route('/order/list')
-def show_order_list():  # 函数名从 order_list 改为 show_order_list
+def show_order_list(): 
     if session.get('user'):
         user = session['user']
         role = user.get('role')
@@ -23,6 +23,7 @@ def show_order_list():  # 函数名从 order_list 改为 show_order_list
                 JOIN user u ON o.user_id = u.id
             """
             orders = db.fetchall(sql, [])
+            return render_template("order_list.html", orders=orders, status_map=STATUS_MAP,products=products)
         else:
             sql = """
                 SELECT u.user_name, u.address, u.phone, o.* 
@@ -32,14 +33,59 @@ def show_order_list():  # 函数名从 order_list 改为 show_order_list
             """
             orders = db.fetchall(sql, [user['id']])
         
-        return render_template("order_list.html", orders=orders, status_map=STATUS_MAP,products=products)
+        return render_template("user_order_list.html", orders=orders, status_map=STATUS_MAP,products=products)
 
     else:
         return render_template("login.html", error="请先登录")
 
 # 新增Excel导出路由
-@ord.route('/order/export')
-def export_excel():
+@ord.route('/order/export/user')
+def export_user_excel():
+    user = session.get('user')
+    if not user:
+        return render_template("login.html", error="请先登录")
+    role = user.get('role')
+    if role != 'admin':
+        return render_template("login.html", error="您没有权限导出用户订单")
+    sql = """
+        SELECT u.user_name, u.address, u.phone, o.* 
+        FROM `order` o 
+        JOIN user u ON o.user_id = u.id
+    """
+    orders = db.fetchall(sql, [])
+    wb = Workbook()
+    ws = wb.active
+    ws.title = "用户订单数据"
+    headers = ["用户名", "地址", "电话", "订单ID", "用户ID", "商品ID", "数量", "订单状态"]
+    ws.append(headers)
+    for order in orders:
+        ws.append([
+            order['user_name'],
+            order['address'],
+            order['phone'],
+            order['id'],
+            order['user_id'],
+            order['products_id'],
+            order['count'],
+            STATUS_MAP.get(order['status'], "未知状态")
+        ])
+    # 生成下载响应
+    output = BytesIO()
+    wb.save(output)
+    output.seek(0)  # 重置文件指针到开头
+     
+    filename = "用户订单数据.xlsx"
+    encoded_filename = quote(filename, encoding='utf-8')
+    response = make_response(output.getvalue())
+    # 使用UTF-8编码声明文件名
+    response.headers["Content-Disposition"] = f"attachment; filename*=UTF-8''{encoded_filename}"
+    response.headers["Content-Type"] = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    return response
+
+
+
+@ord.route('/order/export/order')
+def export_order_excel():
     user = session.get('user')
     if not user:
         return render_template("login.html", error="请先登录")

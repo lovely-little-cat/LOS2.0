@@ -17,7 +17,7 @@ def create_app():
     app = Flask(__name__)
     app.secret_key = 'fzhgfdjfykghe'
 
-    from .views import login, order,index,analyse,manage
+    from .views import login, order,index,analyse,manage,message
 
 
 
@@ -26,6 +26,7 @@ def create_app():
     app.register_blueprint(index.ind)
     app.register_blueprint(analyse.ana)
     app.register_blueprint(manage.man)
+    app.register_blueprint(message.mes)
     
     app.before_request(auth)
 
