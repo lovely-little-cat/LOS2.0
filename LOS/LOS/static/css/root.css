@@ -1,0 +1,117 @@
+
+
+.error {
+    color: red;
+    margin-top: 10px;
+    text-align: center;  /* 错误信息居中 */
+}
+
+.login {
+    max-width: 400px;
+    margin: 50px auto;  /* 登录框居中并增加顶部距离 */
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.role-select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: 15px;  /* 增加间距 */
+}
+
+.login-lable {
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0;  /* 增加上下间距 */
+}
+
+.login-input {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;  /* 输入框之间间距 */
+}
+
+.login-input input[type="text"],
+.login-input input[type="password"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.login-input input[type="submit"] {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+
+
+.nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;  /* 与body padding保持一致 */
+}
+
+.nav-list {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    list-style: none;  /* 去除默认列表样式 */
+    padding: 0;
+    margin: 0;
+}
+
+.nav-list a {
+    text-decoration: none;
+    color: #333;
+}
+
+.nav-list a:hover {
+    color: #4CAF50;  /*  hover效果 */
+}
+
+.nav-label {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 0;  /* 取消多余间距 */
+}
+
+.order-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.order-table th,
+.order-table td {
+    border: 1px solid #ddd;  /* 表格边框 */
+    padding: 12px;  /* 增加内边距 */
+}
+
+.order-header {
+    background-color: rgba(255, 255, 255, 0.728);
+    font-weight: bold;
+    text-align: center;
+}
+
+.order-list {
+    background-color: rgba(255, 255, 255, 0.406);
+    text-align: center;
+}
+
+.order-list:hover {
+    background-color: rgba(255, 255, 255, 0.6);  /* 行hover效果 */
+}

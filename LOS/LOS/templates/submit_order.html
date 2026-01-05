@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>提交订单</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/order_model.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/common.css') }}">
+    <script src="{{ url_for('static', filename='js/order_modle.js') }}"></script>
+
+
+</head>
+<body>
+    <nav class="nav">
+        <ul class="nav-list">
+            <li class="nav-label">导航菜单</li>
+            <li><a href="{{ url_for('index.index') }}">首页</a></li>
+            <li><a href="{{ url_for('manage.user_submit') }}">提交订单</a></li>
+            </ul>
+    </nav>
+    <form method="post" action="{{ url_for('manage.user_submit') }}">
+        <p class="login-lable">输入订单信息</p>
+        <div class="login-input">
+            <p><select name="products_name" id="products_name"></select>
+            <button type="button" onclick="addProductOptions()">商品列表</button></p>
+            <p><label for="count" class="login-lable">商品数量</label></p>
+            <input type="text" name="count" placeholder="请输入商品数量" required><br>
+            <p><label for="status" class="login-lable">订单状态</label></p>
+            <select name="status" required>
+            <option value="1">待发货</option>
+            <option value="2">装货中</option>
+            <option value="3">运输中</option>
+            <option value="4">已完成</option>
+            <option value="5">未付款</option>
+            <option value="6">已取消</option>
+            </select>
+            <input type="submit" value="创建订单">
+        </div>
+    </form>
+
+    
+</body>
+</html>

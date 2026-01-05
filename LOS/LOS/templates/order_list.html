@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>订单列表</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/root.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/common.css') }}">
+</head>
+<body>
+    <!-- 复用导航栏 -->
+    <nav class="nav">
+        <div class="container">
+            <ul class="nav-list">
+                <li class="nav-label">导航菜单</li>
+                <li><a href="{{ url_for('index.index') }}">首页</a></li>
+                <li><a href="{{ url_for('order.show_order_list') }}">订单查看</a></li>
+                <li><a href="{{ url_for('manage.manage_order') }}">订单管理</a></li>
+
+                <li><a href="{{ url_for('order.export_excel') }}">导出Excel</a></li>  <!-- 修正端点名称 -->  <!-- 导出按钮 -->
+                <li><a href="{{ url_for('login.logout') }}">退出登录</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>订单列表</h1>
+        <!-- 订单表格（复用index.html的表格逻辑） -->
+        <table class="order-table">
+            <thead>
+                <tr class="order-header">
+                    <th>用户名</th>
+                    <th>地址</th>
+                    <th>电话</th>
+                    <th>订单ID</th>
+                    <th>用户ID</th>
+                    <th>商品名称</th>
+                    <th>数量</th>
+                    <th>订单状态</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for order in orders %}
+                <tr class="order-list">
+                    <td>{{ order.user_name }}</td>
+                    <td>{{ order.address }}</td>
+                    <td>{{ order.phone }}</td>
+                    <td>{{ order.id }}</td>
+                    <td>{{ order.user_id }}</td>
+                    <td>{{ products[order.products_id] }}</td>  <!-- 商品名称 -->
+                    <td>{{ order.count }}</td>
+                    <td>{{ status_map[order.status] }}</td>
+                </tr>
+                {% else %}
+                <tr class="order-list"><td colspan="8">暂无订单数据</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

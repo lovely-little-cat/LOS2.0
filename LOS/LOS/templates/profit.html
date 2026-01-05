@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>收益分析</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/profit.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/common.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <nav class="nav">
+        <div class="container">
+            <ul class="nav-list">
+                <li class="nav-label">管理员导航</li>
+                <li><a href="{{ url_for('index.index') }}">首页</a></li>
+                <li><a href="{{ url_for('order.show_order_list') }}">订单查看</a></li>
+                <li><a href="{{ url_for('manage.manage_order') }}">订单管理</a></li>
+                <li><a href="{{ url_for('analyse.show_analyse') }}" class="active">利润分析</a></li>
+                <li><a href="{{ url_for('login.logout') }}">退出登录</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- 时间范围选择器（与analyse.js的bindEvents对应） -->
+        <div class="chart-controls">
+            <label for="timeRangeSelect">时间范围：</label>
+            <select id="timeRangeSelect" class="time-select">
+                <option value="7days">近7天</option>
+                <option value="1month">近1个月</option>
+                <option value="12months">近12个月</option>
+            </select>
+            <button id="refreshBtn" class="refresh-btn">刷新数据</button>
+        </div>
+
+        <!-- 图表容器区域 -->
+        <div class="charts-grid">
+            <!-- 近7天收益图表 -->
+            <div class="chart-wrapper">
+                <div class="chart-header">
+                    <h2 class="chart-title">近7天收益图表</h2>
+                    <span class="chart-desc">每日收益趋势</span>
+                </div>
+                <div class="chart-container">
+                    <canvas id="weeklyChart"></canvas>
+                </div>
+            </div>
+
+            <!-- 近1个月收益图表 -->
+            <div class="chart-wrapper">
+                <div class="chart-header">
+                    <h2 class="chart-title">近1个月收益图表</h2>
+                    <span class="chart-desc">每日收益趋势</span>
+                </div>
+                <div class="chart-container">
+                    <canvas id="oneMonthChart"></canvas>
+                </div>
+            </div>
+
+            <!-- 近12个月收益图表 -->
+            <div class="chart-wrapper">
+                <div class="chart-header">
+                    <h2 class="chart-title">近12个月收益图表</h2>
+                    <span class="chart-desc">每月收益趋势</span>
+                </div>
+                <div class="chart-container">
+                    <canvas id="twelveMonthsChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/analyse.js') }}"></script>
+</body>
+</html>

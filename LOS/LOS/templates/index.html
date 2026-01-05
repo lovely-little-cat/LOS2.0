@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>订单列表</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/root.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/common.css') }}">
+</head>
+<body>
+    <nav class="nav">
+        <div class="container">
+            <ul class="nav-list">
+                <li class="nav-label">导航菜单</li>
+                <li><a href="{{ url_for('index.index') }}">首页</a></li>
+                <li><a href="{{ url_for('order.show_order_list') }}">订单查看</a></li>  <!-- 路由链接优化 -->
+                <li><a href="{{ url_for('manage.manage_order') }}">订单管理</a></li>
+                <li><a href="{{ url_for('manage.admin_create') }}">创建订单</a></li>
+
+
+                <li><a href="{{ url_for('analyse.show_analyse') }}">利润分析</a></li>  <!-- 假设利润分析路由 -->
+                <li><a href="{{ url_for('login.logout') }}">退出登录</a></li>  <!-- 退出链接修复 -->
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <h1>{% if user.role == 'admin' %}管理员订单列表{% else %}我的订单列表{% endif %}</h1>  <!-- 动态标题 -->
+        <table class="order-table">
+            <thead >
+                <tr class="order-header">
+                    <th>用户名</th>
+                    <th>地址</th>
+                    <th>电话</th>
+                    <th>订单ID</th>
+                    <th>用户ID</th>
+                    <th>商品名称</th>
+                    <th>数量</th>
+                    <th>订单状态</th>
+                    <th>订单时间</th>
+                </tr>
+            </thead>
+            <tbody>  <!-- 修复tbody类名重复问题 -->
+                {% for order in orders %}
+                <tr class="order-list">
+                    <td>{{ order.user_name }}</td>
+                    <td>{{ order.address }}</td>
+                    <td>{{ order.phone }}</td>
+                    <td>{{ order.id }}</td>  <!-- 修正订单ID字段名（原products_id可能有误） -->
+                    <td>{{ order.user_id }}</td>
+                    <td>{{ products[order.products_id] }}</td>  <!-- 商品名称 -->
+                    <td>{{ order.count }}</td>
+                    <td>{{ status_map[order.status] }}</td>
+                    <td>{{ order.buy_time}}</td>
+                </tr>
+                {% else %}
+                <tr class="order-list"><td colspan="9">暂无订单数据</td></tr>  <!-- 空数据处理 -->
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="message-container">
+            {% for message in messages %}
+            <div class="message-item">
+                <p>{{ message.message }}</p>
+                <span>{{ message.time }}</span>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</body>
+</html>

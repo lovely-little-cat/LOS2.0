@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户订单管理</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/manage.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/common.css') }}">
+
+</head>
+<body>
+    <nav class="nav">  <!-- 复用导航样式 -->
+        <div class="container">
+            <ul class="nav-list">
+                <li class="nav-label">导航</li>
+                <li><a href="{{ url_for('index.index') }}">首页</a></li>
+                <li><a href="{{ url_for('order.show_order_list') }}">订单查看</a></li>
+                <li><a href="{{ url_for('manage.manage_order') }}">订单管理</a></li>
+                <li><a href="{{ url_for('analyse.show_analyse') }}">利润分析</a></li>
+                <li><a href="{{ url_for('login.logout') }}">退出登录</a></li>
+            </ul>
+        </div>
+    </nav>
+    <form action="{{ url_for('manage.user_submit') }}" method="post">
+    <h1>用户订单管理</h1>
+    <table class="order-table">
+        <thead >
+            <tr class="order-row">
+
+                <th>订单ID</th>
+                <th>用户ID</th>
+
+                <th>商品名称</th>
+                <th>商品数量</th>
+                <th>商品单价</th>
+                <th>订单金额</th>
+                <th>订单状态</th>
+                <th>订单时间</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for order in orders %}
+            <tr class="order-row">
+                <td>{{ order.order_id }}</td>
+                <td>{{ order.user_id }}</td>
+
+                <td>{{ products[order.product_id] }}</td>
+                <td>{{ order.quantity }}</td>
+                <td>{{ order.unit_price }}</td>
+                <td>{{ order.total_price }}</td>
+                <td>{{ order.status }}</td>
+                <td>{{ order.order_time }}</td>
+                <td>
+                    {%if user['role'] == 'admin'%}
+                        <button type="submit" formaction="{{ url_for('manage.user_cancel') }}" name="action"  value="cancel_{{ order.order_id }}">取消订单</button>
+                        <button type="submit" name="action" value="submit_{{ order.order_id }}">提交订单</button>
+                    {%endif%}
+
+                </td>
+            </tr>
+            {% endfor %}
+
+            <!-- 订单数据将动态填充到这里 -->
+        </tbody>
+    </table>
+    </form>
+</body>
+</html>

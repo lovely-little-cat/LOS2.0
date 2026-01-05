@@ -1,0 +1,19 @@
+/* common.css */
+body {
+    color: var(--dark);
+    background-color: rgba(245, 194, 194, 0.692);
+    line-height: 1.6;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.nav {
+    background-color: rgba(255, 255, 255, 0.728);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    padding: 15px 0;
+    margin-bottom: 30px;
+}
