@@ -76,7 +76,7 @@ def show_analyse():
     user = session.get('user')
     if not user or user.get('role') != 'admin':
         return render_template("login.html", error="无权限访问，需管理员登录")
-    return render_template("profit.html")
+    return render_template("admin/profit.html")
 
 
 @ana.route('/analyse/weekly')

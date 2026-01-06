@@ -23,7 +23,7 @@ def manage_order():
         """
         orders = db.fetchall(sql, [])
         return render_template(
-            "admin_manage.html", 
+            "admin/admin_manage.html", 
             status_map=STATUS_MAP, 
             orders=orders or [], 
             user=use, 
@@ -39,7 +39,7 @@ def manage_order():
         """
         orders = db.fetchall(sql, [use['id']])
         return render_template(
-            "user_manage.html", 
+            "user/user_manage.html", 
             status_map=STATUS_MAP, 
             orders=orders or [], 
             user=use, 
@@ -88,7 +88,7 @@ def admin_create():
         return render_template("login.html", error="您没有权限创建订单")
     
     if request.method == 'GET':
-        return render_template("create_order.html", user=use)
+        return render_template("admin/create_order.html", user=use)
 
     # 表单数据处理
     user_id = request.form.get('user_id')
@@ -100,7 +100,7 @@ def admin_create():
     # 基础验证
     if not all([user_id, products_id, count]):
         flash("用户ID、产品ID和数量为必填项！", "error")
-        return render_template("create_order.html", user=use)
+        return render_template("admin/create_order.html", user=use)
 
     try:
         with db.manage_order() as (conn, cursor):
@@ -126,7 +126,7 @@ def admin_delete():
         return render_template("login.html", error="您没有权限删除订单")
 
     if request.method == 'GET':
-        return render_template("delete_order.html", user=use)
+        return render_template("admin/delete_order.html", user=use)
 
 
 
@@ -157,14 +157,14 @@ def user_submit():
         return render_template("login.html", error="您没有权限提交订单")
 
     if request.method == 'GET':
-        return render_template("submit_order.html", user=use)
+        return render_template("user/submit_order.html", user=use)
 
     # 表单数据处理
     products_id = request.form.get('products_id')
     count = request.form.get('count')
     if not all([products_id, count]):
         flash("产品ID和数量为必填项！", "error")
-        return render_template("submit_order.html", user=use)
+        return render_template("user/submit_order.html", user=use)
 
     buy_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     try:

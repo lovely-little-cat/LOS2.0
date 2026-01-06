@@ -28,7 +28,7 @@ def show_message_list():
         """
         messages = db.fetchall(sql, [user['id']])
     
-    return render_template("message_list.html", messages=messages)
+    return render_template("admin/message_list.html", messages=messages)
 
 @mes.route('/message/submit', methods=['GET', 'POST'])
 def submit_message():
@@ -37,7 +37,7 @@ def submit_message():
         return render_template("login.html", error="请先登录")
     
     if request.method == 'GET':
-        return render_template("user_message.html", user=user)
+        return render_template("user/submit_message.html", user=user)
     
     data = request.form
     message = data.get('message', '').strip()
@@ -62,6 +62,6 @@ def receive_message():
             JOIN user u ON m.user_id = u.id
         """
         messages = db.fetchall(sql, [])
-        return render_template("message.html", messages=messages)
+        return render_template("admin/message.html", messages=messages)
     
     return render_template("login.html", error="您没有权限查看消息")

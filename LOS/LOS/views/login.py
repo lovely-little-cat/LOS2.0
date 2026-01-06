@@ -62,7 +62,7 @@ def register():
     sql = "INSERT INTO user (role, phone, pwd) VALUES (%s, %s, %s)"
     params = (role, phone, pwd)
     fetchone(sql,params)
-    return redirect(url_for('login.login'))
+    return render_template("login.html", success="注册成功!刷新页面登录")
 
 
 

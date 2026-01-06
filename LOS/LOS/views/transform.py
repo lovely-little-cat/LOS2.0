@@ -9,7 +9,7 @@ from ..utils.STATUS_map import STATUS_MAP
 
 tra = Blueprint('transform', __name__)
 
-@tra.route('/transform/user')
+@tra.route('/transform/user',method=['GET','POST'])
 def transform_user():
     use = session.get('user')
     if not use:

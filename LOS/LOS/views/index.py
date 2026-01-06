@@ -26,7 +26,7 @@ def index():
         """
         orders = db.fetchall(sql, [])
         return render_template(
-            "index.html",
+            "admin/index.html",
             user=user,
             orders=orders or [], 
             status_map=STATUS_MAP,
@@ -45,7 +45,7 @@ def index():
         """
         orders = db.fetchall(sql, [user['id']])
         return render_template(
-            "user_index.html",
+            "user/user_index.html",
             user=user,
             orders=orders or [], 
             status_map=STATUS_MAP,
