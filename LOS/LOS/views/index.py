@@ -9,7 +9,7 @@ ind = Blueprint('index', __name__)
 def index():
     user = session.get('user')
     if not user:
-        return render_template("index.html", user=None, orders=[], 
+        return render_template("login.html", user=None, orders=[], 
                               status_map=STATUS_MAP, products=products)
 
     role = user.get('role')
@@ -25,6 +25,13 @@ def index():
             JOIN user u ON o.user_id = u.id
         """
         orders = db.fetchall(sql, [])
+        return render_template(
+            "index.html",
+            user=user,
+            orders=orders or [], 
+            status_map=STATUS_MAP,
+            products=products
+        )
     else:
         sql = """
             SELECT 
@@ -37,12 +44,11 @@ def index():
             WHERE o.user_id = %s
         """
         orders = db.fetchall(sql, [user['id']])
+        return render_template(
+            "user_index.html",
+            user=user,
+            orders=orders or [], 
+            status_map=STATUS_MAP,
+            products=products
+        )
 
-
-    return render_template(
-        "user_index.html",
-        user=user,
-        orders=orders or [],  # 确保orders始终为可迭代对象
-        status_map=STATUS_MAP,
-        products=products
-    )

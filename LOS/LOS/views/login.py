@@ -22,7 +22,7 @@ def login():
 
 
     print(role,phone,pwd)
-    # 连接数据库
+
     sql = "SELECT * FROM user WHERE phone=%s AND pwd=%s AND role=%s"
     params = (phone,pwd,role)
     data = fetchone(sql,params)
@@ -58,7 +58,7 @@ def register():
 
 
     print(role,phone,pwd)
-    # 连接数据库
+
     sql = "INSERT INTO user (role, phone, pwd) VALUES (%s, %s, %s)"
     params = (role, phone, pwd)
     fetchone(sql,params)

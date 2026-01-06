@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户提交消息</title>
+</head>
+<body>
+    <div class="user-message">
+        <h3>请输入需要提交的消息</h3>
+        <form method="post" action="{{ url_for('user_message.submit_message') }}">
+            <textarea name="message" rows="4" placeholder="请输入消息内容" required></textarea><br>
+            <input type="submit" value="提交">
+        </form>
+    </div>
+</body>
+</html>

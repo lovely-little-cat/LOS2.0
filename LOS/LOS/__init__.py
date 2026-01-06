@@ -19,8 +19,6 @@ def create_app():
 
     from .views import login, order,index,analyse,manage,message
 
-
-
     app.register_blueprint(login.log)
     app.register_blueprint(order.ord)
     app.register_blueprint(index.ind)
