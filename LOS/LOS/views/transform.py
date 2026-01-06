@@ -12,6 +12,7 @@ tra = Blueprint('transform', __name__)
 @tra.route('/transform/user',method=['GET','POST'])
 def transform_user():
     use = session.get('user')
+
     if not use:
         return render_template("login.html", error="请先登录")
     role = use.get('role')
@@ -55,8 +56,8 @@ def transform_user():
 
 
 
-@tra.route('/transform/order')
-def export_transform_excel():
+@tra.route('/transform/order',method=['GET','POST'])
+def transform_order():
     use = session.get('user')
     if not use:
         return render_template("login.html", error="请先登录")
@@ -105,7 +106,7 @@ def export_transform_excel():
     response.headers["Content-Type"] = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
     return response
 
-@tra.route('/transform/order/price')
+@tra.route('/transform/order/price',method=['GET','POST'])
 def transform_order_price():
     use = session.get('user')
     if not use:
