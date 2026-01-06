@@ -1,46 +1,19 @@
-from flask import Blueprint, render_template, session, request, redirect, flash
+from flask import Blueprint, render_template,  request, redirect, flash
 from ..utils import db
 from ..utils.STATUS_map import STATUS_MAP
 from ..utils.products import products
 import datetime
+from ..utils.info import U
 
 # 蓝图初始化
 man = Blueprint('manage', __name__)
 
-def check_login():
-    """检查用户是否登录，未登录返回登录页"""
-    user = session.get('user')
-    if not user:
-        return render_template("login.html", error="请先登录")
-    return user  
-
-def check_admin(user):
-    """检查是否为管理员，非管理员返回错误页"""
-    if user.get('role') != 'admin':
-        return render_template("login.html", error="权限不足，仅管理员可操作")
-    return True
-
-def check_user(user):
-    """检查是否为普通用户，非普通用户返回错误页"""
-    if user.get('role') != 'user':
-        return render_template("login.html", error="权限不足，仅用户可操作")
-    return True
-
-def get_db_connection():
-    """获取数据库连接和游标（使用上下文管理器自动释放资源）"""
-    conn = db.Pool.connection()
-    cursor = conn.cursor()
-    return conn, cursor
-
-
 @man.route('/order/manage', methods=['GET', 'POST'])
 def manage_order():
     # 检查登录状态
-    user = check_login()
-    if isinstance(user, tuple):  # 未登录时返回的是模板响应
-        return user
-
-    role = user.get('role')
+    if not U:
+        return render_template("login.html", error="请先登录")
+    role = U.get('role')
     # 管理员查询所有订单
     if role == 'admin':
         sql = """
@@ -53,7 +26,7 @@ def manage_order():
             "admin_manage.html", 
             status_map=STATUS_MAP, 
             orders=orders or [], 
-            user=user, 
+            user=U, 
             products=products
         )
     # 普通用户查询自己的订单
@@ -64,23 +37,23 @@ def manage_order():
             JOIN user u ON o.user_id = u.id
             WHERE o.user_id = %s
         """
-        orders = db.fetchall(sql, [user['id']])
+        orders = db.fetchall(sql, [U['id']])
         return render_template(
             "user_manage.html", 
             status_map=STATUS_MAP, 
             orders=orders or [], 
-            user=user, 
+            user=U, 
             products=products
         )
 
 @man.route('/order/manage/update', methods=['POST'])
 def admin_update():
     # 权限校验
-    user = check_login()
-    if isinstance(user, tuple):
-        return user
-    if not check_admin(user):
-        return check_admin(user)
+    if not U:
+        return render_template("login.html", error="请先登录")
+    role = U.get('role')
+    if role != 'admin':
+        return render_template("login.html", error="您没有权限更新订单")
 
     data = request.form
     allowed_fields = ['status', 'products_id', 'count']
@@ -93,7 +66,7 @@ def admin_update():
 
     try:
         # 使用上下文管理器自动释放连接
-        with get_db_connection() as (conn, cursor):
+        with db.manage_order() as (conn, cursor):
             set_clause = ', '.join([f"{k}=%s" for k in update_fields.keys()])
             sql = f"UPDATE `order` SET {set_clause} WHERE id=%s"
             cursor.execute(sql, list(update_fields.values()) + [data['id']])
@@ -106,14 +79,14 @@ def admin_update():
 @man.route('/order/manage/create', methods=['GET', 'POST'])
 def admin_create():
     # 权限校验
-    user = check_login()
-    if isinstance(user, tuple):
-        return user
-    if not check_admin(user):
-        return check_admin(user)
-
+    if not U:
+        return render_template("login.html", error="请先登录")
+    role = U.get('role')
+    if role != 'admin':
+        return render_template("login.html", error="您没有权限创建订单")
+    
     if request.method == 'GET':
-        return render_template("create_order.html", user=user)
+        return render_template("create_order.html", user=U)
 
     # 表单数据处理
     user_id = request.form.get('user_id')
@@ -125,10 +98,10 @@ def admin_create():
     # 基础验证
     if not all([user_id, products_id, count]):
         flash("用户ID、产品ID和数量为必填项！", "error")
-        return render_template("create_order.html", user=user)
+        return render_template("create_order.html", user=U)
 
     try:
-        with get_db_connection() as (conn, cursor):
+        with db.manage_order() as (conn, cursor):
             sql = """
                 INSERT INTO `order` (user_id, products_id, count, status, buy_time)
                 VALUES (%s, %s, %s, %s, %s)
@@ -143,14 +116,14 @@ def admin_create():
 @man.route('/order/manage/delete', methods=['GET', 'POST'])
 def admin_delete():
     # 权限校验
-    user = check_login()
-    if isinstance(user, tuple):
-        return user
-    if not check_admin(user):
-        return check_admin(user)
+    if not U:
+        return render_template("login.html", error="请先登录")
+    role = U.get('role')
+    if role != 'admin':
+        return render_template("login.html", error="您没有权限删除订单")
 
     if request.method == 'GET':
-        return render_template("delete_order.html", user=user)
+        return render_template("delete_order.html", user=U)
 
     data = request.form
     # 验证订单ID
@@ -159,7 +132,7 @@ def admin_delete():
         return redirect("/order/manage")
 
     try:
-        with get_db_connection() as (conn, cursor):
+        with db.manage_order() as (conn, cursor):
             sql = "DELETE FROM `order` WHERE id=%s"
             cursor.execute(sql, [data['id']])
             conn.commit()
@@ -171,31 +144,31 @@ def admin_delete():
 @man.route('/order/manage/submit', methods=['GET', 'POST'])
 def user_submit():
     # 权限校验
-    user = check_login()
-    if isinstance(user, tuple):
-        return user
-    if not check_user(user):
-        return check_user(user)
+    if not U:
+        return render_template("login.html", error="请先登录")
+    role = U.get('role')
+    if role != 'user':
+        return render_template("login.html", error="您没有权限提交订单")
 
     if request.method == 'GET':
-        return render_template("submit_order.html", user=user)
+        return render_template("submit_order.html", user=U)
 
     # 表单数据处理
     products_id = request.form.get('products_id')
     count = request.form.get('count')
     if not all([products_id, count]):
         flash("产品ID和数量为必填项！", "error")
-        return render_template("submit_order.html", user=user)
+        return render_template("submit_order.html", user=U)
 
     buy_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     try:
         # 统一数据库操作方式（与其他接口保持一致）
-        with get_db_connection() as (conn, cursor):
+        with db.manage_order() as (conn, cursor):
             sql = """
                 INSERT INTO `order`(user_id, products_id, count, buy_time, status)
                 VALUES (%s, %s, %s, %s, 1)
             """
-            cursor.execute(sql, [user['id'], products_id, count, buy_time])
+            cursor.execute(sql, [U['id'], products_id, count, buy_time])
             conn.commit()
         flash("订单提交成功！", "success")
     except Exception as e:
@@ -205,11 +178,11 @@ def user_submit():
 @man.route('/order/manage/cancel', methods=['GET', 'POST'])
 def user_cancel():
     # 权限校验
-    user = check_login()
-    if isinstance(user, tuple):
-        return user
-    if not check_user(user):
-        return check_user(user)
+    if not U:
+        return render_template("login.html", error="请先登录")
+    role = U.get('role')
+    if role != 'user':
+        return render_template("login.html", error="您没有权限取消订单")
 
     if request.method == 'GET':
         return redirect("/order/manage")
@@ -221,62 +194,12 @@ def user_cancel():
         return redirect("/order/manage")
 
     try:
-        with get_db_connection() as (conn, cursor):
+        with db.manage_order() as (conn, cursor):
             sql = "DELETE FROM `order` WHERE id=%s AND user_id=%s"
-            cursor.execute(sql, [data['id'], user['id']])
+            cursor.execute(sql, [data['id'], U['id']])
             conn.commit()
         flash("订单取消成功！", "success")
     except Exception as e:
         flash(f"取消失败：{str(e)}", "error")
     return redirect("/order/manage")
 
-@man.route('/order/manage/contact_admin', methods=['GET', 'POST'])
-def contact_admin():
-    # 权限校验
-    user = check_login()
-    if isinstance(user, tuple):
-        return user
-    if not check_user(user):
-        return check_user(user)
-
-    if request.method == 'GET':
-        return render_template("user_index.html", user=user)
-
-    data = request.form
-    message = data.get('message', '').strip()
-    # 验证消息
-    if not message:
-        flash("消息内容不能为空！", "error")
-        return render_template("user_index.html", user=user)
-    if len(message) > 100:
-        flash("消息长度不能超过100个字符！", "error")
-        return render_template("user_index.html", user=user)
-
-    # 频率限制
-    min_interval = 60  # 60秒间隔
-    current_time = datetime.datetime.now()
-    last_time_str = user.get('last_contact_time')
-    
-    if last_time_str:
-        try:
-            last_time = datetime.datetime.strptime(last_time_str, "%Y-%m-%d %H:%M:%S")
-            if (current_time - last_time).seconds < min_interval:
-                flash(f"请勿频繁发送消息，请{min_interval}秒后再试！", "error")
-                return render_template("user_index.html", user=user)
-        except ValueError:
-            # 时间格式错误时忽略限制（兼容旧数据）
-            pass
-
-    # 保存消息
-    time_str = current_time.strftime("%Y-%m-%d %H:%M:%S")
-    try:
-        with get_db_connection() as (conn, cursor):
-            sql = "INSERT INTO `message`(user_id, message, time) VALUES (%s, %s, %s)"
-            cursor.execute(sql, [user['id'], message, time_str])
-            conn.commit()
-        # 更新最后发送时间
-        user['last_contact_time'] = time_str
-        flash("消息发送成功！", "success")
-    except Exception as e:
-        flash(f"发送失败：{str(e)}", "error")
-    return redirect("/order/manage")
