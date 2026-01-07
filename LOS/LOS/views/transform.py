@@ -10,7 +10,18 @@ import traceback
 
 tra = Blueprint('transform', __name__)
 
-# -------------------------- 提取通用导出函数 --------------------------
+def verify(user, user_id):
+    """
+    验证用户权限
+    :param user: 当前登录用户
+    :param user_id: 请求操作的用户ID
+    :return: 是否有权限
+    """
+    user = session.get('user')
+    is_admin = (user.get('role') == 'admin')
+    is_user = (user.get('role') == 'user') 
+    if not user :
+        return render_template('error.html', error="请先登录")
 def export_table_to_file(headers, data, export_format, filename_prefix):
     """
     通用表格导出函数
@@ -27,7 +38,7 @@ def export_table_to_file(headers, data, export_format, filename_prefix):
     filename = f"{filename_prefix}.{export_format}"
     encoded_filename = quote(filename, encoding='utf-8')
 
-    # 1. 生成xlsx格式（openpyxl）
+    # 1. xlsx格式（openpyxl）
     if export_format == 'xlsx':
         wb = Workbook()
         ws = wb.active
@@ -40,7 +51,7 @@ def export_table_to_file(headers, data, export_format, filename_prefix):
         output.seek(0)
         content_type = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"# 微软Excel格式
     
-    # 2. 生成xls格式（xlwt）
+    # 2. xls格式（xlwt）
     elif export_format == 'xls':
         wb = xlwt.Workbook(encoding='utf-8')
         ws = wb.add_sheet(filename_prefix)
@@ -56,7 +67,7 @@ def export_table_to_file(headers, data, export_format, filename_prefix):
         output.seek(0)
         content_type = "application/vnd.ms-excel"# 微软Excel格式
     
-    # 3. 生成csv格式（csv模块）
+    # 3. csv格式（csv模块）
     elif export_format == 'csv':
         output = StringIO()
         # 解决csv中文乱码问题（添加BOM）
@@ -135,7 +146,7 @@ def transform_user():
         # 获取导出格式（默认xlsx）
         export_format = request.args.get('format', 'xlsx').lower()
         # 查询数据
-        order_data = get_order_data(user, is_admin=False)
+        order_data = get_order_data(user, user_id=user['id'])
         # 定义表头和文件名
         headers = ["用户名", "地址", "电话", "订单ID", "用户ID", "商品ID", "数量", "订单状态"]
         filename_prefix = "用户订单数据"
