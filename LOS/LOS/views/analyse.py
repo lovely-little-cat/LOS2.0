@@ -54,7 +54,7 @@ def query_profit(period):
             FROM `order` o
             LEFT JOIN price p ON o.products_id = p.products_id
             WHERE o.buy_time BETWEEN %s AND %s
-              AND o.status != 5  # 排除未付款订单
+              AND o.status != 5  
             GROUP BY time_key
             ORDER BY time_key
         """
