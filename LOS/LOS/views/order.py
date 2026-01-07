@@ -6,7 +6,7 @@ from ..utils.STATUS_map import STATUS_MAP
 
 ord = Blueprint('order', __name__)
 
-@ord.route('order/list/user')
+@ord.route('/order/list/user')
 def show_user_list():
     if session.get('user'):
         user = session['user']
