@@ -1,0 +1,42 @@
+2026-01-07 14:46:11,830 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-01-07 14:46:11,831 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-01-07 14:46:13,907 - werkzeug - INFO - 127.0.0.1 - - [07/Jan/2026 14:46:13] "GET / HTTP/1.1" 200 -
+2026-01-07 14:46:14,017 - werkzeug - INFO - 127.0.0.1 - - [07/Jan/2026 14:46:14] "[36mGET /static/css/root.css HTTP/1.1[0m" 304 -
+2026-01-07 14:46:14,019 - werkzeug - INFO - 127.0.0.1 - - [07/Jan/2026 14:46:14] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-07 14:46:17,058 - werkzeug - INFO - 127.0.0.1 - - [07/Jan/2026 14:46:17] "GET /order/list HTTP/1.1" 200 -
+2026-01-07 14:46:17,068 - werkzeug - INFO - 127.0.0.1 - - [07/Jan/2026 14:46:17] "[36mGET /static/css/root.css HTTP/1.1[0m" 304 -
+2026-01-07 14:46:17,068 - werkzeug - INFO - 127.0.0.1 - - [07/Jan/2026 14:46:17] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-07 14:46:20,426 - LOS.views.transform - ERROR - ≤È—Øorder±Ì ß∞‹: Connection.cursor() got an unexpected keyword argument 'dictionary'
+2026-01-07 14:46:20,427 - LOS.views.transform - ERROR - πÈªπ ˝æ›ø‚¡¨Ω” ß∞‹: PooledDB.close() takes 1 positional argument but 2 were given
+2026-01-07 14:46:20,430 - werkzeug - INFO - 127.0.0.1 - - [07/Jan/2026 14:46:20] "GET /transform/order HTTP/1.1" 200 -
+2026-01-07 14:46:20,440 - werkzeug - INFO - 127.0.0.1 - - [07/Jan/2026 14:46:20] "[36mGET /static/css/root.css HTTP/1.1[0m" 304 -
+2026-01-07 14:46:20,440 - werkzeug - INFO - 127.0.0.1 - - [07/Jan/2026 14:46:20] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-07 14:46:26,347 - werkzeug - INFO - 127.0.0.1 - - [07/Jan/2026 14:46:26] "GET / HTTP/1.1" 200 -
+2026-01-07 14:46:26,357 - werkzeug - INFO - 127.0.0.1 - - [07/Jan/2026 14:46:26] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-07 14:46:26,358 - werkzeug - INFO - 127.0.0.1 - - [07/Jan/2026 14:46:26] "[36mGET /static/css/root.css HTTP/1.1[0m" 304 -
+2026-01-07 14:56:10,625 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-01-07 14:56:10,625 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-01-07 14:56:12,422 - werkzeug - INFO - 127.0.0.1 - - [07/Jan/2026 14:56:12] "GET / HTTP/1.1" 200 -
+2026-01-07 14:56:12,492 - werkzeug - INFO - 127.0.0.1 - - [07/Jan/2026 14:56:12] "[36mGET /static/css/root.css HTTP/1.1[0m" 304 -
+2026-01-07 14:56:12,493 - werkzeug - INFO - 127.0.0.1 - - [07/Jan/2026 14:56:12] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-07 14:56:14,747 - werkzeug - INFO - 127.0.0.1 - - [07/Jan/2026 14:56:14] "GET /order/list HTTP/1.1" 200 -
+2026-01-07 14:56:14,758 - werkzeug - INFO - 127.0.0.1 - - [07/Jan/2026 14:56:14] "[36mGET /static/css/root.css HTTP/1.1[0m" 304 -
+2026-01-07 14:56:14,759 - werkzeug - INFO - 127.0.0.1 - - [07/Jan/2026 14:56:14] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-07 14:56:19,612 - werkzeug - INFO - 127.0.0.1 - - [07/Jan/2026 14:56:19] "GET /transform/order HTTP/1.1" 200 -
+2026-01-07 14:56:27,635 - werkzeug - INFO - 127.0.0.1 - - [07/Jan/2026 14:56:27] "GET /order/list HTTP/1.1" 200 -
+2026-01-07 14:56:27,649 - werkzeug - INFO - 127.0.0.1 - - [07/Jan/2026 14:56:27] "[36mGET /static/css/root.css HTTP/1.1[0m" 304 -
+2026-01-07 14:56:27,649 - werkzeug - INFO - 127.0.0.1 - - [07/Jan/2026 14:56:27] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-07 14:56:30,175 - werkzeug - INFO - 127.0.0.1 - - [07/Jan/2026 14:56:30] "GET /order/list HTTP/1.1" 200 -
+2026-01-07 14:56:30,189 - werkzeug - INFO - 127.0.0.1 - - [07/Jan/2026 14:56:30] "[36mGET /static/css/root.css HTTP/1.1[0m" 304 -
+2026-01-07 14:56:30,199 - werkzeug - INFO - 127.0.0.1 - - [07/Jan/2026 14:56:30] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-07 14:56:31,795 - werkzeug - INFO - 127.0.0.1 - - [07/Jan/2026 14:56:31] "GET / HTTP/1.1" 200 -
+2026-01-07 14:56:31,806 - werkzeug - INFO - 127.0.0.1 - - [07/Jan/2026 14:56:31] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-07 14:56:31,806 - werkzeug - INFO - 127.0.0.1 - - [07/Jan/2026 14:56:31] "[36mGET /static/css/root.css HTTP/1.1[0m" 304 -
+2026-01-07 14:56:32,939 - werkzeug - INFO - 127.0.0.1 - - [07/Jan/2026 14:56:32] "GET /order/list HTTP/1.1" 200 -
+2026-01-07 14:56:32,947 - werkzeug - INFO - 127.0.0.1 - - [07/Jan/2026 14:56:32] "[36mGET /static/css/root.css HTTP/1.1[0m" 304 -
+2026-01-07 14:56:32,947 - werkzeug - INFO - 127.0.0.1 - - [07/Jan/2026 14:56:32] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-07 14:56:37,413 - werkzeug - INFO - 127.0.0.1 - - [07/Jan/2026 14:56:37] "GET / HTTP/1.1" 200 -
+2026-01-07 14:56:37,427 - werkzeug - INFO - 127.0.0.1 - - [07/Jan/2026 14:56:37] "[36mGET /static/css/root.css HTTP/1.1[0m" 304 -
+2026-01-07 14:56:37,432 - werkzeug - INFO - 127.0.0.1 - - [07/Jan/2026 14:56:37] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
