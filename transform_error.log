@@ -213,3 +213,83 @@ werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'order.
 2026-01-07 15:35:47,901 - werkzeug - INFO - 127.0.0.1 - - [07/Jan/2026 15:35:47] "GET / HTTP/1.1" 200 -
 2026-01-07 15:35:47,968 - werkzeug - INFO - 127.0.0.1 - - [07/Jan/2026 15:35:47] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
 2026-01-07 15:35:47,968 - werkzeug - INFO - 127.0.0.1 - - [07/Jan/2026 15:35:47] "[36mGET /static/css/root.css HTTP/1.1[0m" 304 -
+2026-01-08 18:16:30,542 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-01-08 18:16:30,543 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-01-08 18:16:34,851 - werkzeug - INFO - 127.0.0.1 - - [08/Jan/2026 18:16:34] "[32mGET / HTTP/1.1[0m" 302 -
+2026-01-08 18:16:34,966 - werkzeug - INFO - 127.0.0.1 - - [08/Jan/2026 18:16:34] "GET /login?error=ÇëÏÈµÇÂ¼ HTTP/1.1" 200 -
+2026-01-08 18:16:35,135 - werkzeug - INFO - 127.0.0.1 - - [08/Jan/2026 18:16:35] "[36mGET /static/css/root.css HTTP/1.1[0m" 304 -
+2026-01-08 18:16:35,137 - werkzeug - INFO - 127.0.0.1 - - [08/Jan/2026 18:16:35] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-08 18:16:35,231 - werkzeug - INFO - 127.0.0.1 - - [08/Jan/2026 18:16:35] "[32mGET /favicon.ico HTTP/1.1[0m" 302 -
+2026-01-08 18:16:35,242 - werkzeug - INFO - 127.0.0.1 - - [08/Jan/2026 18:16:35] "GET /login?error=ÇëÏÈµÇÂ¼ HTTP/1.1" 200 -
+2026-01-08 18:16:44,807 - werkzeug - INFO - 127.0.0.1 - - [08/Jan/2026 18:16:44] "[32mPOST /login HTTP/1.1[0m" 302 -
+2026-01-08 18:16:44,840 - werkzeug - INFO - 127.0.0.1 - - [08/Jan/2026 18:16:44] "GET / HTTP/1.1" 200 -
+2026-01-08 18:16:44,851 - werkzeug - INFO - 127.0.0.1 - - [08/Jan/2026 18:16:44] "[36mGET /static/css/root.css HTTP/1.1[0m" 304 -
+2026-01-08 18:16:44,852 - werkzeug - INFO - 127.0.0.1 - - [08/Jan/2026 18:16:44] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-08 18:16:44,902 - werkzeug - INFO - 127.0.0.1 - - [08/Jan/2026 18:16:44] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-01-08 18:16:48,968 - LOS - ERROR - Exception on /analyse [GET]
+Traceback (most recent call last):
+  File "C:\Users\31158\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\31158\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\31158\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\31158\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "c:\LOS2.0\LOS\LOS\views\analyse.py", line 79, in show_analyse
+    return render_template("admin/profit.html")
+  File "C:\Users\31158\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\templating.py", line 150, in render_template
+    return _render(app, template, context)
+  File "C:\Users\31158\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\templating.py", line 131, in _render
+    rv = template.render(context)
+  File "C:\Users\31158\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\31158\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "c:\LOS2.0\LOS\LOS\templates\admin\profit.html", line 19, in top-level template code
+    <li><a href="{{ url_for('transform.transform_order_price') }}">µ¼³ö¼Û¸ñ±í</a></li>
+    ^^^^^^^^^
+  File "C:\Users\31158\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1121, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\31158\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1110, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+        endpoint,
+    ...<3 lines>...
+        force_external=_external,
+    )
+  File "C:\Users\31158\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\routing\map.py", line 924, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'transform.transform_order_price'. Did you mean 'transform.transform_order' instead?
+2026-01-08 18:16:48,977 - werkzeug - INFO - 127.0.0.1 - - [08/Jan/2026 18:16:48] "[35m[1mGET /analyse HTTP/1.1[0m" 500 -
+2026-01-08 18:20:24,290 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-01-08 18:20:24,290 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-01-08 18:20:25,894 - werkzeug - INFO - 127.0.0.1 - - [08/Jan/2026 18:20:25] "GET / HTTP/1.1" 200 -
+2026-01-08 18:20:25,942 - werkzeug - INFO - 127.0.0.1 - - [08/Jan/2026 18:20:25] "[36mGET /static/css/root.css HTTP/1.1[0m" 304 -
+2026-01-08 18:20:25,942 - werkzeug - INFO - 127.0.0.1 - - [08/Jan/2026 18:20:25] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-08 18:20:28,298 - werkzeug - INFO - 127.0.0.1 - - [08/Jan/2026 18:20:28] "GET /analyse HTTP/1.1" 200 -
+2026-01-08 18:20:28,312 - werkzeug - INFO - 127.0.0.1 - - [08/Jan/2026 18:20:28] "[36mGET /static/css/profit.css HTTP/1.1[0m" 304 -
+2026-01-08 18:20:28,313 - werkzeug - INFO - 127.0.0.1 - - [08/Jan/2026 18:20:28] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-08 18:20:28,316 - werkzeug - INFO - 127.0.0.1 - - [08/Jan/2026 18:20:28] "GET /static/js/analyse.js HTTP/1.1" 200 -
+2026-01-08 18:21:01,838 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-01-08 18:21:01,839 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-01-08 18:21:03,697 - werkzeug - INFO - 127.0.0.1 - - [08/Jan/2026 18:21:03] "[32mGET / HTTP/1.1[0m" 302 -
+2026-01-08 18:21:03,773 - werkzeug - INFO - 127.0.0.1 - - [08/Jan/2026 18:21:03] "GET /login?error=ÇëÏÈµÇÂ¼ HTTP/1.1" 200 -
+2026-01-08 18:21:03,852 - werkzeug - INFO - 127.0.0.1 - - [08/Jan/2026 18:21:03] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-08 18:21:03,853 - werkzeug - INFO - 127.0.0.1 - - [08/Jan/2026 18:21:03] "[36mGET /static/css/root.css HTTP/1.1[0m" 304 -
+2026-01-08 18:21:03,929 - werkzeug - INFO - 127.0.0.1 - - [08/Jan/2026 18:21:03] "[32mGET /favicon.ico HTTP/1.1[0m" 302 -
+2026-01-08 18:21:03,952 - werkzeug - INFO - 127.0.0.1 - - [08/Jan/2026 18:21:03] "GET /login?error=ÇëÏÈµÇÂ¼ HTTP/1.1" 200 -
+2026-01-08 18:21:10,090 - werkzeug - INFO - 127.0.0.1 - - [08/Jan/2026 18:21:10] "[32mPOST /login HTTP/1.1[0m" 302 -
+2026-01-08 18:21:10,105 - werkzeug - INFO - 127.0.0.1 - - [08/Jan/2026 18:21:10] "GET / HTTP/1.1" 200 -
+2026-01-08 18:21:10,118 - werkzeug - INFO - 127.0.0.1 - - [08/Jan/2026 18:21:10] "[36mGET /static/css/root.css HTTP/1.1[0m" 304 -
+2026-01-08 18:21:10,119 - werkzeug - INFO - 127.0.0.1 - - [08/Jan/2026 18:21:10] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-08 18:21:10,156 - werkzeug - INFO - 127.0.0.1 - - [08/Jan/2026 18:21:10] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-01-08 18:21:12,139 - werkzeug - INFO - 127.0.0.1 - - [08/Jan/2026 18:21:12] "GET /analyse HTTP/1.1" 200 -
+2026-01-08 18:21:12,149 - werkzeug - INFO - 127.0.0.1 - - [08/Jan/2026 18:21:12] "[36mGET /static/css/profit.css HTTP/1.1[0m" 304 -
+2026-01-08 18:21:12,152 - werkzeug - INFO - 127.0.0.1 - - [08/Jan/2026 18:21:12] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-08 18:21:12,154 - werkzeug - INFO - 127.0.0.1 - - [08/Jan/2026 18:21:12] "[36mGET /static/js/analyse.js HTTP/1.1[0m" 304 -

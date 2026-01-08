@@ -44,10 +44,10 @@ class AnalyseChart {
 
   init() {
     this.bindEvents();
-    this.run(); // 初始化时自动加载图表
+    this.run(); 
   }
 
-  // 优化：提取通用请求配置
+
   async loadData(config) {
     const fetchOptions = {
       method: 'GET',
@@ -135,7 +135,7 @@ class AnalyseChart {
     await Promise.all(tasks);
   }
 
-  // 优化：仅更新数据，不销毁实例
+ 
   async update() {
     await this.run();
   }
@@ -162,11 +162,11 @@ class AnalyseChart {
     return labels;
   }
 
-  // 优化：处理错误时清除旧实例
+  
   handleError(containerId, message) {
     const container = document.getElementById(containerId)?.parentNode;
     if (!container) return;
-    // 清除旧图表实例
+ 
     if (this.chartInstances[containerId]) {
       this.chartInstances[containerId].destroy();
       delete this.chartInstances[containerId];
