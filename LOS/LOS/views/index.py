@@ -52,3 +52,13 @@ def index():
             products=products
         )
 
+@ind.route('/user_index')
+def user_index():
+    user = session.get('user')
+    
+    return render_template(
+        "user/user_index_me.html",
+        user=user,
+        status_map=STATUS_MAP,
+        products=products
+    )

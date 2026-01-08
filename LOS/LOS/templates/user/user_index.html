@@ -13,7 +13,7 @@
             <ul class="nav-list">
                 <li class="nav-label">导航菜单</li>
                 <li><a href="{{ url_for('index.index') }}">首页</a></li>
-                <li>用户{{ user['username'] }}</li>
+                <li>用户:{{ user['user_name'] }}</li>
                 <li>ID:{{ user['id'] }}</li>
                 <li>{{ user['phone'] }}</li>
                 <li><a href="{{ url_for('login.logout') }}">退出登录</a></li>  <!-- 退出链接修复 -->
@@ -23,7 +23,7 @@
     </nav>
     <div class="head">
         <div class="user-block">
-            <a href="{{ url_for('user.info') }}">个人信息</a>
+            <a href="{{ url_for('index.user_index') }}">个人信息</a>
             <img src="" title="设置">
         </div>
         <div>
@@ -31,23 +31,21 @@
             <img src="" title="订单列表">
         </div>
         <div>
-            <a href="{{ url_for('manage.manage_order') }}">订单管理</a>
+            <a href="{{ url_for('manage.manage_order') }}">订单取消</a>
             <img src="" title="订单管理">
         </div>
         <div>
-            <a href="{{ url_for('manage.submit_order') }}">提交订单</a>
+            <a href="{{ url_for('manage.user_submit') }}">提交订单</a>
             <img src="" title="提交订单">
         </div>
     </div>
-    <div class="foot"><!--页脚-->
+    <div class="foot">
         <div class="foot-content">
             <p>联系我们：18035303382</p>
             <p>邮箱：a3115839287@qq.com</p>
             <p>联系管理员：</p>
-            <form action="{{ url_for('manage.contact_admin') }}" method="post">
-                <textarea name="message" placeholder="请输入您的问题" required></textarea>
-                <input type="submit" value="提交">
-            </form>
+             <a href="{{ url_for('message.submit_message') }}">提交反馈</a>
+
         </div>
 
     </div>
