@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>订单列表</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/root.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/common.css') }}">
 </head>
 <body>
@@ -58,15 +57,6 @@
                 {% endfor %}
             </tbody>
         </table>
-        <div class="message-container">
-            {% for message in messages %}
-            <div class="message-item">
-                <p>{{ message.message }}</p>
-                <span>{{ message.time }}</span>
-            </div>
-            {% endfor %}
-
-        </div>
     </div>
 </body>
 </html>

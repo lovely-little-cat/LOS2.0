@@ -27,28 +27,24 @@
     <h3>消息查看</h3>
 
     <!-- 消息列表 -->
-    <div class="message-list">
-        <!-- 示例消息1 -->
-        <div class="message-item" onclick="modalOpen({
-            title: '新订单提醒',
-            time: '2024-05-20 14:30:00',
-            content: '用户【张三】提交了一笔新订单，订单号：LOS20240520001，金额：199元，请及时处理。'
+    <table class="message-table">
+        <tr>
+            <th>消息ID</th>
+            <th>发送时间</th>
+            <th>消息内容</th>
+        </tr>
+        {% for message in messages %}
+        <tr onclick="modalOpen({
+            title: '{{ message.id }}',
+            time: '{{ message.time }}',
+            content: '{{ message.message }}',
         })">
-            <div class="message-title">新订单提醒</div>
-            <div class="message-time">2024-05-20 14:30:00</div>
-        </div>
-        <!-- 示例消息2 -->
-        <div class="message-item" onclick="modalOpen({
-            title: '订单状态更新',
-            time: '2024-05-20 15:10:00',
-            content: '订单号：LOS20240519008 已完成发货，物流单号：SF1234567890，请告知用户。'
-        })">
-            <div class="message-title">订单状态更新</div>
-            <div class="message-time">2024-05-20 15:10:00</div>
-        </div>
-        <!-- 可根据后端数据循环渲染更多消息 -->
-    </div>
-
+            <td>{{ message.id }}</td>
+            <td>{{ message.time }}</td>
+            <td>{{ message.message }}</td>
+        </tr>
+        {% endfor %}
+    </table>
     <!-- 模态框（包含遮罩层） -->
     <div class="modal-mask" id="modalMask">
         <div class="modal-box">
@@ -68,53 +64,6 @@
         </div>
     </div>
 
-    <script>
-        // 获取模态框遮罩层和内容区
-        const modalMask = document.getElementById('modalMask');
-        const modalContent = document.getElementById('modalContent');
-
-        /**
-         * 打开模态框并填充内容
-         * @param {Object} message - 消息详情对象（包含title、time、content）
-         */
-        function modalOpen(message) {
-            // 填充模态框内容
-            modalContent.innerHTML = `
-                <div class="modal-content-title">${message.title}</div>
-                <span class="modal-content-time">${message.time}</span>
-                <div class="modal-content-text">${message.content}</div>
-            `;
-            // 显示模态框（遮罩层）
-            modalMask.style.display = 'flex';
-            // 禁止页面滚动
-            document.body.style.overflow = 'hidden';
-        }
-
-        /**
-         * 关闭模态框
-         */
-        function modalClose() {
-            // 隐藏模态框（遮罩层）
-            modalMask.style.display = 'none';
-            // 清空模态框内容（可选）
-            modalContent.innerHTML = '';
-            // 恢复页面滚动
-            document.body.style.overflow = 'auto';
-        }
-
-        // 点击遮罩层空白处关闭模态框
-        modalMask.addEventListener('click', (e) => {
-            if (e.target === modalMask) {
-                modalClose();
-            }
-        });
-
-        // 按ESC键关闭模态框
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && modalMask.style.display === 'flex') {
-                modalClose();
-            }
-        });
-    </script>
+    
 </body>
 </html>

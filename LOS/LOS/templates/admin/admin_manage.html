@@ -8,10 +8,22 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/common.css') }}">
 </head>
 <body>
-    <!-- 导航栏保持不变 -->
-    <nav class="nav">...</nav>
 
-    <!-- 操作反馈提示 -->
+    <nav class="nav">
+        <div class="container">
+            <ul class="nav-list">
+                <li class="nav-label">导航菜单</li>
+                <li><a href="{{ url_for('index.index') }}">首页</a></li>
+                <li><a href="{{ url_for('order.show_order_list') }}">查看订单表</a></li>
+                <li><a href="{{ url_for('manage.admin_create') }}">创建订单表</a></li>
+                <li><a href="{{ url_for('order.show_order_list') }}">查看用户表</a></li>
+                <li><a href="{{ url_for('analyse.show_analyse') }}">查看利润分析</a></li>
+                <li><a href="{{ url_for('message.show_message_list') }}">查看反馈信息</a></li>
+                <li><a href="{{ url_for('login.logout') }}">退出登录</a></li>  
+            </ul>
+        </div>
+    </nav>
+
     {% if request.args.get('success') %}
     <div class="success">{{ request.args.get('success') }}</div>
     {% endif %}
@@ -19,7 +31,6 @@
     <div class="error">{{ request.args.get('error') }}</div>
     {% endif %}
 
-    <!-- 更新订单表单 -->
     <form action="{{ url_for('manage.admin_update') }}" method="post" class="order-form">
         <h2>更新订单</h2>
         <input type="hidden" name="id" placeholder="订单ID" required>
@@ -35,7 +46,7 @@
         <button type="submit">提交更新</button>
     </form>
 
-    <!-- 订单列表 -->
+
     <h1>管理员订单管理</h1>
     <table class="order-table">
         <thead>
@@ -52,14 +63,14 @@
         <tbody>
             {% for order in orders %}
             <tr class="order-row">
-                <td>{{ order.id }}</td>  <!-- 修正字段名：与数据库一致 -->
+                <td>{{ order.id }}</td>  
                 <td>{{ order.user_id }}</td>
-                <td>{{ products[order.products_id] }}</td>  <!-- 商品名称 -->
+                <td>{{ products[order.products_id] }}</td> 
                 <td>{{ order.count }}</td>
                 <td>{{ status_map[order.status] }}</td>
                 <td>{{ order.buy_time }}</td>
                 <td>
-                    <button onclick="fillUpdateForm()">修改</button>
+                    <button onclick="fillUpdateForm('{{  }}')">修改</button>
                     <form action="{{ url_for('manage.admin_delete') }}" method="post" style="display:inline;">
                         <input type="hidden" name="id" value="{{ order.id }}">
                         <button type="submit" onclick="return confirm('确定删除？')">删除</button>
@@ -73,7 +84,7 @@
     </table>
 
     <script>
-        // 自动填充更新表单
+
         function fillUpdateForm(orderId) {
             document.querySelector('input[name="id"]').value = orderId;
         }

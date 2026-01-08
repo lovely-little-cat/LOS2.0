@@ -28,7 +28,7 @@
             <button id="refreshBtn">刷新全部数据</button>
             <div class="chart-header">
                     <h2 class="chart-title">近7天收益图表</h2>
-                    <button id="refreshweekly" onclick="refreshWeeklyChart()" >刷新本周数据</button>
+                    <button id="refreshWeekBtn" onclick="refreshWeeklyChart()" >刷新本周数据</button>
                     <span class="chart-desc">每日收益趋势</span>
                     <div class="chart-container">
                     <canvas id="weeklyChart"></canvas>
@@ -36,15 +36,15 @@
             </div>
             <div class="chart-header">
                     <h2 class="chart-title">近30天收益图表</h2>
-                    <button id="refreshonemonth" onclick="refreshOneMonthChart()" >刷新本月数据</button>
+                    <button id="refreshMonthBtn" onclick="refreshOneMonthChart()" >刷新本月数据</button>
                     <span class="chart-desc">本月收益趋势</span>
                     <div class="chart-container">
-                        <canvas id="onemonthChart"></canvas>
+                        <canvas id="oneMonthChart"></canvas>
                     </div>
             </div>
             <div class="chart-header">
                     <h2 class="chart-title">近12个月收益图表</h2>
-                    <button id="refreshmonthly" onclick="refreshMonthlyChart()" >刷新本年度数据</button>
+                    <button id="refreshYearBtn" onclick="refreshMonthlyChart()" >刷新本年度数据</button>
                     <span class="chart-desc">年度收益趋势</span>
                     <div class="chart-container">
                     <canvas id="monthlyChart"></canvas>
