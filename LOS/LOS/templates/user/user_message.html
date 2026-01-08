@@ -4,14 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>用户提交消息</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/common.css') }}">
 </head>
 <body>
+    <a href="{{ url_for('index.index') }}">回到首页</a>
     <div class="user-message">
         <h3>请输入需要提交的消息</h3>
         <form method="post" action="{{ url_for('user_message.submit_message') }}">
             <textarea name="message" rows="4" placeholder="请输入消息内容" required></textarea><br>
             <input type="submit" value="提交">
         </form>
+        {% if error %}
+        <div class="error">{{ error }}</div>
+        {% endif %}
+        {% if success %}
+        <div class="success">{{ success }}</div>
+        {% endif %}
     </div>
 </body>
 </html>
