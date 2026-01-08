@@ -6,6 +6,10 @@ from dateutil.relativedelta import relativedelta
 
 
 ana = Blueprint('analyse', __name__)
+
+
+
+
 local_tz = pytz.timezone('Asia/Shanghai')
 
 
@@ -64,7 +68,7 @@ def query_profit(period):
              end_utc.strftime("%Y-%m-%d %H:%M:%S")]
         )
 
-        return jsonify({"data": profits, "status": "success"})
+        return jsonify({"data": profits, "status": "4"})
     except Exception as e:
 
         return jsonify({"error": f"查询失败：{str(e)}", "status": "error"}), 500

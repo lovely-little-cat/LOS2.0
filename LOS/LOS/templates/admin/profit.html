@@ -24,45 +24,35 @@
     </nav>
 
     <div class="container">
-
-        <div class="chart-controls">
-            <button id="refreshBtn" class="refresh-btn">刷新数据</button>
-        </div>
-
-        <div class="charts-grid">
-
-            <div class="chart-wrapper" >
-                <div class="chart-header">
+        <div class="chart">
+            <button id="refreshBtn">刷新全部数据</button>
+            <div class="chart-header">
                     <h2 class="chart-title">近7天收益图表</h2>
+                    <button id="refreshweekly" onclick="refreshWeeklyChart()" >刷新本周数据</button>
                     <span class="chart-desc">每日收益趋势</span>
-                </div>
-                <div class="chart-container">
+                    <div class="chart-container">
                     <canvas id="weeklyChart"></canvas>
                 </div>
             </div>
-
-
-            <div class="chart-wrapper">
-                <div class="chart-header">
-                    <h2 class="chart-title">近1个月收益图表</h2>
-                    <span class="chart-desc">每日收益趋势</span>
-                </div>
-                <div class="chart-container">
-                    <canvas id="oneMonthChart"></canvas>
-                </div>
+            <div class="chart-header">
+                    <h2 class="chart-title">近30天收益图表</h2>
+                    <button id="refreshonemonth" onclick="refreshOneMonthChart()" >刷新本月数据</button>
+                    <span class="chart-desc">本月收益趋势</span>
+                    <div class="chart-container">
+                        <canvas id="onemonthChart"></canvas>
+                    </div>
             </div>
-
-    
-            <div class="chart-wrapper">
-                <div class="chart-header">
+            <div class="chart-header">
                     <h2 class="chart-title">近12个月收益图表</h2>
-                    <span class="chart-desc">每月收益趋势</span>
-                </div>
-                <div class="chart-container">
-                    <canvas id="twelveMonthsChart"></canvas>
-                </div>
+                    <button id="refreshmonthly" onclick="refreshMonthlyChart()" >刷新本年度数据</button>
+                    <span class="chart-desc">年度收益趋势</span>
+                    <div class="chart-container">
+                    <canvas id="monthlyChart"></canvas>
+                    </div>
             </div>
         </div>
+
+        
     </div>
 
     <script src="{{ url_for('static', filename='js/analyse.js') }}"></script>
