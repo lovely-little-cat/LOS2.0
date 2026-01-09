@@ -70,7 +70,16 @@
                 <td>{{ status_map[order.status] }}</td>
                 <td>{{ order.buy_time }}</td>
                 <td>
-                    <button onclick="fillUpdateForm('{{  }}')">修改</button>
+                    <h3>选择需要修改状态的订单</h3>
+                    <select  id="{{ order.id }}">
+                        <option value="1">待发货</option>
+                        <option value="2">装货中</option>
+                        <option value="3">运输中</option>
+                        <option value="4">已完成</option>
+                        <option value="6">已取消</option>
+                    </select>
+                    <button onclick="refreshBtn">刷新订单</button>
+                    <button onclick="fillUpdateForm('{{ order.id }}')">更新订单状态</button>
                     <form action="{{ url_for('manage.admin_delete') }}" method="post" style="display:inline;">
                         <input type="hidden" name="id" value="{{ order.id }}">
                         <button type="submit" onclick="return confirm('确定删除？')">删除</button>
@@ -82,12 +91,7 @@
             {% endfor %}
         </tbody>
     </table>
+    <script src="{{ url_for('static', filename='js/manage.js') }}"></script>
 
-    <script>
-
-        function fillUpdateForm(orderId) {
-            document.querySelector('input[name="id"]').value = orderId;
-        }
-    </script>
 </body>
 </html>

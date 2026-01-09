@@ -94,9 +94,19 @@ def admin_create():
     user_id = request.form.get('user_id')
     products_id = request.form.get('products_name')
     count = request.form.get('count')
+    
     status = request.form.get('status', 1)  # 默认状态1
     buy_time = request.form.get('buy_time') or datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-
+    stock_now = sql = """
+        SELECT p.stock
+        FROM price
+        WHERE products_id = %s
+    """
+    stock_now = int(db.fetchone(sql, [products_id])[0])
+    if int(count) > stock_now:
+        flash("库存不足！", "error")
+        return render_template("admin/create_order.html", user=use)
+    
     # 基础验证
     if not all([user_id, products_id, count]):
         flash("用户ID、产品ID和数量为必填项！", "error")
@@ -107,8 +117,11 @@ def admin_create():
             sql = """
                 INSERT INTO `order` (user_id, products_id, count, status, buy_time)
                 VALUES (%s, %s, %s, %s, %s)
+                UPDATE price
+                SET stock = stock - %s
+                WHERE products_id = %s
             """
-            cursor.execute(sql, [user_id, products_id, count, status, buy_time])
+            cursor.execute(sql, [count, products_id])
             conn.commit()
         flash("订单创建成功！", "success")
     except Exception as e:

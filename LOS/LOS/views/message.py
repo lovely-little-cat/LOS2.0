@@ -14,21 +14,21 @@ def show_message_list():
     role = user.get('role')
     if role == 'admin':
         sql = """
-            SELECT m.id as message_id, m.user_id, m.content, m.status, u.user_name
+            SELECT m.id , m.user_id, m.message,  u.user_name,m.time
             FROM message m 
             JOIN user u ON m.user_id = u.id
         """
         messages = db.fetchall(sql, [])
     else:
         sql = """
-            SELECT m.id as message_id, m.user_id, m.content, m.status, u.user_name
+            SELECT m.id , m.user_id, m.message,  u.user_name,m.time
             FROM message m 
             JOIN user u ON m.user_id = u.id
             WHERE m.user_id=%s
         """
         messages = db.fetchall(sql, [user['id']])
     
-    return render_template("admin/message_list.html", messages=messages)
+    return render_template("admin/message_list.html", messages=messages or [])
 
 @mes.route('/message/submit', methods=['GET', 'POST'])
 def submit_message():
@@ -57,11 +57,11 @@ def receive_message():
     role = user.get('role')
     if role == 'admin':
         sql = """
-            SELECT m.id as message_id, m.user_id, m.content, m.status, u.user_name
+            SELECT m.id , m.user_id, m.message,  u.user_name,m.time
             FROM message m 
             JOIN user u ON m.user_id = u.id
         """
         messages = db.fetchall(sql, [])
-        return render_template("admin/message.html", messages=messages)
+        return render_template("admin/message.html", messages=messages or [])
     
     return render_template("login.html", error="您没有权限查看消息")

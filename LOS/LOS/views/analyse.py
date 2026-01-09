@@ -74,7 +74,6 @@ def query_profit(period):
         return jsonify({"error": f"查询失败：{str(e)}", "status": "error"}), 500
 
 
-
 @ana.route('/analyse')
 def show_analyse():
     user = session.get('user')
