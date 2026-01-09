@@ -20,7 +20,15 @@ def check_admin_permission():
         return jsonify({"error": "无权限访问"}), 403
     return None  
 
-
+def insert_sort(products,key='sell',order='desc'):
+    for i in range(1, len(products)):
+        key = products[i]
+        j = i - 1
+        while j >= 0 and (key['sell'] > products[j]['sell'] if order == 'desc' else key['sell'] < products[j]['sell']):
+            products[j + 1] = products[j]
+            j -= 1
+        products[j + 1] = key
+    return products
 
 def get_time_range(period):
     end_date = datetime.now(local_tz).replace(hour=23, minute=59, second=59)
@@ -73,6 +81,29 @@ def query_profit(period):
 
         return jsonify({"error": f"查询失败：{str(e)}", "status": "error"}), 500
 
+
+
+@ana.route('/analyse/stock_sell')
+def stock_sell_analyse():
+    permission_error = check_admin_permission()
+    if permission_error:
+        return permission_error
+    
+    try:
+        sql = f"""
+            SELECT 
+                p.stock,p.products_id,p.sell
+                FROM price p
+        """
+        stock_sell = db.fetchall(
+            sql, 
+            []
+        )
+        stock_sell = insert_sort(stock_sell,'sell','desc')
+        
+        return jsonify({"data": stock_sell, "status": "4"})
+    except Exception as e:
+        return jsonify({"error": f"查询失败：{str(e)}", "status": "error"}), 500
 
 @ana.route('/analyse')
 def show_analyse():

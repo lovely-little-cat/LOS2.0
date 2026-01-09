@@ -9,18 +9,21 @@ class ProfitChartManager {
       apiUrls: {
         weekly: '/analyse/weekly',
         oneMonth: '/analyse/onemonth',
-        twelveMonths: '/analyse/monthly'
+        twelveMonths: '/analyse/monthly',
+        stockSell: '/analyse/stock_sell',
       },
       chartIds: {
         weekly: 'weeklyChart',
         oneMonth: 'oneMonthChart',
-        twelveMonths: 'monthlyChart'
+        twelveMonths: 'monthlyChart',
+        stockSell: 'stockChart'
       },
       buttonIds: {
         refreshAll: 'refreshBtn',
         refreshWeek: 'refreshWeekBtn',
         refreshMonth: 'refreshMonthBtn',
-        refreshYear: 'refreshYearBtn'
+        refreshYear: 'refreshYearBtn',
+        refreshStock: 'refreshStockBtn'
       }
     };
 
@@ -29,7 +32,8 @@ class ProfitChartManager {
       chartInstances: {
         weekly: null,
         oneMonth: null,
-        twelveMonths: null
+        twelveMonths: null,
+        stockSell: null,
       },
       eventHandlers: {} // 存储绑定的事件函数，方便销毁
     };
@@ -64,7 +68,8 @@ class ProfitChartManager {
     await Promise.all([
       this._renderWeeklyChart(),
       this._renderOneMonthChart(),
-      this._renderTwelveMonthsChart()
+      this._renderTwelveMonthsChart(),
+      this._renderStockSellChart()
     ]);
     console.log('图表挂载完成');
   }
@@ -84,6 +89,10 @@ class ProfitChartManager {
       case 'twelveMonths':
         await this._renderTwelveMonthsChart();
         alert('近12个月图表已刷新！');
+        break;
+      case 'stockSell':
+        await this._renderStockSellChart();
+        alert('库存与销售量图表已刷新！');
         break;
       case 'all':
         await this.mount(); // 全量更新复用挂载逻辑
@@ -161,6 +170,13 @@ class ProfitChartManager {
     document.getElementById(buttonIds.refreshYear)?.addEventListener(
       'click',
       this.state.eventHandlers[buttonIds.refreshYear]
+    );
+
+    // 绑定「库存与销售量」刷新按钮
+    this.state.eventHandlers[buttonIds.refreshStock] = () => this.update('stockSell');
+    document.getElementById(buttonIds.refreshStock)?.addEventListener(
+      'click',
+      this.state.eventHandlers[buttonIds.refreshStock]
     );
   }
 
@@ -291,7 +307,60 @@ class ProfitChartManager {
       }
     });
   }
+  // ===== 私有辅助方法：渲染库存与销售量图表 =====
+  async _renderStockSellChart() {
+    const data = await this._fetchData(this.config.apiUrls.stockSell);
+    const ctx = document.getElementById(this.config.chartIds.stockSell).getContext('2d');
+    // 销毁旧实例
+    if (this.state.chartInstances.stockSell) {
+      this.state.chartInstances.stockSell.destroy();
+    }
+    //提取排序后的商品名称、库存和销售量
+    const products = {1: "雨伞", 2: "雨帽", 3: "雨靴", 4: "雨衣", 5: "雨水"};
+    const labels = data.map(item => products[item.product_id] || item.product_id);
+    const stockData = data.map(item => item.stock || 0);
+    const sellData = data.map(item => item.sell || 0);
+     // 渲染新图表（库存与销售量）
+    this.state.chartInstances.stockSell = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: labels, // 商品名称
+        datasets: [{
+          label: '库存数量',
+          data: stockData,
+          backgroundColor: 'rgba(255, 99, 132, 0.5)',
+          borderColor: 'rgba(255, 99, 132, 1)',
+          borderWidth: 1
+        }, {
+          label: '销售量',
+          data: sellData,
+          backgroundColor: 'rgba(54, 162, 235, 0.5)',
+          borderColor: 'rgba(54, 162, 235, 1)',
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          y: { beginAtZero: true, title: { display: true, text: '数量(件)' } },
+          x: { title: { display: true, text: '商品名称' } },
+          ticks: {
+            callback: function(value) {
+              const label = this.config.products[value] || value;
+              return label.length > 8 ? label.slice(0, 8) : label;// 商品名称过长时截断显示
+            }
+          }
+        },
+        plugins: {
+          tooltip: { callbacks: { label: (ctx) => `${ctx.dataset.label}：${ctx.raw}件` } },
+          legend: { display: true, position: 'top' }
+        }
+      }
+    });
+  }
 }
+
 
 // ===== 页面挂载后初始化 =====
 document.addEventListener('DOMContentLoaded', () => {
@@ -305,4 +374,5 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('beforeunload', () => {
     profitChartManager.destroy();
   });
-});
+})
+
