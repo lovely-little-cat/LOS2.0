@@ -37,12 +37,40 @@ def dict_ss():
         SELECT products_id, stock, sell
         FROM price
     """
-    price = db.fetchall(sql, [])
-    price_dict = {}
-    for item in price:
-        price_dict[item['products_id']] = {'stock': item['stock'], 'sell': item['sell']}
-    print(price_dict)
-    return price_dict
+    try:
+        price_data = db.fetchall(sql, [])
+        if not price_data:
+            return jsonify({"error": "查询失败：无数据", "status": "error"}), 500
+        price_dict = {
+            item['products_id']: {
+                'stock': item['stock'],
+                'sell': item['sell']
+            }
+
+            for item in price_data
+            
+                
+        }
+        if price_dict:
+            sell_max = max(price_dict.items(), 
+                       key=lambda x: x[1]['sell'])[0]
+        else:
+            sell_max = None
+        stock_shortage = [
+            pdt_id for pdt_id, values in price_dict.items()
+            if values['stock'] <= 10
+            
+        ]
+        sorted_price = insert_sort(price_data.copy(), key='sell', order='desc')
+        return {
+            'price_dict': price_dict,
+            'sell_max': sell_max,
+            'stock_shortage': stock_shortage,
+            'sorted_price': sorted_price
+        }
+    except Exception as e:
+        return jsonify({"error": f"查询失败：{str(e)}", "status": "error"}), 500
+
 
 
 def get_time_range(period):
@@ -99,26 +127,24 @@ def query_profit(period):
 
 
 @ana.route('/analyse/stock_sell')
-def stock_sell_analyse():
+def ss_analyse():
     permission_error = check_admin_permission()
     if permission_error:
         return permission_error
     
-    try:
-        sql = f"""
-            SELECT 
-                p.stock,p.products_id,p.sell
-                FROM price p
-        """
-        stock_sell = db.fetchall(
-            sql, 
-            []
-        )
-        stock_sell = insert_sort(stock_sell,'sell','desc')
-        
-        return jsonify({"data": stock_sell, "status": "4"})
-    except Exception as e:
-        return jsonify({"error": f"查询失败：{str(e)}", "status": "error"}), 500
+    result = dict_ss()
+    if isinstance(result,tuple) and len(result)==2 and isinstance(result[1],int):
+        return result
+    
+    
+    
+    return jsonify({
+        'price_dict': result['price_dict'],
+        'sell_max': result['sell_max'],
+        'stock_shortage': result['stock_shortage'],
+        'sorted_price': result['sorted_price'],
+        "status": "success"
+    })
 
 @ana.route('/analyse')
 def show_analyse():
@@ -141,3 +167,23 @@ def one_month_analyse():
 @ana.route('/analyse/monthly')
 def yearly_analyse(): 
     return query_profit('year')
+
+@ana.route('/analyse/stock_sell')
+def stock_sell_analyse():
+    permission_error = check_admin_permission()
+    if permission_error:
+        return permission_error
+    #插入排序，倒序sell
+    try:
+        sql ="""
+            SELECT products_id, stock, sell
+            FROM price
+        """
+        price_data = db.fetchall(sql, [])
+        price_dict = insert_sort(price_data, key='sell', order='desc')
+        
+    except Exception as e:
+        return jsonify({"error": f"查询失败：{str(e)}", "status": "error"}), 500
+
+
+    return dict_ss(),price_dict 

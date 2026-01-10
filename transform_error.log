@@ -587,3 +587,20 @@ jinja2.exceptions.TemplateSyntaxError: Expected an expression, got 'end of print
 2026-01-10 09:42:30,431 - werkzeug - INFO - 127.0.0.1 - - [10/Jan/2026 09:42:30] "GET /analyse/onemonth HTTP/1.1" 200 -
 2026-01-10 09:42:30,432 - werkzeug - INFO - 127.0.0.1 - - [10/Jan/2026 09:42:30] "GET /analyse/monthly HTTP/1.1" 200 -
 2026-01-10 09:42:30,432 - werkzeug - INFO - 127.0.0.1 - - [10/Jan/2026 09:42:30] "GET /analyse/stock_sell HTTP/1.1" 200 -
+2026-01-10 13:18:16,278 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-01-10 13:18:16,279 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-01-10 13:18:23,848 - werkzeug - INFO - 127.0.0.1 - - [10/Jan/2026 13:18:23] "[32mGET / HTTP/1.1[0m" 302 -
+2026-01-10 13:18:23,918 - werkzeug - INFO - 127.0.0.1 - - [10/Jan/2026 13:18:23] "GET /login?error=ÇëÏÈµÇÂ¼ HTTP/1.1" 200 -
+2026-01-10 13:18:24,022 - werkzeug - INFO - 127.0.0.1 - - [10/Jan/2026 13:18:24] "[36mGET /static/css/login.css HTTP/1.1[0m" 304 -
+2026-01-10 13:18:24,022 - werkzeug - INFO - 127.0.0.1 - - [10/Jan/2026 13:18:24] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-10 13:18:24,104 - werkzeug - INFO - 127.0.0.1 - - [10/Jan/2026 13:18:24] "[32mGET /favicon.ico HTTP/1.1[0m" 302 -
+2026-01-10 13:18:24,111 - werkzeug - INFO - 127.0.0.1 - - [10/Jan/2026 13:18:24] "GET /login?error=ÇëÏÈµÇÂ¼ HTTP/1.1" 200 -
+2026-01-10 13:18:33,517 - werkzeug - INFO - 127.0.0.1 - - [10/Jan/2026 13:18:33] "[32mPOST /login HTTP/1.1[0m" 302 -
+2026-01-10 13:18:33,538 - werkzeug - INFO - 127.0.0.1 - - [10/Jan/2026 13:18:33] "GET / HTTP/1.1" 200 -
+2026-01-10 13:18:33,550 - werkzeug - INFO - 127.0.0.1 - - [10/Jan/2026 13:18:33] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-10 13:18:33,598 - werkzeug - INFO - 127.0.0.1 - - [10/Jan/2026 13:18:33] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-01-10 13:18:35,403 - werkzeug - INFO - 127.0.0.1 - - [10/Jan/2026 13:18:35] "GET /analyse HTTP/1.1" 200 -
+2026-01-10 13:18:35,415 - werkzeug - INFO - 127.0.0.1 - - [10/Jan/2026 13:18:35] "[36mGET /static/css/profit.css HTTP/1.1[0m" 304 -
+2026-01-10 13:18:35,417 - werkzeug - INFO - 127.0.0.1 - - [10/Jan/2026 13:18:35] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-10 13:18:35,420 - werkzeug - INFO - 127.0.0.1 - - [10/Jan/2026 13:18:35] "GET /static/js/analyse.js HTTP/1.1" 200 -
