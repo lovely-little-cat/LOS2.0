@@ -20,15 +20,30 @@ def check_admin_permission():
         return jsonify({"error": "无权限访问"}), 403
     return None  
 
-def insert_sort(products,key='sell',order='desc'):
-    for i in range(1, len(products)):
-        key = products[i]
+def insert_sort(price,key='sell',order='desc'):
+    for i in range(1, len(price)):
+        key = price[i]
         j = i - 1
-        while j >= 0 and (key['sell'] > products[j]['sell'] if order == 'desc' else key['sell'] < products[j]['sell']):
-            products[j + 1] = products[j]
+        while j >= 0 and (key['sell'] > price[j]['sell'] if order == 'desc' else key['sell'] < price[j]['sell']):
+            price[j + 1] = price[j]
             j -= 1
-        products[j + 1] = key
-    return products
+        price[j + 1] = key
+    return price
+
+
+
+def dict_ss():
+    sql = """
+        SELECT products_id, stock, sell
+        FROM price
+    """
+    price = db.fetchall(sql, [])
+    price_dict = {}
+    for item in price:
+        price_dict[item['products_id']] = {'stock': item['stock'], 'sell': item['sell']}
+    print(price_dict)
+    return price_dict
+
 
 def get_time_range(period):
     end_date = datetime.now(local_tz).replace(hour=23, minute=59, second=59)

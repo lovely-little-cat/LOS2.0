@@ -522,3 +522,68 @@ jinja2.exceptions.TemplateSyntaxError: Expected an expression, got 'end of print
 2026-01-10 02:09:03,549 - werkzeug - INFO - 127.0.0.1 - - [10/Jan/2026 02:09:03] "GET /analyse/monthly HTTP/1.1" 200 -
 2026-01-10 02:09:03,550 - werkzeug - INFO - 127.0.0.1 - - [10/Jan/2026 02:09:03] "GET /analyse/onemonth HTTP/1.1" 200 -
 2026-01-10 02:09:07,801 - werkzeug - INFO - 127.0.0.1 - - [10/Jan/2026 02:09:07] "GET /analyse/stock_sell HTTP/1.1" 200 -
+2026-01-10 09:33:04,384 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-01-10 09:33:04,385 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-01-10 09:33:07,324 - werkzeug - INFO - 127.0.0.1 - - [10/Jan/2026 09:33:07] "[32mGET / HTTP/1.1[0m" 302 -
+2026-01-10 09:33:07,542 - werkzeug - INFO - 127.0.0.1 - - [10/Jan/2026 09:33:07] "GET /login?error=ÇëÏÈµÇÂ¼ HTTP/1.1" 200 -
+2026-01-10 09:33:07,563 - werkzeug - INFO - 127.0.0.1 - - [10/Jan/2026 09:33:07] "[36mGET /static/css/login.css HTTP/1.1[0m" 304 -
+2026-01-10 09:33:07,564 - werkzeug - INFO - 127.0.0.1 - - [10/Jan/2026 09:33:07] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-10 09:33:07,661 - werkzeug - INFO - 127.0.0.1 - - [10/Jan/2026 09:33:07] "[32mGET /favicon.ico HTTP/1.1[0m" 302 -
+2026-01-10 09:33:07,666 - werkzeug - INFO - 127.0.0.1 - - [10/Jan/2026 09:33:07] "GET /login?error=ÇëÏÈµÇÂ¼ HTTP/1.1" 200 -
+2026-01-10 09:33:16,349 - werkzeug - INFO - 127.0.0.1 - - [10/Jan/2026 09:33:16] "POST /login HTTP/1.1" 200 -
+2026-01-10 09:33:16,359 - werkzeug - INFO - 127.0.0.1 - - [10/Jan/2026 09:33:16] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-10 09:33:16,359 - werkzeug - INFO - 127.0.0.1 - - [10/Jan/2026 09:33:16] "[36mGET /static/css/login.css HTTP/1.1[0m" 304 -
+2026-01-10 09:33:16,385 - werkzeug - INFO - 127.0.0.1 - - [10/Jan/2026 09:33:16] "[32mGET /favicon.ico HTTP/1.1[0m" 302 -
+2026-01-10 09:33:16,401 - werkzeug - INFO - 127.0.0.1 - - [10/Jan/2026 09:33:16] "GET /login?error=ÇëÏÈµÇÂ¼ HTTP/1.1" 200 -
+2026-01-10 09:33:25,498 - werkzeug - INFO - 127.0.0.1 - - [10/Jan/2026 09:33:25] "[32mPOST /login HTTP/1.1[0m" 302 -
+2026-01-10 09:33:25,524 - werkzeug - INFO - 127.0.0.1 - - [10/Jan/2026 09:33:25] "GET / HTTP/1.1" 200 -
+2026-01-10 09:33:25,534 - werkzeug - INFO - 127.0.0.1 - - [10/Jan/2026 09:33:25] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-10 09:33:25,574 - werkzeug - INFO - 127.0.0.1 - - [10/Jan/2026 09:33:25] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-01-10 09:33:35,028 - werkzeug - INFO - 127.0.0.1 - - [10/Jan/2026 09:33:35] "GET /analyse HTTP/1.1" 200 -
+2026-01-10 09:33:35,042 - werkzeug - INFO - 127.0.0.1 - - [10/Jan/2026 09:33:35] "[36mGET /static/css/profit.css HTTP/1.1[0m" 304 -
+2026-01-10 09:33:35,045 - werkzeug - INFO - 127.0.0.1 - - [10/Jan/2026 09:33:35] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-10 09:33:35,047 - werkzeug - INFO - 127.0.0.1 - - [10/Jan/2026 09:33:35] "[36mGET /static/js/analyse.js HTTP/1.1[0m" 304 -
+2026-01-10 09:33:35,085 - werkzeug - INFO - 127.0.0.1 - - [10/Jan/2026 09:33:35] "GET /analyse/weekly HTTP/1.1" 200 -
+2026-01-10 09:33:35,087 - werkzeug - INFO - 127.0.0.1 - - [10/Jan/2026 09:33:35] "GET /analyse/onemonth HTTP/1.1" 200 -
+2026-01-10 09:33:35,090 - werkzeug - INFO - 127.0.0.1 - - [10/Jan/2026 09:33:35] "GET /analyse/monthly HTTP/1.1" 200 -
+2026-01-10 09:33:35,092 - werkzeug - INFO - 127.0.0.1 - - [10/Jan/2026 09:33:35] "GET /analyse/stock_sell HTTP/1.1" 200 -
+2026-01-10 09:33:44,910 - werkzeug - INFO - 127.0.0.1 - - [10/Jan/2026 09:33:44] "GET /order/manage HTTP/1.1" 200 -
+2026-01-10 09:33:44,922 - werkzeug - INFO - 127.0.0.1 - - [10/Jan/2026 09:33:44] "GET /static/js/manage.js HTTP/1.1" 200 -
+2026-01-10 09:33:44,925 - werkzeug - INFO - 127.0.0.1 - - [10/Jan/2026 09:33:44] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-10 09:33:44,926 - werkzeug - INFO - 127.0.0.1 - - [10/Jan/2026 09:33:44] "[36mGET /static/css/manage.css HTTP/1.1[0m" 304 -
+2026-01-10 09:34:16,577 - werkzeug - INFO - 127.0.0.1 - - [10/Jan/2026 09:34:16] "[32mPOST /order/manage/update HTTP/1.1[0m" 302 -
+2026-01-10 09:34:16,589 - werkzeug - INFO - 127.0.0.1 - - [10/Jan/2026 09:34:16] "GET /order/manage HTTP/1.1" 200 -
+2026-01-10 09:34:16,606 - werkzeug - INFO - 127.0.0.1 - - [10/Jan/2026 09:34:16] "[36mGET /static/css/manage.css HTTP/1.1[0m" 304 -
+2026-01-10 09:34:16,607 - werkzeug - INFO - 127.0.0.1 - - [10/Jan/2026 09:34:16] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-10 09:34:16,607 - werkzeug - INFO - 127.0.0.1 - - [10/Jan/2026 09:34:16] "[36mGET /static/js/manage.js HTTP/1.1[0m" 304 -
+2026-01-10 09:34:21,305 - werkzeug - INFO - 127.0.0.1 - - [10/Jan/2026 09:34:21] "GET / HTTP/1.1" 200 -
+2026-01-10 09:34:21,315 - werkzeug - INFO - 127.0.0.1 - - [10/Jan/2026 09:34:21] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-10 09:34:27,323 - werkzeug - INFO - 127.0.0.1 - - [10/Jan/2026 09:34:27] "GET / HTTP/1.1" 200 -
+2026-01-10 09:34:27,332 - werkzeug - INFO - 127.0.0.1 - - [10/Jan/2026 09:34:27] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-10 09:40:26,941 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-01-10 09:40:26,942 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-01-10 09:40:28,299 - werkzeug - INFO - 127.0.0.1 - - [10/Jan/2026 09:40:28] "GET / HTTP/1.1" 200 -
+2026-01-10 09:40:28,366 - werkzeug - INFO - 127.0.0.1 - - [10/Jan/2026 09:40:28] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-10 09:40:30,461 - werkzeug - INFO - 127.0.0.1 - - [10/Jan/2026 09:40:30] "GET /analyse HTTP/1.1" 200 -
+2026-01-10 09:40:30,475 - werkzeug - INFO - 127.0.0.1 - - [10/Jan/2026 09:40:30] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-10 09:40:30,479 - werkzeug - INFO - 127.0.0.1 - - [10/Jan/2026 09:40:30] "[36mGET /static/js/analyse.js HTTP/1.1[0m" 304 -
+2026-01-10 09:40:30,481 - werkzeug - INFO - 127.0.0.1 - - [10/Jan/2026 09:40:30] "[36mGET /static/css/profit.css HTTP/1.1[0m" 304 -
+2026-01-10 09:40:30,529 - werkzeug - INFO - 127.0.0.1 - - [10/Jan/2026 09:40:30] "GET /analyse/weekly HTTP/1.1" 200 -
+2026-01-10 09:40:30,530 - werkzeug - INFO - 127.0.0.1 - - [10/Jan/2026 09:40:30] "GET /analyse/onemonth HTTP/1.1" 200 -
+2026-01-10 09:40:30,532 - werkzeug - INFO - 127.0.0.1 - - [10/Jan/2026 09:40:30] "GET /analyse/monthly HTTP/1.1" 200 -
+2026-01-10 09:40:30,538 - werkzeug - INFO - 127.0.0.1 - - [10/Jan/2026 09:40:30] "GET /analyse/stock_sell HTTP/1.1" 200 -
+2026-01-10 09:42:27,096 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-01-10 09:42:27,097 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-01-10 09:42:28,513 - werkzeug - INFO - 127.0.0.1 - - [10/Jan/2026 09:42:28] "GET / HTTP/1.1" 200 -
+2026-01-10 09:42:28,560 - werkzeug - INFO - 127.0.0.1 - - [10/Jan/2026 09:42:28] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-10 09:42:30,363 - werkzeug - INFO - 127.0.0.1 - - [10/Jan/2026 09:42:30] "GET /analyse HTTP/1.1" 200 -
+2026-01-10 09:42:30,376 - werkzeug - INFO - 127.0.0.1 - - [10/Jan/2026 09:42:30] "[36mGET /static/css/profit.css HTTP/1.1[0m" 304 -
+2026-01-10 09:42:30,377 - werkzeug - INFO - 127.0.0.1 - - [10/Jan/2026 09:42:30] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-10 09:42:30,380 - werkzeug - INFO - 127.0.0.1 - - [10/Jan/2026 09:42:30] "GET /static/js/analyse.js HTTP/1.1" 200 -
+2026-01-10 09:42:30,409 - werkzeug - INFO - 127.0.0.1 - - [10/Jan/2026 09:42:30] "GET /analyse/weekly HTTP/1.1" 200 -
+2026-01-10 09:42:30,431 - werkzeug - INFO - 127.0.0.1 - - [10/Jan/2026 09:42:30] "GET /analyse/onemonth HTTP/1.1" 200 -
+2026-01-10 09:42:30,432 - werkzeug - INFO - 127.0.0.1 - - [10/Jan/2026 09:42:30] "GET /analyse/monthly HTTP/1.1" 200 -
+2026-01-10 09:42:30,432 - werkzeug - INFO - 127.0.0.1 - - [10/Jan/2026 09:42:30] "GET /analyse/stock_sell HTTP/1.1" 200 -
