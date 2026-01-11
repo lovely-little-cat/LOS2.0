@@ -71,12 +71,12 @@
                 <td>{{ order.buy_time }}</td>
                 <td>
                     <h3>选择需要修改状态的订单</h3>
-                    <select  id="{{ order.id }}">
-                        <option value="1">待发货</option>
-                        <option value="2">装货中</option>
-                        <option value="3">运输中</option>
-                        <option value="4">已完成</option>
-                        <option value="6">已取消</option>
+                    <select id="{{ order.id }}">
+                        <option value="1" {% if order.status == 1 %}selected{% endif %}>待发货</option>
+                        <option value="2" {% if order.status == 2 %}selected{% endif %}>装货中</option>
+                        <option value="3" {% if order.status == 3 %}selected{% endif %}>运输中</option>
+                        <option value="4" {% if order.status == 4 %}selected{% endif %}>已完成</option>
+                        <option value="6" {% if order.status == 6 %}selected{% endif %}>已取消</option>
                     </select>
                     <button onclick="refreshBtn">刷新订单</button>
                     <button onclick="fillUpdateForm('{{ order.id }}')">更新订单状态</button>

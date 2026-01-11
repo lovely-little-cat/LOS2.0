@@ -51,11 +51,19 @@
                     </div>
             </div>
             <div class="chart-header">
-                    <h2 class="chart-title">库存与销售量分析</h2>
-                    <button id="refreshStockBtn" onclick="refreshStockChart()" >刷新库存与销售数据</button>
-                    <span class="chart-desc">库存与销售量降序分析</span>
+                    <h2 class="chart-title">库存量分析</h2>
+                    <button id="refreshStockBtn" onclick="refreshStockChart()" >刷新库存数据</button>
+                    <span class="chart-desc">库存分析</span>
                     <div class="chart-container">
                         <canvas id="stockChart"></canvas>
+                    </div>
+            </div>
+            <div class="chart-header">
+                    <h2 class="chart-title">销售量分析</h2>
+                    <button id="refreshSellBtn" onclick="refreshSellChart()" >刷新销售量数据</button>
+                    <span class="chart-desc">销售量分析</span>
+                    <div class="chart-container">
+                        <canvas id="sellChart"></canvas>
                     </div>
             </div>
         </div>

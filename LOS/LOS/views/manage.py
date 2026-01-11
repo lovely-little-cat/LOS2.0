@@ -79,49 +79,54 @@ def admin_update():
 
 @man.route('/order/manage/create', methods=['GET', 'POST'])
 def admin_create():
-    # 权限校验
+    # 权限校验（保留）
     use = session.get('user')
-    if not use:
-        return render_template("login.html", error="请先登录")
-    role = use.get('role')
-    if role != 'admin':
-        return render_template("login.html", error="您没有权限创建订单")
+    if not use or use.get('role') != 'admin':
+        return render_template("login.html", error="无权限创建订单")
     
     if request.method == 'GET':
         return render_template("admin/create_order.html", user=use)
 
-    # 表单数据处理
-    user_id = request.form.get('user_id')
-    products_id = request.form.get('products_name')
-    count = request.form.get('count')
-    
-    status = request.form.get('status', 1)  # 默认状态1
-    buy_time = request.form.get('buy_time') or datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    stock_now = sql = """
-        SELECT p.stock
-        FROM price
-        WHERE products_id = %s
-    """
-    stock_now = int(db.fetchone(sql, [products_id])[0])
-    if int(count) > stock_now:
-        flash("库存不足！", "error")
-        return render_template("admin/create_order.html", user=use)
-    
-    # 基础验证
-    if not all([user_id, products_id, count]):
-        flash("用户ID、产品ID和数量为必填项！", "error")
+    # 表单数据处理 & 类型校验
+    try:
+        user_id = int(request.form.get('user_id'))
+        products_id = int(request.form.get('products_name'))
+        count = int(request.form.get('count'))
+        status = int(request.form.get('status', 1))
+        buy_time = request.form.get('buy_time') or datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    except ValueError:
+        flash("用户ID/产品ID/数量必须为整数！", "error")
         return render_template("admin/create_order.html", user=use)
 
+    # 基础验证
+    if not all([user_id, products_id, count]) or count <= 0:
+        flash("用户ID、产品ID为必填项，数量必须为正整数！", "error")
+        return render_template("admin/create_order.html", user=use)
+
+    # 库存校验
     try:
+        # 查询库存（修复变量赋值）
+        sql_stock = "SELECT p.stock FROM price WHERE products_id = %s"
+        stock_res = db.fetchone(sql_stock, [products_id])
+        if not stock_res:
+            flash("产品不存在！", "error")
+            return render_template("admin/create_order.html", user=use)
+        stock_now = int(stock_res[0])
+        if count > stock_now:
+            flash(f"库存不足！当前库存：{stock_now}", "error")
+            return render_template("admin/create_order.html", user=use)
+
+        # 事务：创建订单 + 扣减库存（拆分SQL，分两次执行）
         with db.manage_order() as (conn, cursor):
-            sql = """
+            # 插入订单
+            sql_insert = """
                 INSERT INTO `order` (user_id, products_id, count, status, buy_time)
                 VALUES (%s, %s, %s, %s, %s)
-                UPDATE price
-                SET stock = stock - %s
-                WHERE products_id = %s
             """
-            cursor.execute(sql, [count, products_id])
+            cursor.execute(sql_insert, [user_id, products_id, count, status, buy_time])
+            # 扣减库存
+            sql_update_stock = "UPDATE price SET stock = stock - %s WHERE products_id = %s"
+            cursor.execute(sql_update_stock, [count, products_id])
             conn.commit()
         flash("订单创建成功！", "success")
     except Exception as e:

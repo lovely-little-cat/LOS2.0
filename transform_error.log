@@ -604,3 +604,32 @@ jinja2.exceptions.TemplateSyntaxError: Expected an expression, got 'end of print
 2026-01-10 13:18:35,415 - werkzeug - INFO - 127.0.0.1 - - [10/Jan/2026 13:18:35] "[36mGET /static/css/profit.css HTTP/1.1[0m" 304 -
 2026-01-10 13:18:35,417 - werkzeug - INFO - 127.0.0.1 - - [10/Jan/2026 13:18:35] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
 2026-01-10 13:18:35,420 - werkzeug - INFO - 127.0.0.1 - - [10/Jan/2026 13:18:35] "GET /static/js/analyse.js HTTP/1.1" 200 -
+2026-01-11 20:06:58,221 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-01-11 20:06:58,222 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-01-11 20:07:00,241 - werkzeug - INFO - 127.0.0.1 - - [11/Jan/2026 20:07:00] "[32mGET / HTTP/1.1[0m" 302 -
+2026-01-11 20:07:00,456 - werkzeug - INFO - 127.0.0.1 - - [11/Jan/2026 20:07:00] "GET /login?error=ÇëÏÈµÇÂ¼ HTTP/1.1" 200 -
+2026-01-11 20:07:00,472 - werkzeug - INFO - 127.0.0.1 - - [11/Jan/2026 20:07:00] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-11 20:07:00,474 - werkzeug - INFO - 127.0.0.1 - - [11/Jan/2026 20:07:00] "[36mGET /static/css/login.css HTTP/1.1[0m" 304 -
+2026-01-11 20:07:00,538 - werkzeug - INFO - 127.0.0.1 - - [11/Jan/2026 20:07:00] "[32mGET /favicon.ico HTTP/1.1[0m" 302 -
+2026-01-11 20:07:00,542 - werkzeug - INFO - 127.0.0.1 - - [11/Jan/2026 20:07:00] "GET /login?error=ÇëÏÈµÇÂ¼ HTTP/1.1" 200 -
+2026-01-11 20:07:06,547 - werkzeug - INFO - 127.0.0.1 - - [11/Jan/2026 20:07:06] "[32mPOST /login HTTP/1.1[0m" 302 -
+2026-01-11 20:07:06,569 - werkzeug - INFO - 127.0.0.1 - - [11/Jan/2026 20:07:06] "GET / HTTP/1.1" 200 -
+2026-01-11 20:07:06,577 - werkzeug - INFO - 127.0.0.1 - - [11/Jan/2026 20:07:06] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-11 20:07:06,604 - werkzeug - INFO - 127.0.0.1 - - [11/Jan/2026 20:07:06] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-01-11 20:07:08,699 - werkzeug - INFO - 127.0.0.1 - - [11/Jan/2026 20:07:08] "GET /analyse HTTP/1.1" 200 -
+2026-01-11 20:07:08,710 - werkzeug - INFO - 127.0.0.1 - - [11/Jan/2026 20:07:08] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-11 20:07:08,712 - werkzeug - INFO - 127.0.0.1 - - [11/Jan/2026 20:07:08] "[36mGET /static/css/profit.css HTTP/1.1[0m" 304 -
+2026-01-11 20:07:08,715 - werkzeug - INFO - 127.0.0.1 - - [11/Jan/2026 20:07:08] "GET /static/js/analyse.js HTTP/1.1" 200 -
+2026-01-11 20:07:25,198 - werkzeug - INFO - 127.0.0.1 - - [11/Jan/2026 20:07:25] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-11 20:07:25,198 - werkzeug - INFO - 127.0.0.1 - - [11/Jan/2026 20:07:25] "[36mGET /static/css/profit.css HTTP/1.1[0m" 304 -
+2026-01-11 20:07:25,219 - werkzeug - INFO - 127.0.0.1 - - [11/Jan/2026 20:07:25] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2026-01-11 20:17:20,181 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-01-11 20:17:20,182 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-01-11 20:17:23,491 - werkzeug - INFO - 127.0.0.1 - - [11/Jan/2026 20:17:23] "GET / HTTP/1.1" 200 -
+2026-01-11 20:17:23,538 - werkzeug - INFO - 127.0.0.1 - - [11/Jan/2026 20:17:23] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-11 20:17:25,055 - werkzeug - INFO - 127.0.0.1 - - [11/Jan/2026 20:17:25] "GET /analyse HTTP/1.1" 200 -
+2026-01-11 20:17:25,066 - werkzeug - INFO - 127.0.0.1 - - [11/Jan/2026 20:17:25] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-11 20:17:25,067 - werkzeug - INFO - 127.0.0.1 - - [11/Jan/2026 20:17:25] "[36mGET /static/css/profit.css HTTP/1.1[0m" 304 -
+2026-01-11 20:17:25,068 - werkzeug - INFO - 127.0.0.1 - - [11/Jan/2026 20:17:25] "[36mGET /static/js/analyse.js HTTP/1.1[0m" 304 -

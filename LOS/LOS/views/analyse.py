@@ -20,16 +20,27 @@ def check_admin_permission():
         return jsonify({"error": "无权限访问"}), 403
     return None  
 
-def insert_sort(price,key='sell',order='desc'):
+def insert_sort(price, key_field='sell', order='desc'):
+    """
+    插入排序（修复key参数无效问题）
+    :param price: 待排序数组
+    :param key_field: 排序字段（stock/sell）
+    :param order: 排序方向（desc/asc）
+    :return: 排序后数组
+    """
     for i in range(1, len(price)):
-        key = price[i]
+        current = price[i]
         j = i - 1
-        while j >= 0 and (key['sell'] > price[j]['sell'] if order == 'desc' else key['sell'] < price[j]['sell']):
+        # 动态使用排序字段
+        compare_fn = (current[key_field] > price[j][key_field]) if order == 'desc' else (current[key_field] < price[j][key_field])
+        while j >= 0 and compare_fn:
             price[j + 1] = price[j]
             j -= 1
-        price[j + 1] = key
+            # 边界处理：j<0时停止比较
+            if j >= 0:
+                compare_fn = (current[key_field] > price[j][key_field]) if order == 'desc' else (current[key_field] < price[j][key_field])
+        price[j + 1] = current
     return price
-
 
 
 def dict_ss():
@@ -168,22 +179,3 @@ def one_month_analyse():
 def yearly_analyse(): 
     return query_profit('year')
 
-@ana.route('/analyse/stock_sell')
-def stock_sell_analyse():
-    permission_error = check_admin_permission()
-    if permission_error:
-        return permission_error
-    #插入排序，倒序sell
-    try:
-        sql ="""
-            SELECT products_id, stock, sell
-            FROM price
-        """
-        price_data = db.fetchall(sql, [])
-        price_dict = insert_sort(price_data, key='sell', order='desc')
-        
-    except Exception as e:
-        return jsonify({"error": f"查询失败：{str(e)}", "status": "error"}), 500
-
-
-    return dict_ss(),price_dict 

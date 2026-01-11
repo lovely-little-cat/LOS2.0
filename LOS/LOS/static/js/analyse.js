@@ -307,10 +307,72 @@ class ProfitChartManager {
       }
     });
   }
-  // ===== 私有辅助方法：渲染库存与销售量图表 =====
-  async _renderStockSellChart() {
-    const data = await this._fetchData(this.config.apiUrls.stockSell);
-    const ctx = document.getElementById(this.config.chartIds.stockSell).getContext('2d');
+// ===== 私有辅助方法：渲染库存与销售量图表 =====
+async _renderStockSellChart() {
+  const data = await this._fetchData(this.config.apiUrls.stockSell);
+  const ctx = document.getElementById(this.config.chartIds.stockSell).getContext('2d');
+
+  // 销毁旧实例
+  if (this.state.chartInstances.stockSell) {
+    this.state.chartInstances.stockSell.destroy();
+  }
+
+  // 提取数据：products_id、stock、sell
+  const productIds = data.sorted_price.map(item => item.products_id);
+  const stockData = data.sorted_price.map(item => item.stock);
+  const sellData = data.sorted_price.map(item => item.sell);
+
+  // 渲染双轴图表（库存-柱状图，销量-折线图）
+  this.state.chartInstances.stockSell = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: productIds,
+      datasets: [
+        {
+          label: '库存数量',
+          data: stockData,
+          backgroundColor: 'rgba(255, 99, 132, 0.5)',
+          borderColor: 'rgba(255, 99, 132, 1)',
+          borderWidth: 1,
+          yAxisID: 'y'
+        },
+        {
+          label: '销售数量',
+          data: sellData,
+          type: 'line',
+          backgroundColor: 'rgba(255, 206, 86, 0.2)',
+          borderColor: 'rgba(255, 206, 86, 1)',
+          borderWidth: 2,
+          yAxisID: 'y1'
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      scales: {
+        y: {
+          beginAtZero: true,
+          title: { display: true, text: '库存数量' },
+          position: 'left'
+        },
+        y1: {
+          beginAtZero: true,
+          title: { display: true, text: '销售数量' },
+          position: 'right',
+          grid: { drawOnChartArea: false } // 不显示副轴网格
+        },
+        x: { title: { display: true, text: '产品ID' } }
+      },
+      plugins: {
+        tooltip: {
+          callbacks: {
+            label: (ctx) => `${ctx.dataset.label}：${ctx.raw}`
+          }
+        }
+      }
+    }
+  });
 
 // ===== 页面挂载后初始化 =====
 document.addEventListener('DOMContentLoaded', () => {
