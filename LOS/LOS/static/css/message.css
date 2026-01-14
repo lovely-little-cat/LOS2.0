@@ -1,5 +1,5 @@
 
-        /* 消息列表样式 */
+      
 .message-list {
     width: 80%;
     margin: 0 auto;
@@ -28,7 +28,7 @@
     color: #999;
 }
 
-        /* 模态框遮罩层 */
+       
 .modal-mask {
     position: fixed;
     top: 0;
@@ -42,7 +42,7 @@
     z-index: 999;
 }
 
-        /* 模态框容器 */
+      
 .modal-box {
     width: 600px;
     background-color: white;
@@ -51,7 +51,7 @@
     position: relative;
 }
 
-        /* 模态框顶部 */
+      
 .modal-box-top {
     padding: 15px;
     border-bottom: 1px solid #eee;
@@ -80,7 +80,7 @@
     color: #e74c3c;
 }
 
-        /* 模态框内容区 */
+       
 .modal-box-content {
     padding: 20px;
     max-height: 400px;
@@ -103,7 +103,7 @@
     color: #666;
 }
 
-        /* 模态框底部 */
+       
 .modal-box-bottom {
     padding: 15px;
     border-top: 1px solid #eee;
@@ -121,7 +121,7 @@
     background-color: #2980b9;
 }
 
-        /* 标题样式 */
+       
 h3 {
     text-align: center;
     margin-bottom: 20px;

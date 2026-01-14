@@ -1,7 +1,7 @@
 
 .login {
     max-width: 400px;
-    margin: 50px auto;  /* 登录框居中并增加顶部距离 */
+    margin: 50px auto;  
     padding: 20px;
     background-color: rgba(255, 255, 255, 0.8);
     border-radius: 8px;
@@ -14,7 +14,7 @@
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
-    margin-bottom: 15px;  /* 增加间距 */
+    margin-bottom: 15px; 
 }
 
 .login-lable {
@@ -22,13 +22,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 10px 0;  /* 增加上下间距 */
+    margin: 10px 0; 
 }
 
 .login-input {
     display: flex;
     flex-direction: column;
-    gap: 10px;  /* 输入框之间间距 */
+    gap: 10px; 
 }
 
 .login-input input[type="text"],
@@ -58,8 +58,8 @@
 
 .order-table th,
 .order-table td {
-    border: 1px solid #ddd;  /* 表格边框 */
-    padding: 12px;  /* 增加内边距 */
+    border: 1px solid #ddd;  
+    padding: 12px;  
 }
 
 .order-header {
@@ -74,5 +74,5 @@
 }
 
 .order-list:hover {
-    background-color: rgba(255, 255, 255, 0.6);  /* 行hover效果 */
+    background-color: rgba(255, 255, 255, 0.6); 
 }

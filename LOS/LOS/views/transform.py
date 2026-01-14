@@ -104,9 +104,9 @@ def generate_excel_by_table(table_name: str, data: list) -> BytesIO:
         ws = wb.active
         ws.title = f"{table_name}表数据"
         
-        # 写入表头
+
         ws.append(config["headers"])
-        # 写入数据
+
         for row in data:
             ws.append(config["formatter"](row))
         

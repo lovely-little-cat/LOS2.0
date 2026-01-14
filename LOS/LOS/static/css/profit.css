@@ -5,14 +5,14 @@
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;  /* 与body padding保持一致 */
+    padding: 0 20px; 
 }
 
 .nav-list {
     display: flex;
     align-items: center;
     gap: 30px;
-    list-style: none;  /* 去除默认列表样式 */
+    list-style: none;  
     padding: 0;
     margin: 0;
 }
@@ -23,13 +23,13 @@
 }
 
 .nav-list a:hover {
-    color: #4CAF50;  /*  hover效果 */
+    color: #4CAF50;  
 }
 
 .nav-label {
     font-size: 16px;
     font-weight: bold;
-    margin-bottom: 0;  /* 取消多余间距 */
+    margin-bottom: 0;  
 }
 
 
@@ -71,7 +71,7 @@ h2, h3 {
             color: #333;
         }
 .chart-container {
-            height: 300px; /* 固定高度确保图表显示正常 */
+            height: 300px;
         }
 .loading {
             text-align: center;

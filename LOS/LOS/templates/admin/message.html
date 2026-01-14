@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/message.css') }}">
 </head>
 <body>
-    <!-- 导航栏 -->
+
     <nav class="nav">
         <div class="container">
             <ul class="nav-list">
@@ -23,10 +23,10 @@
         </div>
     </nav>    
     
-    <!-- 页面标题 -->
+
     <h3>消息查看</h3>
 
-    <!-- 消息列表 -->
+
     <table class="message-table">
         <tr>
             <th>消息ID</th>
@@ -45,19 +45,19 @@
         </tr>
         {% endfor %}
     </table>
-    <!-- 模态框（包含遮罩层） -->
+ 
     <div class="modal-mask" id="modalMask">
         <div class="modal-box">
-            <!-- 模态框顶部 -->
+
             <div class="modal-box-top">
                 <div class="modal-box-title">消息详情</div>
                 <button onclick="modalClose()" class="modal-close">×</button>
             </div>
-            <!-- 模态框主体 -->
+
             <div class="modal-box-content" id="modalContent">
-                <!-- 内容由JS动态填充 -->
+
             </div>
-            <!-- 模态框底部 -->
+
             <div class="modal-box-bottom">
                 <button type="button" onclick="modalClose()">关闭</button>
             </div>

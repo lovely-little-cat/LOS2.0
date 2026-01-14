@@ -967,3 +967,103 @@ werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'order.
 2026-01-14 16:28:15,821 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 16:28:15] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
 2026-01-14 16:28:15,822 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 16:28:15] "GET /static/css/index.css HTTP/1.1" 200 -
 2026-01-14 16:28:15,823 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 16:28:15] "[36mGET /static/img/setting.png HTTP/1.1[0m" 304 -
+2026-01-14 18:28:46,326 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-01-14 18:28:46,326 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-01-14 18:28:48,674 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 18:28:48] "GET / HTTP/1.1" 200 -
+2026-01-14 18:28:48,943 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 18:28:48] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-14 18:28:48,944 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 18:28:48] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+2026-01-14 18:28:48,946 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 18:28:48] "[36mGET /static/img/setting.png HTTP/1.1[0m" 304 -
+2026-01-14 18:28:56,854 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 18:28:56] "GET /order/manage/submit HTTP/1.1" 200 -
+2026-01-14 18:28:56,872 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 18:28:56] "[33mGET /static/css/order_model.css HTTP/1.1[0m" 404 -
+2026-01-14 18:28:56,876 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 18:28:56] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-14 18:28:56,878 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 18:28:56] "[36mGET /static/js/order_modle.js HTTP/1.1[0m" 304 -
+2026-01-14 18:29:11,878 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 18:29:11] "POST /order/manage/submit HTTP/1.1" 200 -
+2026-01-14 18:29:11,887 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 18:29:11] "[33mGET /static/css/order_model.css HTTP/1.1[0m" 404 -
+2026-01-14 18:29:11,891 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 18:29:11] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-14 18:29:11,892 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 18:29:11] "[36mGET /static/js/order_modle.js HTTP/1.1[0m" 304 -
+2026-01-14 18:29:22,896 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 18:29:22] "GET / HTTP/1.1" 200 -
+2026-01-14 18:29:22,907 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 18:29:22] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+2026-01-14 18:29:22,907 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 18:29:22] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-14 18:29:22,910 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 18:29:22] "[36mGET /static/img/setting.png HTTP/1.1[0m" 304 -
+2026-01-14 18:29:25,914 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 18:29:25] "GET /order/list/order/user HTTP/1.1" 200 -
+2026-01-14 18:29:25,922 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 18:29:25] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-14 18:29:34,319 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 18:29:34] "GET /order/list/order/user HTTP/1.1" 200 -
+2026-01-14 18:29:34,333 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 18:29:34] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-14 18:29:38,354 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 18:29:38] "GET /order/manage HTTP/1.1" 200 -
+2026-01-14 18:29:38,365 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 18:29:38] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-14 18:29:38,365 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 18:29:38] "[36mGET /static/css/manage.css HTTP/1.1[0m" 304 -
+2026-01-14 18:29:40,380 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 18:29:40] "GET /order/list/admin HTTP/1.1" 200 -
+2026-01-14 18:29:40,398 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 18:29:40] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-14 18:29:40,399 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 18:29:40] "[36mGET /static/css/login.css HTTP/1.1[0m" 304 -
+2026-01-14 18:30:04,278 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 18:30:04] "[32mGET / HTTP/1.1[0m" 302 -
+2026-01-14 18:30:04,336 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 18:30:04] "GET /login?error=ÇëÏÈµÇÂ¼ HTTP/1.1" 200 -
+2026-01-14 18:30:04,410 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 18:30:04] "[36mGET /static/css/login.css HTTP/1.1[0m" 304 -
+2026-01-14 18:30:04,414 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 18:30:04] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-14 18:30:04,473 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 18:30:04] "[32mGET /favicon.ico HTTP/1.1[0m" 302 -
+2026-01-14 18:30:04,479 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 18:30:04] "GET /login?error=ÇëÏÈµÇÂ¼ HTTP/1.1" 200 -
+2026-01-14 18:30:12,681 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 18:30:12] "[32mPOST /login HTTP/1.1[0m" 302 -
+2026-01-14 18:30:12,697 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 18:30:12] "GET / HTTP/1.1" 200 -
+2026-01-14 18:30:12,706 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 18:30:12] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-14 18:30:12,735 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 18:30:12] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-01-14 18:30:22,862 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 18:30:22] "GET /order/list/admin HTTP/1.1" 200 -
+2026-01-14 18:30:22,874 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 18:30:22] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-14 18:30:26,962 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 18:30:26] "GET /order/manage HTTP/1.1" 200 -
+2026-01-14 18:30:26,971 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 18:30:26] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-14 18:30:26,972 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 18:30:26] "[36mGET /static/css/manage.css HTTP/1.1[0m" 304 -
+2026-01-14 18:30:26,974 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 18:30:26] "GET /static/js/manage.js HTTP/1.1" 200 -
+2026-01-14 18:31:06,674 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 18:31:06] "GET /order/manage HTTP/1.1" 200 -
+2026-01-14 18:31:06,686 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 18:31:06] "[36mGET /static/css/manage.css HTTP/1.1[0m" 304 -
+2026-01-14 18:31:06,687 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 18:31:06] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-14 18:31:06,688 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 18:31:06] "[36mGET /static/js/manage.js HTTP/1.1[0m" 304 -
+2026-01-14 18:31:13,785 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 18:31:13] "GET /order/manage/create HTTP/1.1" 200 -
+2026-01-14 18:31:13,795 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 18:31:13] "[33mGET /static/css/order_model.css HTTP/1.1[0m" 404 -
+2026-01-14 18:31:13,801 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 18:31:13] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-14 18:31:13,805 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 18:31:13] "[36mGET /static/js/order_modle.js HTTP/1.1[0m" 304 -
+2026-01-14 18:31:25,314 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 18:31:25] "POST /order/manage/create HTTP/1.1" 200 -
+2026-01-14 18:31:25,322 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 18:31:25] "[33mGET /static/css/order_model.css HTTP/1.1[0m" 404 -
+2026-01-14 18:31:25,324 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 18:31:25] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-14 18:31:25,325 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 18:31:25] "[36mGET /static/js/order_modle.js HTTP/1.1[0m" 304 -
+2026-01-14 18:31:28,566 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 18:31:28] "GET / HTTP/1.1" 200 -
+2026-01-14 18:31:28,575 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 18:31:28] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-14 18:31:32,210 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 18:31:32] "GET / HTTP/1.1" 200 -
+2026-01-14 18:31:32,218 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 18:31:32] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-14 18:31:33,683 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 18:31:33] "GET /order/list/admin HTTP/1.1" 200 -
+2026-01-14 18:31:33,691 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 18:31:33] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-14 18:31:37,950 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 18:31:37] "GET /order/list/admin HTTP/1.1" 200 -
+2026-01-14 18:31:37,959 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 18:31:37] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-14 18:31:40,233 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 18:31:40] "GET / HTTP/1.1" 200 -
+2026-01-14 18:31:40,242 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 18:31:40] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-14 18:32:18,564 - LOS - ERROR - Exception on /message [GET]
+Traceback (most recent call last):
+  File "C:\Users\31158\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\31158\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\31158\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\31158\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "c:\LOS2.0\LOS\LOS\views\message.py", line 31, in show_message_list
+    return render_template("admin/message_list.html", messages=messages or [])
+  File "C:\Users\31158\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\templating.py", line 149, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+  File "C:\Users\31158\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\environment.py", line 1087, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\31158\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\environment.py", line 1016, in get_template
+    return self._load_template(name, globals)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\31158\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\environment.py", line 975, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "C:\Users\31158\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\loaders.py", line 126, in load
+    source, filename, uptodate = self.get_source(environment, name)
+                                 ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\31158\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\templating.py", line 65, in get_source
+    return self._get_source_fast(environment, template)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\31158\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\templating.py", line 99, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: admin/message_list.html
+2026-01-14 18:32:18,571 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 18:32:18] "[35m[1mGET /message HTTP/1.1[0m" 500 -

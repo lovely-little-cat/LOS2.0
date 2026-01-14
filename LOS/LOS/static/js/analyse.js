@@ -1,8 +1,6 @@
-/**
- * 利润图表管理器 - 具备完整生命周期：初始化 → 挂载 → 更新 → 销毁
- */
+
 class ProfitChartManager {
-  // ===== 1. 初始化生命周期=====
+  // ===== 初始化生命周期=====
   constructor() {
     this.config = {
       apiUrls: {
@@ -16,7 +14,7 @@ class ProfitChartManager {
         oneMonth: 'oneMonthChart',
         twelveMonths: 'monthlyChart',
         stockSell: 'stockChart',
-        sell: 'sellChart' // 新增销售量图表ID
+        sell: 'sellChart' 
       },
       buttonIds: {
         refreshAll: 'refreshBtn',
@@ -24,60 +22,60 @@ class ProfitChartManager {
         refreshMonth: 'refreshMonthBtn',
         refreshYear: 'refreshYearBtn',
         refreshStock: 'refreshStockBtn',
-        refreshSell: 'refreshSellBtn' // 新增销售量刷新按钮ID
+        refreshSell: 'refreshSellBtn' 
       }
     };
 
-    // 状态管理：存储图表实例、事件监听函数（用于销毁时解绑）
+    // 状态管理：存储图表实例、事件监听函数
     this.state = {
       chartInstances: {
         weekly: null,
         oneMonth: null,
         twelveMonths: null,
         stockSell: null,
-        sell: null // 新增销售量图表实例
+        sell: null 
       },
       eventHandlers: {}
     };
 
-    // 初始化阶段：绑定生命周期钩子（可选，用于扩展）
+    // 初始化阶段：绑定生命周期钩子
     this.beforeInit = () => {};
     this.afterInit = () => {};
     this.beforeDestroy = () => {};
     this.afterDestroy = () => {};
   }
 
-  // ===== 2. 核心初始化方法（入口）=====
+  // ===== 2. 核心初始化方法=====
   init() {
     this.beforeInit();
     console.log('ProfitChartManager 初始化中...');
 
-    // 校验DOM元素是否存在
+  
     this._validateDOM();
-    // 绑定按钮事件
+
     this._bindEvents();
-    // 挂载图表（首次渲染）
+
     this.mount();
 
     this.afterInit();
     console.log('ProfitChartManager 初始化完成');
   }
 
-  // ===== 3. 挂载生命周期（首次渲染图表）=====
+  // ===== 3. 挂载生命周期=====
   async mount() {
     console.log('图表挂载中...');
-    // 并行渲染所有图表，提升性能
+   
     await Promise.all([
       this._renderWeeklyChart(),
       this._renderOneMonthChart(),
       this._renderTwelveMonthsChart(),
       this._renderStockSellChart(),
-      this._renderSellChart() // 新增销售量图表渲染
+      this._renderSellChart()
     ]);
     console.log('图表挂载完成');
   }
 
-  // ===== 4. 更新生命周期（刷新指定/所有图表）=====
+  // ===== 4. 更新生命周期=====
   async update(type = 'all') {
     console.log(`更新${type === 'all' ? '所有' : type}图表...`);
     switch (type) {
@@ -97,7 +95,7 @@ class ProfitChartManager {
         await this._renderStockSellChart();
         alert('库存数据已刷新！');
         break;
-      case 'sell': // 新增销售量更新逻辑
+      case 'sell': 
         await this._renderSellChart();
         alert('销售量数据已刷新！');
         break;
@@ -110,21 +108,21 @@ class ProfitChartManager {
     }
   }
 
-  // ===== 5. 销毁生命周期（清理资源）=====
+  // ===== 5. 销毁生命周期=====
   destroy() {
     this.beforeDestroy();
     console.log('ProfitChartManager 销毁中...');
 
-    // 销毁所有图表实例
+   
     Object.values(this.state.chartInstances).forEach(instance => {
       if (instance) instance.destroy();
     });
-    // 解绑所有事件
+  
     Object.entries(this.state.eventHandlers).forEach(([id, handler]) => {
       const el = document.getElementById(id);
       el?.removeEventListener('click', handler);
     });
-    // 清空状态
+   
     this.state = { chartInstances: {}, eventHandlers: {} };
 
     this.afterDestroy();
@@ -133,13 +131,13 @@ class ProfitChartManager {
 
   // ===== 私有辅助方法：校验DOM元素 =====
   _validateDOM() {
-    // 校验图表容器
+  
     Object.values(this.config.chartIds).forEach(id => {
       if (!document.getElementById(id)) {
         throw new Error(`图表容器不存在：#${id}`);
       }
     });
-    // 校验按钮（非必选，仅警告）
+    // 校验按钮
     Object.values(this.config.buttonIds).forEach(id => {
       if (!document.getElementById(id)) {
         console.warn(`刷新按钮不存在：#${id}（部分刷新功能可能失效）`);
@@ -151,42 +149,42 @@ class ProfitChartManager {
   _bindEvents() {
     const { buttonIds } = this.config;
 
-    // 绑定「刷新所有」按钮
+ 
     this.state.eventHandlers[buttonIds.refreshAll] = () => this.update('all');
     document.getElementById(buttonIds.refreshAll)?.addEventListener(
       'click',
       this.state.eventHandlers[buttonIds.refreshAll]
     );
 
-    // 绑定「近7天」刷新按钮
+
     this.state.eventHandlers[buttonIds.refreshWeek] = () => this.update('weekly');
     document.getElementById(buttonIds.refreshWeek)?.addEventListener(
       'click',
       this.state.eventHandlers[buttonIds.refreshWeek]
     );
 
-    // 绑定「近30天」刷新按钮
+
     this.state.eventHandlers[buttonIds.refreshMonth] = () => this.update('oneMonth');
     document.getElementById(buttonIds.refreshMonth)?.addEventListener(
       'click',
       this.state.eventHandlers[buttonIds.refreshMonth]
     );
 
-    // 绑定「近12个月」刷新按钮
+   
     this.state.eventHandlers[buttonIds.refreshYear] = () => this.update('twelveMonths');
     document.getElementById(buttonIds.refreshYear)?.addEventListener(
       'click',
       this.state.eventHandlers[buttonIds.refreshYear]
     );
 
-    // 绑定「库存」刷新按钮
+  
     this.state.eventHandlers[buttonIds.refreshStock] = () => this.update('stockSell');
     document.getElementById(buttonIds.refreshStock)?.addEventListener(
       'click',
       this.state.eventHandlers[buttonIds.refreshStock]
     );
 
-    // 新增：绑定「销售量」刷新按钮
+ 
     this.state.eventHandlers[buttonIds.refreshSell] = () => this.update('sell');
     document.getElementById(buttonIds.refreshSell)?.addEventListener(
       'click',
@@ -203,7 +201,7 @@ class ProfitChartManager {
       }
       const result = await response.json();
       if (result.status === 'error') throw new Error(result.error);
-      return result.data || result; // 适配stock_sell接口返回的完整数据
+      return result.data || result; 
     } catch (error) {
       console.error('数据请求失败：', error);
       alert(`获取数据失败：${error.message}`);
@@ -216,16 +214,15 @@ class ProfitChartManager {
     const data = await this._fetchData(this.config.apiUrls.weekly);
     const ctx = document.getElementById(this.config.chartIds.weekly).getContext('2d');
 
-    // 销毁旧实例
     if (this.state.chartInstances.weekly) {
       this.state.chartInstances.weekly.destroy();
     }
 
-    // 渲染新图表（月-日格式，每日利润）
+  
     this.state.chartInstances.weekly = new Chart(ctx, {
       type: 'line',
       data: {
-        labels: data.map(item => item.time_key), // 月-日
+        labels: data.map(item => item.time_key),
         datasets: [{
           label: '每日利润（元）',
           data: data.map(item => item.profit || 0),
@@ -262,7 +259,7 @@ class ProfitChartManager {
     this.state.chartInstances.oneMonth = new Chart(ctx, {
       type: 'line',
       data: {
-        labels: data.map(item => item.time_key), // 月-日
+        labels: data.map(item => item.time_key), 
         datasets: [{
           label: '每日利润（元）',
           data: data.map(item => item.profit || 0),
@@ -299,7 +296,7 @@ class ProfitChartManager {
     this.state.chartInstances.twelveMonths = new Chart(ctx, {
       type: 'bar',
       data: {
-        labels: data.map(item => item.time_key), // 年-月
+        labels: data.map(item => item.time_key), 
         datasets: [{
           label: '每月利润（元）',
           data: data.map(item => item.profit || 0),
@@ -322,7 +319,7 @@ class ProfitChartManager {
     });
   }
 
-  // ===== 私有辅助方法：渲染库存分析图表（适配推荐算法） =====
+  // ===== 私有辅助方法：渲染库存分析图表 =====
   async _renderStockSellChart() {
     const result = await this._fetchData(this.config.apiUrls.stockSell);
     const ctx = document.getElementById(this.config.chartIds.stockSell).getContext('2d');
@@ -373,7 +370,7 @@ class ProfitChartManager {
           y: {
             beginAtZero: true,
             title: { display: true, text: '库存量' },
-            // 新增预警线（库存20）
+
             plugins: {
               annotation: {
                 annotations: {
@@ -496,7 +493,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const chartManager = new ProfitChartManager();
   chartManager.init();
 
-  // 暴露全局刷新函数（适配HTML中的onclick）
+  // 暴露全局刷新函数
   window.refreshWeeklyChart = () => chartManager.update('weekly');
   window.refreshOneMonthChart = () => chartManager.update('oneMonth');
   window.refreshMonthlyChart = () => chartManager.update('twelveMonths');

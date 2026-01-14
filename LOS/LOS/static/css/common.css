@@ -1,4 +1,4 @@
-/* common.css */
+
 body {
     color: var(--dark);
     background-color: rgba(245, 194, 194, 0.692);
@@ -26,14 +26,14 @@ body {
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;  /* 与body padding保持一致 */
+    padding: 0 20px; 
 }
 
 .nav-list {
     display: flex;
     align-items: center;
     gap: 30px;
-    list-style: none;  /* 去除默认列表样式 */
+    list-style: none;  
     padding: 0;
     margin: 0;
 }
@@ -44,24 +44,24 @@ body {
 }
 
 .nav-list a:hover {
-    color: #4CAF50;  /*  hover效果 */
+    color: #4CAF50;  
 }
 
 .nav-label {
     font-size: 16px;
     font-weight: bold;
-    margin-bottom: 0;  /* 取消多余间距 */
+    margin-bottom: 0;   
 }
 
 .success {
     color: green;
     margin-top: 10px;
-    text-align: center;  /* 成功信息居中 */
+    text-align: center;  
 }
 
 
 .error {
     color: red;
     margin-top: 10px;
-    text-align: center;  /* 错误信息居中 */
+    text-align: center;  
 }

@@ -24,11 +24,11 @@ def recommend_sort(price_data, min_stock=20):
     for item in price_data:
         stock = item.get('stock', 0)
         sell = item.get('sell', 0)
-        # 库存紧缺度（0~1，值越小越紧缺）
+
         shortage_degree = 1 - (stock / min_stock) if stock > 0 else 1
-        # 补货优先级（综合出售量和紧缺度）
+
         item['recommend_priority'] = round(shortage_degree * sell, 2)
-        # 标记是否需要补货
+
         item['need_restock'] = stock <= min_stock
 
     sorted_data = sorted(
@@ -72,15 +72,15 @@ def dict_ss():
             for item in price_data
         }
         
-        # 出售量最高的商品ID
+
         sell_max = max(price_dict.items(), key=lambda x: x[1]['sell'])[0] if price_dict else None
         
         return {
             'price_dict': price_dict,
             'sell_max': sell_max,
-            'restock_list': restock_list,  # 替换原stock_shortage，更语义化
-            'sorted_price': sorted_price,  # 按推荐算法排序后的数据
-            'min_stock': 20  # 前端可展示预警阈值
+            'restock_list': restock_list, 
+            'sorted_price': sorted_price, 
+            'min_stock': 20  
         }
     except Exception as e:
         return jsonify({"error": f"查询失败：{str(e)}", "status": "error"}), 500
@@ -151,9 +151,9 @@ def ss_analyse():
     return jsonify({
         'price_dict': result['price_dict'],
         'sell_max': result['sell_max'],
-        'restock_list': result['restock_list'],  # 补货推荐列表（库存<=20）
-        'sorted_price': result['sorted_price'],  # 按推荐算法排序后的数据
-        'min_stock': result['min_stock'],  # 预警阈值20
+        'restock_list': result['restock_list'],  
+        'sorted_price': result['sorted_price'], 
+        'min_stock': result['min_stock'],  
         "status": "success"
     })
 

@@ -10,7 +10,7 @@ def show_message_list():
     if not user:
         return render_template("login.html", error="请先登录")
     
-    # 查询数据库数据（复用权限逻辑）
+  
     role = user.get('role')
     if role == 'admin':
         sql = """
@@ -41,7 +41,7 @@ def submit_message():
     
     data = request.form
     message = data.get('message', '').strip()
-    # 验证消息
+
     if not message:
         return render_template("user_message.html", user=user, error="消息内容不能为空！")
     if len(message) > 100:
@@ -52,8 +52,7 @@ def receive_message():
     user = session.get('user')
     if not user:
         return render_template("login.html", error="请先登录")
-    
-    # 查询数据库数据（复用权限逻辑）
+
     role = user.get('role')
     if role == 'admin':
         sql = """

@@ -3,7 +3,6 @@ from flask import json
 from dbutils.pooled_db import PooledDB
 from pymysql import cursors
 
-# 数据库连接池配置
 Pool = PooledDB(
     creator=pymysql,
     maxconnections=10,
@@ -35,7 +34,7 @@ def fetchone(sql, params):
         print(f"数据库查询错误: {str(e)}")
         return None
     finally:
-        # 确保资源释放
+     
         if cursor:
             cursor.close()
         if conn:
