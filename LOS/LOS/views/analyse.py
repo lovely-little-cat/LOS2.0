@@ -51,7 +51,7 @@ def recommend_sort(price_data, min_stock=20):
 
 def dict_ss():
     sql = """
-        SELECT products_id, stock, sell
+        SELECT products_id, stock, sell, products_price, cost
         FROM price
     """
     try:

@@ -1,0 +1,12 @@
+.icon {
+    width: 24px;
+    height: 22px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #f5f5f5;
+}

@@ -327,7 +327,7 @@ class ProfitChartManager {
     const result = await this._fetchData(this.config.apiUrls.stockSell);
     const ctx = document.getElementById(this.config.chartIds.stockSell).getContext('2d');
     const sortedData = result.sorted_price || [];
-    const warnThreshold = result.warn_threshold || 20;
+    const warnThreshold = result.min_stock || 20;
 
     if (this.state.chartInstances.stockSell) {
       this.state.chartInstances.stockSell.destroy();

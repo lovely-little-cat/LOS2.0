@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>订单列表</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/common.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
 </head>
 <body>
     <nav class="nav">
@@ -15,7 +16,7 @@
                 <li>用户:{{ user['user_name'] }}</li>
                 <li>ID:{{ user['id'] }}</li>
                 <li>{{ user['phone'] }}</li>
-                <li><a href="{{ url_for('login.logout') }}">退出登录</a></li>  <!-- 退出链接修复 -->
+                <li><a href="{{ url_for('login.logout') }}" >退出登录</a></li>  <!-- 退出链接修复 -->
                 
             </ul>
         </div>
@@ -23,10 +24,10 @@
     <div class="head">
         <div class="user-block">
             <a href="{{ url_for('index.user_index') }}">个人信息</a>
-            <img src="" title="设置">
+            <img src="{{ url_for('static', filename='img/setting.png') }}" title="设置" class="icon">
         </div>
         <div>
-            <a href="{{ url_for('order.show_order_list') }}">订单列表</a>
+            <a href="{{ url_for('order.show_user_order_list') }}">查看订单</a>
             <img src="" title="订单列表">
         </div>
         <div>
