@@ -651,3 +651,26 @@ jinja2.exceptions.TemplateSyntaxError: Expected an expression, got 'end of print
 2026-01-14 14:30:37,148 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 14:30:37] "[36mGET /static/css/profit.css HTTP/1.1[0m" 304 -
 2026-01-14 14:30:37,148 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 14:30:37] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
 2026-01-14 14:30:37,166 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 14:30:37] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2026-01-14 14:36:24,483 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-01-14 14:36:24,484 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-01-14 14:36:24,546 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 14:36:24] "GET /analyse HTTP/1.1" 200 -
+2026-01-14 14:36:24,565 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 14:36:24] "GET /static/css/profit.css HTTP/1.1" 200 -
+2026-01-14 14:36:24,586 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 14:36:24] "GET /static/css/common.css HTTP/1.1" 200 -
+2026-01-14 14:36:24,595 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 14:36:24] "GET /static/js/analyse.js HTTP/1.1" 200 -
+2026-01-14 14:36:24,773 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 14:36:24] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2026-01-14 14:36:25,655 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 14:36:25] "GET /analyse/weekly HTTP/1.1" 200 -
+2026-01-14 14:36:25,656 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 14:36:25] "GET /analyse/onemonth HTTP/1.1" 200 -
+2026-01-14 14:36:25,657 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 14:36:25] "GET /analyse/monthly HTTP/1.1" 200 -
+2026-01-14 14:36:25,672 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 14:36:25] "[35m[1mGET /analyse/stock_sell HTTP/1.1[0m" 500 -
+2026-01-14 14:36:25,677 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 14:36:25] "[35m[1mGET /analyse/stock_sell HTTP/1.1[0m" 500 -
+2026-01-14 14:36:36,753 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 14:36:36] "GET /analyse HTTP/1.1" 200 -
+2026-01-14 14:36:36,767 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 14:36:36] "GET /static/css/profit.css HTTP/1.1" 200 -
+2026-01-14 14:36:36,774 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 14:36:36] "GET /static/js/analyse.js HTTP/1.1" 200 -
+2026-01-14 14:36:36,775 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 14:36:36] "GET /static/css/common.css HTTP/1.1" 200 -
+2026-01-14 14:36:36,787 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 14:36:36] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2026-01-14 14:36:38,073 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 14:36:38] "GET /analyse/weekly HTTP/1.1" 200 -
+2026-01-14 14:36:38,074 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 14:36:38] "GET /analyse/onemonth HTTP/1.1" 200 -
+2026-01-14 14:36:38,075 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 14:36:38] "GET /analyse/monthly HTTP/1.1" 200 -
+2026-01-14 14:36:38,076 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 14:36:38] "[35m[1mGET /analyse/stock_sell HTTP/1.1[0m" 500 -
+2026-01-14 14:36:38,078 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 14:36:38] "[35m[1mGET /analyse/stock_sell HTTP/1.1[0m" 500 -

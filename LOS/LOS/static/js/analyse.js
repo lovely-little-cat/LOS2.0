@@ -417,7 +417,7 @@ class ProfitChartManager {
     });
   }
 
-  // ===== 新增：渲染销售量分析图表（按出售量排序） =====
+  // ===== 渲染销售量分析图表 =====
   async _renderSellChart() {
     const result = await this._fetchData(this.config.apiUrls.stockSell);
     const ctx = document.getElementById(this.config.chartIds.sell).getContext('2d');
