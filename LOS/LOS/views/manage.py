@@ -90,7 +90,7 @@ def admin_create():
 
     try:
         user_id = int(request.form.get('user_id'))
-        products_id = int(request.form.get('products_name'))
+        products_id = int(request.form.get('products_id'))
         count = int(request.form.get('count'))
         status = int(request.form.get('status', 1))
         buy_time = request.form.get('buy_time') or datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
@@ -165,7 +165,6 @@ def admin_delete():
 
 @man.route('/order/manage/submit', methods=['GET', 'POST'])
 def user_submit():
-
     use = session.get('user')
     if not use:
         return render_template("login.html", error="请先登录")
@@ -176,16 +175,26 @@ def user_submit():
     if request.method == 'GET':
         return render_template("user/submit_order.html", user=use)
 
-
     products_id = request.form.get('products_id')
     count = request.form.get('count')
+    
+    # 验证必填字段
     if not all([products_id, count]):
-        flash("产品ID和数量为必填项！", "error")
+        flash("产品和数量为必填项！", "error")
+        return render_template("user/submit_order.html", user=use)
+    
+    # 验证数量是否为有效数字
+    try:
+        count = int(count)
+        if count <= 0:
+            flash("数量必须为正整数！", "error")
+            return render_template("user/submit_order.html", user=use)
+    except ValueError:
+        flash("数量必须为有效数字！", "error")
         return render_template("user/submit_order.html", user=use)
 
     buy_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     try:
-
         with db.manage_order() as (conn, cursor):
             sql = """
                 INSERT INTO `order`(user_id, products_id, count, buy_time, status)
