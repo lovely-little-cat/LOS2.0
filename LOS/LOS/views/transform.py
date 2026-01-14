@@ -10,7 +10,7 @@ import logging
 logging.basicConfig(
     level=logging.ERROR,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-    handlers=[logging.FileHandler('transform_error.log'), logging.StreamHandler()]
+    handlers=[logging.FileHandler('error.log'), logging.StreamHandler()]
 )
 logger = logging.getLogger(__name__)
 

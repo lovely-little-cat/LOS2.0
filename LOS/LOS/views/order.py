@@ -13,7 +13,7 @@ def show_user_list():
         role = user.get('role')
         if role != 'admin':
             return render_template("login.html",error="无权限！")
-        return render_template("user_list.html",success="请查看用户列表")
+        return render_template("admin/user_list.html",success="请查看用户列表")
     return render_template("login.html", error="请先登录")
     
     

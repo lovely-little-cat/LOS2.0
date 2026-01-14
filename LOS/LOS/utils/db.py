@@ -59,20 +59,20 @@ def fetchall(sql, params):
             conn.close()
 
 
-def manage_order(sql, params):
-    """管理订单"""
-    conn = None
-    cursor = None
-    try:
-        conn = Pool.connection()
-        cursor = conn.cursor(cursors.DictCursor)
-        cursor.execute(sql, params)
-        conn.commit()
-    except Exception as e:
-        print(f"数据库查询错误: {str(e)}")
-        return []
-    finally:
-        if cursor:
-            cursor.close()
-        if conn:
-            conn.close()
+class manage_order:
+    """管理订单（上下文管理器版本）"""
+    def __enter__(self):
+        self.conn = Pool.connection()
+        self.cursor = self.conn.cursor(cursors.DictCursor)
+        return self.conn, self.cursor
+    
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        if exc_type:
+            self.conn.rollback()
+        else:
+            self.conn.commit()
+        
+        if self.cursor:
+            self.cursor.close()
+        if self.conn:
+            self.conn.close()

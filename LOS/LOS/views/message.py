@@ -31,6 +31,7 @@ def show_message_list():
     return render_template("admin/message_list.html", messages=messages or [])
 
 @mes.route('/message/submit', methods=['GET', 'POST'])
+@mes.route('/message/submit', methods=['GET', 'POST'])
 def submit_message():
     user = session.get('user')
     if not user:
@@ -43,9 +44,18 @@ def submit_message():
     message = data.get('message', '').strip()
 
     if not message:
-        return render_template("user_message.html", user=user, error="消息内容不能为空！")
+        return render_template("user/submit_message.html", user=user, error="消息内容不能为空！")
     if len(message) > 100:
-        return render_template("user_message.html", user=user, error="消息长度不能超过100个字符！")
+        return render_template("user/submit_message.html", user=user, error="消息长度不能超过100个字符！")
+    
+ 
+    try:
+        sql = "INSERT INTO message (user_id, message, time) VALUES (%s, %s, NOW())"
+        params = (user['id'], message)
+        db.fetchone(sql, params)
+        return redirect(url_for('message.show_message_list'))
+    except Exception as e:
+        return render_template("user/submit_message.html", user=user, error=f"提交失败：{str(e)}")
     
 @mes.route('/message/receive', methods=['GET'])
 def receive_message():
