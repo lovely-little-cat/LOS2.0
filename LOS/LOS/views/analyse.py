@@ -20,27 +20,33 @@ def check_admin_permission():
         return jsonify({"error": "无权限访问"}), 403
     return None  
 
-def insert_sort(price, key_field='sell', order='desc'):
-    """
-    插入排序（修复key参数无效问题）
-    :param price: 待排序数组
-    :param key_field: 排序字段（stock/sell）
-    :param order: 排序方向（desc/asc）
-    :return: 排序后数组
-    """
-    for i in range(1, len(price)):
-        current = price[i]
-        j = i - 1
-        # 动态使用排序字段
-        compare_fn = (current[key_field] > price[j][key_field]) if order == 'desc' else (current[key_field] < price[j][key_field])
-        while j >= 0 and compare_fn:
-            price[j + 1] = price[j]
-            j -= 1
-            # 边界处理：j<0时停止比较
-            if j >= 0:
-                compare_fn = (current[key_field] > price[j][key_field]) if order == 'desc' else (current[key_field] < price[j][key_field])
-        price[j + 1] = current
-    return price
+def recommend_sort(price_data, min_stock=20):
+    for item in price_data:
+        stock = item.get('stock', 0)
+        sell = item.get('sell', 0)
+        # 库存紧缺度（0~1，值越小越紧缺）
+        shortage_degree = 1 - (stock / min_stock) if stock > 0 else 1
+        # 补货优先级（综合出售量和紧缺度）
+        item['recommend_priority'] = round(shortage_degree * sell, 2)
+        # 标记是否需要补货
+        item['need_restock'] = stock <= min_stock
+
+    sorted_data = sorted(
+    price_data,
+    key=lambda x: (x['recommend_priority'], x['sell']),
+    reverse=True
+    )
+    restock_list = [
+        {
+            'products_id': item['products_id'],
+            'current_stock': item['stock'],
+            'sell_volume': item['sell'],
+            'priority': item['recommend_priority']
+        }
+        for item in sorted_data if item['need_restock']
+    ]
+    return sorted_data, restock_list
+
 
 
 def dict_ss():
@@ -52,37 +58,32 @@ def dict_ss():
         price_data = db.fetchall(sql, [])
         if not price_data:
             return jsonify({"error": "查询失败：无数据", "status": "error"}), 500
+        sorted_price, restock_list = recommend_sort(price_data, min_stock=20)
+        
         price_dict = {
             item['products_id']: {
                 'stock': item['stock'],
-                'sell': item['sell']
+                'sell': item['sell'],
+                'products_price': item['products_price'],
+                'cost': item['cost'],
+                'recommend_priority': item.get('recommend_priority', 0),
+                'need_restock': item.get('need_restock', False)
             }
-
             for item in price_data
-            
-                
         }
-        if price_dict:
-            sell_max = max(price_dict.items(), 
-                       key=lambda x: x[1]['sell'])[0]
-        else:
-            sell_max = None
-        stock_shortage = [
-            pdt_id for pdt_id, values in price_dict.items()
-            if values['stock'] <= 10
-            
-        ]
-        sorted_price = insert_sort(price_data.copy(), key='sell', order='desc')
+        
+        # 出售量最高的商品ID
+        sell_max = max(price_dict.items(), key=lambda x: x[1]['sell'])[0] if price_dict else None
+        
         return {
             'price_dict': price_dict,
             'sell_max': sell_max,
-            'stock_shortage': stock_shortage,
-            'sorted_price': sorted_price
+            'restock_list': restock_list,  # 替换原stock_shortage，更语义化
+            'sorted_price': sorted_price,  # 按推荐算法排序后的数据
+            'min_stock': 20  # 前端可展示预警阈值
         }
     except Exception as e:
         return jsonify({"error": f"查询失败：{str(e)}", "status": "error"}), 500
-
-
 
 def get_time_range(period):
     end_date = datetime.now(local_tz).replace(hour=23, minute=59, second=59)
@@ -147,13 +148,12 @@ def ss_analyse():
     if isinstance(result,tuple) and len(result)==2 and isinstance(result[1],int):
         return result
     
-    
-    
     return jsonify({
         'price_dict': result['price_dict'],
         'sell_max': result['sell_max'],
-        'stock_shortage': result['stock_shortage'],
-        'sorted_price': result['sorted_price'],
+        'restock_list': result['restock_list'],  # 补货推荐列表（库存<=20）
+        'sorted_price': result['sorted_price'],  # 按推荐算法排序后的数据
+        'min_stock': result['min_stock'],  # 预警阈值20
         "status": "success"
     })
 
