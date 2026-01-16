@@ -1140,3 +1140,217 @@ TypeError: int() argument must be a string, a bytes-like object or a real number
 2026-01-14 19:32:05,615 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 19:32:05] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
 2026-01-14 19:32:08,145 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 19:32:08] "GET /order/list/admin HTTP/1.1" 200 -
 2026-01-14 19:32:08,154 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 19:32:08] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-14 19:37:52,917 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-01-14 19:37:52,917 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-01-14 19:37:55,025 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 19:37:55] "GET / HTTP/1.1" 200 -
+2026-01-14 19:37:55,140 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 19:37:55] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-14 19:37:57,797 - LOS - ERROR - Exception on /order/list/user [GET]
+Traceback (most recent call last):
+  File "C:\Users\31158\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\31158\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\31158\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\31158\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "c:\LOS2.0\LOS\LOS\views\order.py", line 16, in show_user_list
+    return render_template("admin/user_list.html",success="«Î≤Èø¥”√ªß¡–±Ì")
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\31158\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\templating.py", line 150, in render_template
+    return _render(app, template, context)
+  File "C:\Users\31158\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\templating.py", line 131, in _render
+    rv = template.render(context)
+  File "C:\Users\31158\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\31158\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "c:\LOS2.0\LOS\LOS\templates\admin\user_list.html", line 17, in top-level template code
+    <li><a href="{{ url_for('manage.manage_user') }}">”√ªßπ‹¿Ì</a></li>
+    ^^^^^^^^^
+  File "C:\Users\31158\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1121, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\31158\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1110, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+        endpoint,
+    ...<3 lines>...
+        force_external=_external,
+    )
+  File "C:\Users\31158\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\routing\map.py", line 924, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'manage.manage_user'. Did you mean 'manage.manage_order' instead?
+2026-01-14 19:37:57,815 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 19:37:57] "[35m[1mGET /order/list/user HTTP/1.1[0m" 500 -
+2026-01-14 19:38:03,724 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 19:38:03] "GET /order/list/admin HTTP/1.1" 200 -
+2026-01-14 19:38:03,733 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 19:38:03] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-14 19:38:05,532 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 19:38:05] "GET /order/manage HTTP/1.1" 200 -
+2026-01-14 19:38:05,547 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 19:38:05] "[36mGET /static/css/manage.css HTTP/1.1[0m" 304 -
+2026-01-14 19:38:05,547 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 19:38:05] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-14 19:38:05,548 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 19:38:05] "[36mGET /static/js/manage.js HTTP/1.1[0m" 304 -
+2026-01-14 19:38:14,918 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 19:38:14] "GET /order/manage/create HTTP/1.1" 200 -
+2026-01-14 19:38:14,929 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 19:38:14] "[33mGET /static/css/order_model.css HTTP/1.1[0m" 404 -
+2026-01-14 19:38:14,932 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 19:38:14] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-14 19:38:14,936 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 19:38:14] "[36mGET /static/js/order_modle.js HTTP/1.1[0m" 304 -
+2026-01-14 19:38:22,337 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 19:38:22] "POST /order/manage/create HTTP/1.1" 200 -
+2026-01-14 19:38:22,351 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 19:38:22] "[33mGET /static/css/order_model.css HTTP/1.1[0m" 404 -
+2026-01-14 19:38:22,353 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 19:38:22] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-14 19:38:22,355 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 19:38:22] "[36mGET /static/js/order_modle.js HTTP/1.1[0m" 304 -
+2026-01-14 19:38:24,426 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 19:38:24] "GET / HTTP/1.1" 200 -
+2026-01-14 19:38:24,436 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 19:38:24] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-14 19:41:11,370 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-01-14 19:41:11,370 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-01-14 19:41:13,322 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 19:41:13] "GET / HTTP/1.1" 200 -
+2026-01-14 19:41:13,386 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 19:41:13] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-14 19:41:17,945 - LOS - ERROR - Exception on /order/list/user [GET]
+Traceback (most recent call last):
+  File "C:\Users\31158\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\31158\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\31158\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\31158\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "c:\LOS2.0\LOS\LOS\views\order.py", line 16, in show_user_list
+    return render_template("admin/user_list.html",success="«Î≤Èø¥”√ªß¡–±Ì")
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\31158\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\templating.py", line 150, in render_template
+    return _render(app, template, context)
+  File "C:\Users\31158\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\templating.py", line 131, in _render
+    rv = template.render(context)
+  File "C:\Users\31158\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\31158\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "c:\LOS2.0\LOS\LOS\templates\admin\user_list.html", line 17, in top-level template code
+    <li><a href="{{ url_for('manage.manage_user') }}">”√ªßπ‹¿Ì</a></li>
+    ^^^^^^^^^
+  File "C:\Users\31158\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1121, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\31158\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1110, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+        endpoint,
+    ...<3 lines>...
+        force_external=_external,
+    )
+  File "C:\Users\31158\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\routing\map.py", line 924, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'manage.manage_user'. Did you mean 'manage.manage_order' instead?
+2026-01-14 19:41:17,953 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 19:41:17] "[35m[1mGET /order/list/user HTTP/1.1[0m" 500 -
+2026-01-14 19:41:20,822 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 19:41:20] "GET /analyse HTTP/1.1" 200 -
+2026-01-14 19:41:20,838 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 19:41:20] "[36mGET /static/css/profit.css HTTP/1.1[0m" 304 -
+2026-01-14 19:41:20,847 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 19:41:20] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-14 19:41:20,848 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 19:41:20] "[36mGET /static/js/analyse.js HTTP/1.1[0m" 304 -
+2026-01-14 19:41:20,874 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 19:41:20] "GET /analyse/weekly HTTP/1.1" 200 -
+2026-01-14 19:41:20,875 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 19:41:20] "GET /analyse/onemonth HTTP/1.1" 200 -
+2026-01-14 19:41:20,877 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 19:41:20] "GET /analyse/monthly HTTP/1.1" 200 -
+2026-01-14 19:41:20,879 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 19:41:20] "GET /analyse/stock_sell HTTP/1.1" 200 -
+2026-01-14 19:41:20,902 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 19:41:20] "GET /analyse/stock_sell HTTP/1.1" 200 -
+2026-01-14 19:41:47,968 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 19:41:47] "GET / HTTP/1.1" 200 -
+2026-01-14 19:41:47,979 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 19:41:47] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-14 19:41:53,076 - LOS - ERROR - Exception on /order/list/user [GET]
+Traceback (most recent call last):
+  File "C:\Users\31158\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\31158\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\31158\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\31158\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "c:\LOS2.0\LOS\LOS\views\order.py", line 16, in show_user_list
+    return render_template("admin/user_list.html",success="«Î≤Èø¥”√ªß¡–±Ì")
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\31158\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\templating.py", line 150, in render_template
+    return _render(app, template, context)
+  File "C:\Users\31158\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\templating.py", line 131, in _render
+    rv = template.render(context)
+  File "C:\Users\31158\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\31158\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "c:\LOS2.0\LOS\LOS\templates\admin\user_list.html", line 17, in top-level template code
+    <li><a href="{{ url_for('manage.manage_user') }}">”√ªßπ‹¿Ì</a></li>
+    ^^^^^^^^^
+  File "C:\Users\31158\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1121, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\31158\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1110, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+        endpoint,
+    ...<3 lines>...
+        force_external=_external,
+    )
+  File "C:\Users\31158\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\routing\map.py", line 924, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'manage.manage_user'. Did you mean 'manage.manage_order' instead?
+2026-01-14 19:41:53,080 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 19:41:53] "[35m[1mGET /order/list/user HTTP/1.1[0m" 500 -
+2026-01-14 19:41:55,836 - LOS - ERROR - Exception on /message [GET]
+Traceback (most recent call last):
+  File "C:\Users\31158\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\31158\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\31158\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\31158\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "c:\LOS2.0\LOS\LOS\views\message.py", line 31, in show_message_list
+    return render_template("admin/message_list.html", messages=messages or [])
+  File "C:\Users\31158\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\templating.py", line 149, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+  File "C:\Users\31158\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\environment.py", line 1087, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\31158\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\environment.py", line 1016, in get_template
+    return self._load_template(name, globals)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\31158\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\environment.py", line 975, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "C:\Users\31158\AppData\Local\Programs\Python\Python313\Lib\site-packages\jinja2\loaders.py", line 126, in load
+    source, filename, uptodate = self.get_source(environment, name)
+                                 ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\31158\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\templating.py", line 65, in get_source
+    return self._get_source_fast(environment, template)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\31158\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\templating.py", line 99, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: admin/message_list.html
+2026-01-14 19:41:55,841 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 19:41:55] "[35m[1mGET /message HTTP/1.1[0m" 500 -
+2026-01-14 19:41:59,312 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 19:41:59] "GET /analyse HTTP/1.1" 200 -
+2026-01-14 19:41:59,324 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 19:41:59] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-14 19:41:59,325 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 19:41:59] "[36mGET /static/css/profit.css HTTP/1.1[0m" 304 -
+2026-01-14 19:41:59,326 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 19:41:59] "[36mGET /static/js/analyse.js HTTP/1.1[0m" 304 -
+2026-01-14 19:41:59,346 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 19:41:59] "GET /analyse/onemonth HTTP/1.1" 200 -
+2026-01-14 19:41:59,348 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 19:41:59] "GET /analyse/weekly HTTP/1.1" 200 -
+2026-01-14 19:41:59,351 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 19:41:59] "GET /analyse/monthly HTTP/1.1" 200 -
+2026-01-14 19:41:59,356 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 19:41:59] "GET /analyse/stock_sell HTTP/1.1" 200 -
+2026-01-14 19:41:59,378 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 19:41:59] "GET /analyse/stock_sell HTTP/1.1" 200 -
+2026-01-14 19:42:03,838 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 19:42:03] "GET /order/list/admin HTTP/1.1" 200 -
+2026-01-14 19:42:03,852 - werkzeug - INFO - 127.0.0.1 - - [14/Jan/2026 19:42:03] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-15 21:21:08,113 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-01-15 21:21:08,114 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-01-15 21:21:12,275 - werkzeug - INFO - 127.0.0.1 - - [15/Jan/2026 21:21:12] "GET / HTTP/1.1" 200 -
+2026-01-15 21:21:12,351 - werkzeug - INFO - 127.0.0.1 - - [15/Jan/2026 21:21:12] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-15 21:21:32,127 - werkzeug - INFO - 127.0.0.1 - - [15/Jan/2026 21:21:32] "GET / HTTP/1.1" 200 -
+2026-01-15 21:21:32,151 - werkzeug - INFO - 127.0.0.1 - - [15/Jan/2026 21:21:32] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-15 21:21:36,548 - werkzeug - INFO - 127.0.0.1 - - [15/Jan/2026 21:21:36] "GET /analyse HTTP/1.1" 200 -
+2026-01-15 21:21:36,561 - werkzeug - INFO - 127.0.0.1 - - [15/Jan/2026 21:21:36] "[36mGET /static/css/profit.css HTTP/1.1[0m" 304 -
+2026-01-15 21:21:36,561 - werkzeug - INFO - 127.0.0.1 - - [15/Jan/2026 21:21:36] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-15 21:21:36,567 - werkzeug - INFO - 127.0.0.1 - - [15/Jan/2026 21:21:36] "[36mGET /static/js/analyse.js HTTP/1.1[0m" 304 -
+2026-01-15 21:21:36,633 - werkzeug - INFO - 127.0.0.1 - - [15/Jan/2026 21:21:36] "GET /analyse/weekly HTTP/1.1" 200 -
+2026-01-15 21:21:36,633 - werkzeug - INFO - 127.0.0.1 - - [15/Jan/2026 21:21:36] "GET /analyse/stock_sell HTTP/1.1" 200 -
+2026-01-15 21:21:36,634 - werkzeug - INFO - 127.0.0.1 - - [15/Jan/2026 21:21:36] "GET /analyse/monthly HTTP/1.1" 200 -
+2026-01-15 21:21:36,634 - werkzeug - INFO - 127.0.0.1 - - [15/Jan/2026 21:21:36] "GET /analyse/onemonth HTTP/1.1" 200 -
+2026-01-15 21:21:36,646 - werkzeug - INFO - 127.0.0.1 - - [15/Jan/2026 21:21:36] "GET /analyse/stock_sell HTTP/1.1" 200 -
