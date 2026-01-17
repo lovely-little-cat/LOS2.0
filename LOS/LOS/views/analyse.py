@@ -92,7 +92,7 @@ def get_time_range(period):
         date_format = '%%m-%%d'  
     elif period == 'month':
         start_date = end_date - timedelta(days=30)
-        date_format = '%%m-%%d' 
+        date_format = '%%Y-%%m-%%d' 
     elif period == 'year':
         start_date = end_date - relativedelta(months=12)  
         date_format = '%%Y-%%m'  

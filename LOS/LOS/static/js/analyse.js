@@ -275,7 +275,7 @@ class ProfitChartManager {
         maintainAspectRatio: false,
         scales: {
           y: { beginAtZero: true, title: { display: true, text: '利润（元）' } },
-          x: { title: { display: true, text: '日期（月-日）' } }
+          x: { title: { display: true, text: '日期（年-月-日）' } }
         },
         plugins: {
           tooltip: { callbacks: { label: (ctx) => `利润：${ctx.raw.toFixed(2)} 元` } }
@@ -403,7 +403,7 @@ class ProfitChartManager {
                   `库存量：${item.stock}`,
                   `出售量：${item.sell}`,
                   `补货优先级：${item.recommend_priority}`,
-                  item.need_restock ? '⚠️ 需要补货' : '✅ 库存充足'
+                  item.need_restock ? '需要补货' : '库存充足'
                 ];
               }
             }

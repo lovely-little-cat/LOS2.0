@@ -1,3 +1,5 @@
+from db import Pool, cursors
+
 class manage_order:
     """管理订单（上下文管理器版本）"""
     def __enter__(self):

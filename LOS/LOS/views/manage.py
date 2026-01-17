@@ -124,18 +124,29 @@ def admin_create():
     except ValueError:
         flash("用户ID/产品ID/数量必须为整数！", "error")
         return render_template("admin/create_order.html", user=use)
+    
+    try:
+        sql_sell = "SELECT sell FROM price WHERE products_id = %s"
+        sell_res = db.fetchone(sql_sell, [products_id]) 
+        if not sell_res:
+            flash("产品不存在！", "error")
+            return render_template("admin/create_order.html", user=use)
+        sell_now = int(sell_res['sell'])  
+        with db.manage_order() as (conn, cursor):
+            sql_update_sell = "UPDATE price SET sell = sell + %s WHERE products_id = %s"
+            cursor.execute(sql_update_sell, [count, products_id])
+    except Exception as e:
+        flash(f"更新失败：{str(e)}", "error") 
+        return render_template("admin/create_order.html", user=use)
 
 
     try:
         sql_stock = "SELECT stock FROM price WHERE products_id = %s"
-        print(sql_stock)
-        stock_res = db.fetchall(sql_stock, [products_id])
+        stock_res = db.fetchone(sql_stock, [products_id])  
         if not stock_res:
             flash("产品不存在！", "error")
             return render_template("admin/create_order.html", user=use)
-        print(stock_res)
-        stock_now = int(stock_res[0])
-        print(stock_now)
+        stock_now = int(stock_res['stock']) 
         if count > stock_now:
             flash(f"库存不足！当前库存：{stock_now}", "error")
             return render_template("admin/create_order.html", user=use)
