@@ -12,11 +12,11 @@
         <div class="container">
             <ul class="nav-list">
                 <li class="nav-label">导航菜单</li>
-                <li><a href="{{ url_for('index.index') }}">首页</a></li>
-                <li>用户:{{ user['user_name'] }}</li>
-                <li>ID:{{ user['id'] }}</li>
-                <li>{{ user['phone'] }}</li>
-                <li><a href="{{ url_for('login.logout') }}" >退出登录</a></li> 
+                <li class="nav-item"><a href="{{ url_for('index.index') }}"><span>首页</span></a></li>
+                <li class="nav-item"><span>用户:{{ user['user_name'] }}</span></li>
+                <li class="nav-item"><span>ID:{{ user['id'] }}</span></li>
+                <li class="nav-item"><span>手机号:{{ user['phone'] }}</span></li>
+                <li class="nav-item"><a href="{{ url_for('login.logout') }}" ><span>退出登录</span></a></li> 
                 
             </ul>
         </div>

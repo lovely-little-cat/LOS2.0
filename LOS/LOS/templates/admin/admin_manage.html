@@ -13,13 +13,13 @@
         <div class="container">
             <ul class="nav-list">
                 <li class="nav-label">导航菜单</li>
-                <li><a href="{{ url_for('index.index') }}">首页</a></li>
-                <li><a href="{{ url_for('order.show_order_list') }}">查看订单表</a></li>
-                <li><a href="{{ url_for('manage.admin_create') }}">创建订单表</a></li>
-                <li><a href="{{ url_for('order.show_order_list') }}">查看用户表</a></li>
-                <li><a href="{{ url_for('analyse.show_analyse') }}">查看利润分析</a></li>
-                <li><a href="{{ url_for('message.show_message_list') }}">查看反馈信息</a></li>
-                <li><a href="{{ url_for('login.logout') }}">退出登录</a></li>  
+                <li class="nav-item"><a href="{{ url_for('index.index') }}">首页</a></li>
+                <li class="nav-item"><a href="{{ url_for('order.show_order_list') }}"><span>查看订单表</span></a></li>
+                <li class="nav-item"><a href="{{ url_for('manage.admin_create') }}"><span>创建订单表</span></a></li>
+                <li class="nav-item"><a href="{{ url_for('order.show_user_list') }}"><span>查看用户表</span></a></li>
+                <li class="nav-item"><a href="{{ url_for('analyse.show_analyse') }}"><span>查看利润分析</span></a></li>
+                <li class="nav-item"><a href="{{ url_for('message.show_message_list') }}"><span>查看反馈信息</span></a></li>
+                <li class="nav-item"><a href="{{ url_for('login.logout') }}"><span>退出登录</span></a></li>  
             </ul>
         </div>
     </nav>

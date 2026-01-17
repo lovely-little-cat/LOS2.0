@@ -14,8 +14,8 @@
     <nav class="nav">
         <ul class="nav-list">
             <li class="nav-label">导航菜单</li>
-            <li><a href="{{ url_for('index.index') }}">首页</a></li>
-            <li><a href="{{ url_for('manage.admin_create') }}">创建订单</a></li>
+            <li class="nav-item"><a href="{{ url_for('index.index') }}"><span>首页</span></a></li>
+            <li class="nav-item"><a href="{{ url_for('manage.admin_create') }}"><span>创建订单</span></a></li>
             </ul>
     </nav>
     <form method="post" action="{{ url_for('manage.admin_create') }}">

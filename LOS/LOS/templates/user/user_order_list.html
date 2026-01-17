@@ -12,11 +12,11 @@
         <div class="container">
             <ul class="nav-list">
                 <li class="nav-label">导航菜单</li>
-                <li><a href="{{ url_for('index.index') }}">首页</a></li>
-                <li><a href="{{ url_for('order.show_order_list') }}">订单查看</a></li>
-                <li><a href="{{ url_for('manage.manage_order') }}">订单管理</a></li>
-                <li><a href="{{ url_for('transform.transform_order') }}">导出Excel</a></li>  
-                <li><a href="{{ url_for('login.logout') }}">退出登录</a></li>
+                <li class="nav-item"><a href="{{ url_for('index.index') }}">首页</a></li>
+                <li class="nav-item"><a href="{{ url_for('order.show_order_list') }}"><span>订单查看</span></a></li>
+                <li class="nav-item"><a href="{{ url_for('manage.manage_order') }}"><span>订单管理</span></a></li>
+                <li class="nav-item"><a href="{{ url_for('transform.transform_order') }}"><span>导出Excel</span></a></li>  
+                <li class="nav-item"><a href="{{ url_for('login.logout') }}"><span>退出登录</span></a></li>
             </ul>
         </div>
     </nav>
