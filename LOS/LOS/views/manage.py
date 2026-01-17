@@ -79,7 +79,6 @@ def admin_update():
 
 @man.route('/order/manage/create', methods=['GET', 'POST'])
 def admin_create():
-
     use = session.get('user')
     if not use or use.get('role') != 'admin':
         return render_template("login.html", error="无权限创建订单")
@@ -87,37 +86,61 @@ def admin_create():
     if request.method == 'GET':
         return render_template("admin/create_order.html", user=use)
 
-
     try:
         user_id = int(request.form.get('user_id'))
+        mql_user_id = "SELECT id FROM user WHERE id = %s"
+        user_res = db.fetchone(mql_user_id, [user_id])
+        if not user_res:
+            flash("用户不存在！", "error")
+            return render_template("admin/create_order.html", user=use)
         products_id = int(request.form.get('products_id'))
         count = int(request.form.get('count'))
-        status = int(request.form.get('status', 1))
-        buy_time = request.form.get('buy_time') or datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        status = int(request.form.get('status'))
+        if count <= 0:
+            flash("数量必须为正整数！", "error")
+            return render_template("admin/create_order.html", user=use)
+        buy_time_input = request.form.get('buy_time')
+
+        if buy_time_input not in ['', None]:
+            try:
+              
+                buy_time_input = buy_time_input.strip()
+                if len(buy_time_input) >= 6 and len(buy_time_input) <= 10:  
+                    buy_time_dt = datetime.datetime.strptime(buy_time_input, "%Y-%m-%d")
+                elif len(buy_time_input) >10 and len(buy_time_input) <= 19:  
+                    buy_time_dt = datetime.datetime.strptime(buy_time_input, "%Y-%m-%d %H:%M:%S")
+                else:
+                    buy_time_dt = datetime.datetime.strptime(buy_time_input, "%Y-%m-%d")
+
+                buy_time = buy_time_dt.strftime("%Y-%m-%d %H:%M:%S")
+            except ValueError:
+                flash("时间格式错误！请使用YYYY-MM-DD或YYYY-MM-DD HH:MM:SS格式", "error")
+                return render_template("admin/create_order.html", user=use)
+        
+        # 默认使用当前时间
+        else:
+            buy_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        print(buy_time,user_id,products_id,count,status)
     except ValueError:
         flash("用户ID/产品ID/数量必须为整数！", "error")
         return render_template("admin/create_order.html", user=use)
 
 
-    if not all([user_id, products_id, count]) or count <= 0:
-        flash("用户ID、产品ID为必填项，数量必须为正整数！", "error")
-        return render_template("admin/create_order.html", user=use)
-
-
     try:
-
-        sql_stock = "SELECT p.stock FROM price WHERE products_id = %s"
-        stock_res = db.fetchone(sql_stock, [products_id])
+        sql_stock = "SELECT stock FROM price WHERE products_id = %s"
+        print(sql_stock)
+        stock_res = db.fetchall(sql_stock, [products_id])
         if not stock_res:
             flash("产品不存在！", "error")
             return render_template("admin/create_order.html", user=use)
+        print(stock_res)
         stock_now = int(stock_res[0])
+        print(stock_now)
         if count > stock_now:
             flash(f"库存不足！当前库存：{stock_now}", "error")
             return render_template("admin/create_order.html", user=use)
 
         with db.manage_order() as (conn, cursor):
-
             sql_insert = """
                 INSERT INTO `order` (user_id, products_id, count, status, buy_time)
                 VALUES (%s, %s, %s, %s, %s)
@@ -126,7 +149,7 @@ def admin_create():
 
             sql_update_stock = "UPDATE price SET stock = stock - %s WHERE products_id = %s"
             cursor.execute(sql_update_stock, [count, products_id])
-            conn.commit()
+            print(sql_update_stock)
         flash("订单创建成功！", "success")
     except Exception as e:
         flash(f"创建失败：{str(e)}", "error")
@@ -193,14 +216,30 @@ def user_submit():
         flash("数量必须为有效数字！", "error")
         return render_template("user/submit_order.html", user=use)
 
-    buy_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     try:
+        # 检查库存
+        sql_stock = "SELECT p.stock FROM price WHERE products_id = %s"
+        stock_res = db.fetchone(sql_stock, [products_id])
+        if not stock_res:
+            flash("产品不存在！", "error")
+            return render_template("user/submit_order.html", user=use)
+        stock_now = int(stock_res[0])
+        if count > stock_now:
+            flash(f"库存不足！当前库存：{stock_now}", "error")
+            return render_template("user/submit_order.html", user=use)
+
+        buy_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         with db.manage_order() as (conn, cursor):
+            # 创建订单
             sql = """
                 INSERT INTO `order`(user_id, products_id, count, buy_time, status)
                 VALUES (%s, %s, %s, %s, 1)
             """
             cursor.execute(sql, [use['id'], products_id, count, buy_time])
+            
+            # 更新库存
+            sql_update_stock = "UPDATE price SET stock = stock - %s WHERE products_id = %s"
+            cursor.execute(sql_update_stock, [count, products_id])
             conn.commit()
         flash("订单提交成功！", "success")
     except Exception as e:

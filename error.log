@@ -1354,3 +1354,303 @@ jinja2.exceptions.TemplateNotFound: admin/message_list.html
 2026-01-15 21:21:36,634 - werkzeug - INFO - 127.0.0.1 - - [15/Jan/2026 21:21:36] "GET /analyse/monthly HTTP/1.1" 200 -
 2026-01-15 21:21:36,634 - werkzeug - INFO - 127.0.0.1 - - [15/Jan/2026 21:21:36] "GET /analyse/onemonth HTTP/1.1" 200 -
 2026-01-15 21:21:36,646 - werkzeug - INFO - 127.0.0.1 - - [15/Jan/2026 21:21:36] "GET /analyse/stock_sell HTTP/1.1" 200 -
+2026-01-17 22:20:16,036 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-01-17 22:20:16,037 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-01-17 22:20:18,904 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 22:20:18] "[32mGET / HTTP/1.1[0m" 302 -
+2026-01-17 22:20:19,079 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 22:20:19] "GET /login?error=ÇëÏÈµÇÂ¼ HTTP/1.1" 200 -
+2026-01-17 22:20:19,095 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 22:20:19] "GET /static/css/login.css HTTP/1.1" 200 -
+2026-01-17 22:20:19,103 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 22:20:19] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-17 22:20:19,161 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 22:20:19] "[32mGET /favicon.ico HTTP/1.1[0m" 302 -
+2026-01-17 22:20:19,179 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 22:20:19] "GET /login?error=ÇëÏÈµÇÂ¼ HTTP/1.1" 200 -
+2026-01-17 22:20:26,383 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 22:20:26] "[32mPOST /login HTTP/1.1[0m" 302 -
+2026-01-17 22:20:26,407 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 22:20:26] "GET / HTTP/1.1" 200 -
+2026-01-17 22:20:26,414 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 22:20:26] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-17 22:20:26,451 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 22:20:26] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-01-17 22:20:29,640 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 22:20:29] "GET /order/list/admin HTTP/1.1" 200 -
+2026-01-17 22:20:29,647 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 22:20:29] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-17 22:20:31,873 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 22:20:31] "GET /transform/order HTTP/1.1" 200 -
+2026-01-17 22:20:35,013 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 22:20:35] "GET / HTTP/1.1" 200 -
+2026-01-17 22:20:35,051 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 22:20:35] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-17 22:20:36,213 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 22:20:36] "GET /analyse HTTP/1.1" 200 -
+2026-01-17 22:20:36,225 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 22:20:36] "[36mGET /static/css/profit.css HTTP/1.1[0m" 304 -
+2026-01-17 22:20:36,226 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 22:20:36] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-17 22:20:36,229 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 22:20:36] "[36mGET /static/js/analyse.js HTTP/1.1[0m" 304 -
+2026-01-17 22:20:36,269 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 22:20:36] "GET /analyse/onemonth HTTP/1.1" 200 -
+2026-01-17 22:20:36,270 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 22:20:36] "GET /analyse/weekly HTTP/1.1" 200 -
+2026-01-17 22:20:36,271 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 22:20:36] "GET /analyse/monthly HTTP/1.1" 200 -
+2026-01-17 22:20:36,280 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 22:20:36] "GET /analyse/stock_sell HTTP/1.1" 200 -
+2026-01-17 22:20:36,287 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 22:20:36] "GET /analyse/stock_sell HTTP/1.1" 200 -
+2026-01-17 22:20:42,191 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 22:20:42] "GET /analyse/monthly HTTP/1.1" 200 -
+2026-01-17 22:20:42,192 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 22:20:42] "GET /analyse/weekly HTTP/1.1" 200 -
+2026-01-17 22:20:42,193 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 22:20:42] "GET /analyse/onemonth HTTP/1.1" 200 -
+2026-01-17 22:20:42,194 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 22:20:42] "GET /analyse/stock_sell HTTP/1.1" 200 -
+2026-01-17 22:20:42,208 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 22:20:42] "GET /analyse/stock_sell HTTP/1.1" 200 -
+2026-01-17 22:20:45,852 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 22:20:45] "GET /transform/price HTTP/1.1" 200 -
+2026-01-17 22:20:49,271 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 22:20:49] "GET /order/manage HTTP/1.1" 200 -
+2026-01-17 22:20:49,283 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 22:20:49] "[36mGET /static/css/manage.css HTTP/1.1[0m" 304 -
+2026-01-17 22:20:49,283 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 22:20:49] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-17 22:20:49,285 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 22:20:49] "[36mGET /static/js/manage.js HTTP/1.1[0m" 304 -
+2026-01-17 22:20:57,830 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 22:20:57] "GET /order/manage/create HTTP/1.1" 200 -
+2026-01-17 22:20:57,842 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 22:20:57] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-17 22:20:57,843 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 22:20:57] "[33mGET /static/css/order_model.css HTTP/1.1[0m" 404 -
+2026-01-17 22:20:57,846 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 22:20:57] "[36mGET /static/js/order_modle.js HTTP/1.1[0m" 304 -
+2026-01-17 22:21:14,214 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 22:21:14] "POST /order/manage/create HTTP/1.1" 200 -
+2026-01-17 22:21:14,223 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 22:21:14] "[33mGET /static/css/order_model.css HTTP/1.1[0m" 404 -
+2026-01-17 22:21:14,225 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 22:21:14] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-17 22:21:14,230 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 22:21:14] "[36mGET /static/js/order_modle.js HTTP/1.1[0m" 304 -
+2026-01-17 22:21:18,120 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 22:21:18] "POST /order/manage/create HTTP/1.1" 200 -
+2026-01-17 22:21:18,131 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 22:21:18] "[33mGET /static/css/order_model.css HTTP/1.1[0m" 404 -
+2026-01-17 22:21:18,134 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 22:21:18] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-17 22:21:18,137 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 22:21:18] "[36mGET /static/js/order_modle.js HTTP/1.1[0m" 304 -
+2026-01-17 22:21:19,785 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 22:21:19] "GET / HTTP/1.1" 200 -
+2026-01-17 22:21:19,798 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 22:21:19] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-17 22:21:23,223 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 22:21:23] "GET / HTTP/1.1" 200 -
+2026-01-17 22:21:23,232 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 22:21:23] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-17 23:00:14,221 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-01-17 23:00:14,222 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-01-17 23:00:16,289 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:00:16] "GET / HTTP/1.1" 200 -
+2026-01-17 23:00:16,330 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:00:16] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-17 23:00:19,091 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:00:19] "GET /order/list/admin HTTP/1.1" 200 -
+2026-01-17 23:00:19,098 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:00:19] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-17 23:00:21,044 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:00:21] "GET / HTTP/1.1" 200 -
+2026-01-17 23:00:21,052 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:00:21] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-17 23:00:24,073 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:00:24] "GET /order/list/admin HTTP/1.1" 200 -
+2026-01-17 23:00:24,084 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:00:24] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-17 23:00:26,501 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:00:26] "GET /order/manage HTTP/1.1" 200 -
+2026-01-17 23:00:26,511 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:00:26] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-17 23:00:26,514 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:00:26] "[36mGET /static/css/manage.css HTTP/1.1[0m" 304 -
+2026-01-17 23:00:26,514 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:00:26] "[36mGET /static/js/manage.js HTTP/1.1[0m" 304 -
+2026-01-17 23:00:28,660 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:00:28] "GET /order/manage/create HTTP/1.1" 200 -
+2026-01-17 23:00:28,669 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:00:28] "[33mGET /static/css/order_model.css HTTP/1.1[0m" 404 -
+2026-01-17 23:00:28,673 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:00:28] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-17 23:00:28,675 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:00:28] "GET /static/js/order_modle.js HTTP/1.1" 200 -
+2026-01-17 23:00:43,209 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:00:43] "POST /order/manage/create HTTP/1.1" 200 -
+2026-01-17 23:00:43,218 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:00:43] "[33mGET /static/css/order_model.css HTTP/1.1[0m" 404 -
+2026-01-17 23:00:43,219 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:00:43] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-17 23:00:43,221 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:00:43] "[36mGET /static/js/order_modle.js HTTP/1.1[0m" 304 -
+2026-01-17 23:00:48,263 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:00:48] "GET / HTTP/1.1" 200 -
+2026-01-17 23:00:48,271 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:00:48] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-17 23:00:51,150 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:00:51] "GET / HTTP/1.1" 200 -
+2026-01-17 23:00:51,156 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:00:51] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-17 23:00:56,202 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:00:56] "GET / HTTP/1.1" 200 -
+2026-01-17 23:00:56,211 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:00:56] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-17 23:02:58,143 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-01-17 23:02:58,143 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-01-17 23:03:00,294 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:03:00] "GET / HTTP/1.1" 200 -
+2026-01-17 23:03:00,325 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:03:00] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-17 23:03:05,646 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:03:05] "GET /order/list/admin HTTP/1.1" 200 -
+2026-01-17 23:03:05,653 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:03:05] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-17 23:03:07,085 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:03:07] "GET /order/manage HTTP/1.1" 200 -
+2026-01-17 23:03:07,094 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:03:07] "[36mGET /static/css/manage.css HTTP/1.1[0m" 304 -
+2026-01-17 23:03:07,095 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:03:07] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-17 23:03:07,096 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:03:07] "[36mGET /static/js/manage.js HTTP/1.1[0m" 304 -
+2026-01-17 23:03:09,037 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:03:09] "GET /order/manage/create HTTP/1.1" 200 -
+2026-01-17 23:03:09,048 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:03:09] "[33mGET /static/css/order_model.css HTTP/1.1[0m" 404 -
+2026-01-17 23:03:09,052 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:03:09] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-17 23:03:09,052 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:03:09] "[36mGET /static/js/order_modle.js HTTP/1.1[0m" 304 -
+2026-01-17 23:03:19,901 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:03:19] "[32mPOST /order/manage/create HTTP/1.1[0m" 302 -
+2026-01-17 23:03:19,909 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:03:19] "GET /order/manage HTTP/1.1" 200 -
+2026-01-17 23:03:19,929 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:03:19] "[36mGET /static/css/manage.css HTTP/1.1[0m" 304 -
+2026-01-17 23:03:19,929 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:03:19] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-17 23:03:19,930 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:03:19] "[36mGET /static/js/manage.js HTTP/1.1[0m" 304 -
+2026-01-17 23:03:27,566 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:03:27] "[32mPOST /order/manage/update HTTP/1.1[0m" 302 -
+2026-01-17 23:03:27,574 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:03:27] "GET /order/manage HTTP/1.1" 200 -
+2026-01-17 23:03:27,586 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:03:27] "[36mGET /static/css/manage.css HTTP/1.1[0m" 304 -
+2026-01-17 23:03:27,587 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:03:27] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-17 23:03:27,587 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:03:27] "[36mGET /static/js/manage.js HTTP/1.1[0m" 304 -
+2026-01-17 23:03:40,271 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:03:40] "GET /order/list/admin HTTP/1.1" 200 -
+2026-01-17 23:03:40,283 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:03:40] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-17 23:03:42,584 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:03:42] "GET /order/list/admin HTTP/1.1" 200 -
+2026-01-17 23:03:42,597 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:03:42] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-17 23:06:13,165 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-01-17 23:06:13,165 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-01-17 23:06:19,706 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:06:19] "GET /order/list/admin HTTP/1.1" 200 -
+2026-01-17 23:06:19,713 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:06:19] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-17 23:06:20,948 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:06:20] "GET /order/manage HTTP/1.1" 200 -
+2026-01-17 23:06:20,957 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:06:20] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-17 23:06:20,959 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:06:20] "[36mGET /static/css/manage.css HTTP/1.1[0m" 304 -
+2026-01-17 23:06:20,961 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:06:20] "[36mGET /static/js/manage.js HTTP/1.1[0m" 304 -
+2026-01-17 23:06:31,489 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:06:31] "GET /order/manage/create HTTP/1.1" 200 -
+2026-01-17 23:06:31,501 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:06:31] "[33mGET /static/css/order_model.css HTTP/1.1[0m" 404 -
+2026-01-17 23:06:31,503 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:06:31] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-17 23:06:31,504 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:06:31] "[36mGET /static/js/order_modle.js HTTP/1.1[0m" 304 -
+2026-01-17 23:06:57,178 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:06:57] "[32mPOST /order/manage/create HTTP/1.1[0m" 302 -
+2026-01-17 23:06:57,187 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:06:57] "GET /order/manage HTTP/1.1" 200 -
+2026-01-17 23:06:57,210 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:06:57] "[36mGET /static/css/manage.css HTTP/1.1[0m" 304 -
+2026-01-17 23:06:57,212 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:06:57] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-17 23:06:57,213 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:06:57] "[36mGET /static/js/manage.js HTTP/1.1[0m" 304 -
+2026-01-17 23:07:03,249 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:07:03] "[32mPOST /order/manage/update HTTP/1.1[0m" 302 -
+2026-01-17 23:07:03,258 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:07:03] "GET /order/manage HTTP/1.1" 200 -
+2026-01-17 23:07:03,282 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:07:03] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-17 23:07:03,283 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:07:03] "[36mGET /static/css/manage.css HTTP/1.1[0m" 304 -
+2026-01-17 23:07:03,283 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:07:03] "[36mGET /static/js/manage.js HTTP/1.1[0m" 304 -
+2026-01-17 23:07:05,225 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:07:05] "GET / HTTP/1.1" 200 -
+2026-01-17 23:07:05,232 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:07:05] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-17 23:08:47,403 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-01-17 23:08:47,404 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-01-17 23:08:49,935 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:08:49] "GET / HTTP/1.1" 200 -
+2026-01-17 23:08:49,960 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:08:49] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-17 23:08:55,454 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:08:55] "GET /order/list/admin HTTP/1.1" 200 -
+2026-01-17 23:08:55,462 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:08:55] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-17 23:08:57,042 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:08:57] "GET /order/manage HTTP/1.1" 200 -
+2026-01-17 23:08:57,059 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:08:57] "[36mGET /static/css/manage.css HTTP/1.1[0m" 304 -
+2026-01-17 23:08:57,061 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:08:57] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-17 23:08:57,062 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:08:57] "[36mGET /static/js/manage.js HTTP/1.1[0m" 304 -
+2026-01-17 23:08:58,438 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:08:58] "GET /order/manage/create HTTP/1.1" 200 -
+2026-01-17 23:08:58,447 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:08:58] "[33mGET /static/css/order_model.css HTTP/1.1[0m" 404 -
+2026-01-17 23:08:58,454 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:08:58] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-17 23:08:58,455 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:08:58] "[36mGET /static/js/order_modle.js HTTP/1.1[0m" 304 -
+2026-01-17 23:09:07,119 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:09:07] "[32mPOST /order/manage/create HTTP/1.1[0m" 302 -
+2026-01-17 23:09:07,132 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:09:07] "GET /order/manage HTTP/1.1" 200 -
+2026-01-17 23:09:07,149 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:09:07] "[36mGET /static/css/manage.css HTTP/1.1[0m" 304 -
+2026-01-17 23:09:07,152 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:09:07] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-17 23:09:07,153 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:09:07] "[36mGET /static/js/manage.js HTTP/1.1[0m" 304 -
+2026-01-17 23:09:35,348 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:09:35] "GET / HTTP/1.1" 200 -
+2026-01-17 23:09:35,358 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:09:35] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-17 23:09:36,746 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:09:36] "GET /order/list/admin HTTP/1.1" 200 -
+2026-01-17 23:09:36,755 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:09:36] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-17 23:09:39,621 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:09:39] "GET /order/list/admin HTTP/1.1" 200 -
+2026-01-17 23:09:39,627 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:09:39] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-17 23:23:30,257 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-01-17 23:23:30,257 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-01-17 23:23:31,844 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:23:31] "GET / HTTP/1.1" 200 -
+2026-01-17 23:23:31,897 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:23:31] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-17 23:23:33,756 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:23:33] "GET /order/list/admin HTTP/1.1" 200 -
+2026-01-17 23:23:33,764 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:23:33] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-17 23:23:35,546 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:23:35] "GET /order/manage HTTP/1.1" 200 -
+2026-01-17 23:23:35,559 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:23:35] "[36mGET /static/css/manage.css HTTP/1.1[0m" 304 -
+2026-01-17 23:23:35,562 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:23:35] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-17 23:23:35,564 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:23:35] "[36mGET /static/js/manage.js HTTP/1.1[0m" 304 -
+2026-01-17 23:23:36,795 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:23:36] "GET /order/manage/create HTTP/1.1" 200 -
+2026-01-17 23:23:36,806 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:23:36] "[33mGET /static/css/order_model.css HTTP/1.1[0m" 404 -
+2026-01-17 23:23:36,808 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:23:36] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-17 23:23:36,809 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:23:36] "[36mGET /static/js/order_modle.js HTTP/1.1[0m" 304 -
+2026-01-17 23:23:46,044 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:23:46] "POST /order/manage/create HTTP/1.1" 200 -
+2026-01-17 23:23:46,052 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:23:46] "[33mGET /static/css/order_model.css HTTP/1.1[0m" 404 -
+2026-01-17 23:23:46,055 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:23:46] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-17 23:23:46,056 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:23:46] "[36mGET /static/js/order_modle.js HTTP/1.1[0m" 304 -
+2026-01-17 23:23:53,157 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:23:53] "GET / HTTP/1.1" 200 -
+2026-01-17 23:23:53,167 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:23:53] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-17 23:23:56,193 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:23:56] "GET / HTTP/1.1" 200 -
+2026-01-17 23:23:56,200 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:23:56] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-17 23:23:58,022 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:23:58] "GET /order/list/admin HTTP/1.1" 200 -
+2026-01-17 23:23:58,031 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:23:58] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-17 23:27:55,711 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-01-17 23:27:55,711 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-01-17 23:27:57,057 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:27:57] "GET / HTTP/1.1" 200 -
+2026-01-17 23:27:57,081 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:27:57] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-17 23:28:00,798 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:28:00] "GET /order/list/admin HTTP/1.1" 200 -
+2026-01-17 23:28:00,806 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:28:00] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-17 23:28:01,765 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:28:01] "GET /order/manage HTTP/1.1" 200 -
+2026-01-17 23:28:01,777 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:28:01] "[36mGET /static/css/manage.css HTTP/1.1[0m" 304 -
+2026-01-17 23:28:01,778 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:28:01] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-17 23:28:01,778 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:28:01] "[36mGET /static/js/manage.js HTTP/1.1[0m" 304 -
+2026-01-17 23:28:03,932 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:28:03] "GET /order/manage/create HTTP/1.1" 200 -
+2026-01-17 23:28:03,943 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:28:03] "[33mGET /static/css/order_model.css HTTP/1.1[0m" 404 -
+2026-01-17 23:28:03,944 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:28:03] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-17 23:28:03,945 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:28:03] "[36mGET /static/js/order_modle.js HTTP/1.1[0m" 304 -
+2026-01-17 23:28:23,169 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:28:23] "[32mPOST /order/manage/create HTTP/1.1[0m" 302 -
+2026-01-17 23:28:23,179 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:28:23] "GET /order/manage HTTP/1.1" 200 -
+2026-01-17 23:28:23,195 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:28:23] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-17 23:28:23,196 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:28:23] "[36mGET /static/css/manage.css HTTP/1.1[0m" 304 -
+2026-01-17 23:28:23,196 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:28:23] "[36mGET /static/js/manage.js HTTP/1.1[0m" 304 -
+2026-01-17 23:28:27,956 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:28:27] "GET / HTTP/1.1" 200 -
+2026-01-17 23:28:27,970 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:28:27] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-17 23:28:29,810 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:28:29] "GET /order/list/admin HTTP/1.1" 200 -
+2026-01-17 23:28:29,820 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:28:29] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-17 23:34:23,086 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-01-17 23:34:23,087 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-01-17 23:34:24,487 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:34:24] "GET / HTTP/1.1" 200 -
+2026-01-17 23:34:24,517 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:34:24] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-17 23:34:41,552 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:34:41] "GET /order/list/admin HTTP/1.1" 200 -
+2026-01-17 23:34:41,563 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:34:41] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-17 23:34:42,477 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:34:42] "GET /order/manage HTTP/1.1" 200 -
+2026-01-17 23:34:42,485 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:34:42] "[36mGET /static/css/manage.css HTTP/1.1[0m" 304 -
+2026-01-17 23:34:42,486 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:34:42] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-17 23:34:42,488 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:34:42] "[36mGET /static/js/manage.js HTTP/1.1[0m" 304 -
+2026-01-17 23:34:43,928 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:34:43] "GET /order/manage/create HTTP/1.1" 200 -
+2026-01-17 23:34:43,949 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:34:43] "[33mGET /static/css/order_model.css HTTP/1.1[0m" 404 -
+2026-01-17 23:34:43,954 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:34:43] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-17 23:34:43,956 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:34:43] "[36mGET /static/js/order_modle.js HTTP/1.1[0m" 304 -
+2026-01-17 23:34:55,077 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:34:55] "[32mPOST /order/manage/create HTTP/1.1[0m" 302 -
+2026-01-17 23:34:55,086 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:34:55] "GET /order/manage HTTP/1.1" 200 -
+2026-01-17 23:34:55,103 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:34:55] "[36mGET /static/css/manage.css HTTP/1.1[0m" 304 -
+2026-01-17 23:34:55,104 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:34:55] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-17 23:34:55,104 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:34:55] "[36mGET /static/js/manage.js HTTP/1.1[0m" 304 -
+2026-01-17 23:35:02,755 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:35:02] "[32mPOST /order/manage/update HTTP/1.1[0m" 302 -
+2026-01-17 23:35:02,765 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:35:02] "GET /order/manage HTTP/1.1" 200 -
+2026-01-17 23:35:02,778 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:35:02] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-17 23:35:02,778 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:35:02] "[36mGET /static/css/manage.css HTTP/1.1[0m" 304 -
+2026-01-17 23:35:02,779 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:35:02] "[36mGET /static/js/manage.js HTTP/1.1[0m" 304 -
+2026-01-17 23:35:07,924 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:35:07] "[32mPOST /order/manage/update HTTP/1.1[0m" 302 -
+2026-01-17 23:35:07,932 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:35:07] "GET /order/manage HTTP/1.1" 200 -
+2026-01-17 23:35:07,954 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:35:07] "[36mGET /static/css/manage.css HTTP/1.1[0m" 304 -
+2026-01-17 23:35:07,957 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:35:07] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-17 23:35:07,959 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:35:07] "[36mGET /static/js/manage.js HTTP/1.1[0m" 304 -
+2026-01-17 23:35:24,291 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:35:24] "GET / HTTP/1.1" 200 -
+2026-01-17 23:35:24,298 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:35:24] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-17 23:35:32,515 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:35:32] "GET /order/list/admin HTTP/1.1" 200 -
+2026-01-17 23:35:32,526 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:35:32] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-17 23:35:35,087 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:35:35] "GET /order/list/admin HTTP/1.1" 200 -
+2026-01-17 23:35:35,096 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:35:35] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-17 23:35:36,555 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:35:36] "GET /order/list/admin HTTP/1.1" 200 -
+2026-01-17 23:35:36,564 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:35:36] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-17 23:53:03,981 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-01-17 23:53:03,981 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-01-17 23:53:06,074 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:53:06] "GET / HTTP/1.1" 200 -
+2026-01-17 23:53:06,135 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:53:06] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-17 23:53:07,897 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:53:07] "GET /order/list/admin HTTP/1.1" 200 -
+2026-01-17 23:53:07,907 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:53:07] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-17 23:53:09,800 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:53:09] "GET /order/manage HTTP/1.1" 200 -
+2026-01-17 23:53:09,809 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:53:09] "[36mGET /static/css/manage.css HTTP/1.1[0m" 304 -
+2026-01-17 23:53:09,809 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:53:09] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-17 23:53:09,811 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:53:09] "[36mGET /static/js/manage.js HTTP/1.1[0m" 304 -
+2026-01-17 23:53:11,218 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:53:11] "GET /order/manage/create HTTP/1.1" 200 -
+2026-01-17 23:53:11,235 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:53:11] "[33mGET /static/css/order_model.css HTTP/1.1[0m" 404 -
+2026-01-17 23:53:11,239 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:53:11] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-17 23:53:11,240 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:53:11] "[36mGET /static/js/order_modle.js HTTP/1.1[0m" 304 -
+2026-01-17 23:53:18,205 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:53:18] "[32mPOST /order/manage/create HTTP/1.1[0m" 302 -
+2026-01-17 23:53:18,220 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:53:18] "GET /order/manage HTTP/1.1" 200 -
+2026-01-17 23:53:18,238 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:53:18] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-17 23:53:18,238 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:53:18] "[36mGET /static/css/manage.css HTTP/1.1[0m" 304 -
+2026-01-17 23:53:18,238 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:53:18] "[36mGET /static/js/manage.js HTTP/1.1[0m" 304 -
+2026-01-17 23:53:20,066 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:53:20] "[32mPOST /order/manage/update HTTP/1.1[0m" 302 -
+2026-01-17 23:53:20,075 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:53:20] "GET /order/manage HTTP/1.1" 200 -
+2026-01-17 23:53:20,086 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:53:20] "[36mGET /static/css/manage.css HTTP/1.1[0m" 304 -
+2026-01-17 23:53:20,087 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:53:20] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-17 23:53:20,088 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:53:20] "[36mGET /static/js/manage.js HTTP/1.1[0m" 304 -
+2026-01-17 23:53:22,164 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:53:22] "GET / HTTP/1.1" 200 -
+2026-01-17 23:53:22,172 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:53:22] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-17 23:53:25,572 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:53:25] "GET / HTTP/1.1" 200 -
+2026-01-17 23:53:25,583 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:53:25] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-17 23:53:26,233 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:53:26] "GET / HTTP/1.1" 200 -
+2026-01-17 23:53:26,243 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:53:26] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-17 23:58:27,167 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-01-17 23:58:27,167 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-01-17 23:58:28,722 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:58:28] "GET / HTTP/1.1" 200 -
+2026-01-17 23:58:28,778 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:58:28] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-17 23:58:31,568 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:58:31] "GET /order/list/admin HTTP/1.1" 200 -
+2026-01-17 23:58:31,577 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:58:31] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-17 23:58:33,512 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:58:33] "GET /order/manage HTTP/1.1" 200 -
+2026-01-17 23:58:33,521 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:58:33] "[36mGET /static/css/manage.css HTTP/1.1[0m" 304 -
+2026-01-17 23:58:33,521 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:58:33] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-17 23:58:33,523 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:58:33] "[36mGET /static/js/manage.js HTTP/1.1[0m" 304 -
+2026-01-17 23:58:34,331 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:58:34] "GET /order/manage/create HTTP/1.1" 200 -
+2026-01-17 23:58:34,341 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:58:34] "[33mGET /static/css/order_model.css HTTP/1.1[0m" 404 -
+2026-01-17 23:58:34,344 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:58:34] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-17 23:58:34,345 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:58:34] "[36mGET /static/js/order_modle.js HTTP/1.1[0m" 304 -
+2026-01-17 23:58:42,041 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:58:42] "[32mPOST /order/manage/create HTTP/1.1[0m" 302 -
+2026-01-17 23:58:42,052 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:58:42] "GET /order/manage HTTP/1.1" 200 -
+2026-01-17 23:58:42,067 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:58:42] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-17 23:58:42,067 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:58:42] "[36mGET /static/css/manage.css HTTP/1.1[0m" 304 -
+2026-01-17 23:58:42,067 - werkzeug - INFO - 127.0.0.1 - - [17/Jan/2026 23:58:42] "[36mGET /static/js/manage.js HTTP/1.1[0m" 304 -

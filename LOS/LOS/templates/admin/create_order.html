@@ -21,21 +21,33 @@
     <form method="post" action="{{ url_for('manage.admin_create') }}">
         <p class="login-lable">输入订单信息</p>
         <div class="login-input">
-            <p><label for="user_id" class="login-lable">用户ID</label></p>
-            <input type="text" name="user_id" placeholder="请输入用户ID" required><br>
-            <p><select name="products_id" id="products_name" required></select>
-            <button type="button" onclick="addProductOptions()">商品列表</button></p>
-            <p><label for="count" class="login-lable">商品数量</label></p>
-            <input type="text" name="count" placeholder="请输入商品数量" required><br>
-            <p><label for="status" class="login-lable">订单状态</label></p>
-            <select name="status" required>
-            <option value="1">待发货</option>
-            <option value="2">装货中</option>
-            <option value="3">运输中</option>
-            <option value="4">已完成</option>
-            <option value="5">未付款</option>
-            <option value="6">已取消</option>
-            </select>
+            <table>
+                <tr>
+                    <th>用户ID</th>
+                    <th>商品名称</th>
+                    <th>商品数量</th>
+                    <th>订单状态</th>
+                </tr>
+                <tr>
+                    <td><input type="text" name="user_id" placeholder="请输入用户ID" required></td>
+                    <td>
+                        <input type="radio" name="products_id" value="1" required>雨伞
+                        <input type="radio" name="products_id" value="2" required>雨帽
+                        <input type="radio" name="products_id" value="3" required>雨靴
+                        <input type="radio" name="products_id" value="4" required>雨衣
+                        <input type="radio" name="products_id" value="5" required>雨水
+                    </td>
+                    <td><input type="text" name="count" placeholder="请输入商品数量" required></td>
+                    <td>
+                        <input type="radio" name="status" value="1" required>待发货
+                        <input type="radio" name="status" value="2" required>装货中
+                        <input type="radio" name="status" value="3" required>运输中
+                        <input type="radio" name="status" value="4" required>已完成
+                        <input type="radio" name="status" value="5" required>未付款
+                        <input type="radio" name="status" value="6" required>已取消
+                    </td>
+                </tr>
+            </table>
             <p><label for="buy_time" class="login-lable">选填购买时间（默认当前时间）</label></p>
             <input type="text" name="buy_time" placeholder="请输入购买时间">
             <input type="submit" value="创建订单">
