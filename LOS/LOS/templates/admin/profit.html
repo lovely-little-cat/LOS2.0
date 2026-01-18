@@ -6,6 +6,7 @@
     <title>收益分析</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/profit.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/common.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@2.0.1"></script>
 </head>
@@ -14,30 +15,32 @@
         <div class="container">
             <ul class="nav-list">
                 <li class="nav-label">管理员导航</li>
-                <li class="nav-item"><a href="{{ url_for('index.index') }}">首页</a></li>
-                <li class="nav-item"><a href="{{ url_for('order.show_order_list') }}"><span>订单查看</span></a></li>
-                <li class="nav-item"><a href="{{ url_for('manage.manage_order') }}"><span>订单管理</span></a></li>
-                <li class="nav-item"><a href="{{ url_for('transform.transform_price') }}"><span>导出价格表</span></a></li>  
-                <li class="nav-item active"><a href="{{ url_for('analyse.show_analyse') }}" class="active"><span>利润分析</span></a></li>
-                <li class="nav-item"><a href="{{ url_for('login.logout') }}"><span>退出登录</span></a></li>
+                <li class="nav-item"><a href="{{ url_for('index.index') }}"><i class="fa-solid fa-house"></i><span>首页</span></a></li>
+                <li class="nav-item"><a href="{{ url_for('order.show_order_list') }}"><i class="fa-solid fa-list"></i><span>订单查看</span></a></li>
+                <li class="nav-item"><a href="{{ url_for('manage.manage_order') }}"><i class="fa-solid fa-file-lines"></i><span>订单管理</span></a></li>
+                <li class="nav-item"><a href="{{ url_for('transform.transform_price') }}"><i class="fa-solid fa-download"></i><span>导出价格表</span></a></li>  
+                <li class="nav-item active"><a href="{{ url_for('analyse.show_analyse') }}" class="active"><i class="fa-solid fa-chart-line"></i><span>利润分析</span></a></li>
+                <li class="nav-item"><a href="{{ url_for('login.logout') }}"><i class="fa-solid fa-xmark"></i><span>退出登录</span></a></li>
             </ul>
         </div>
     </nav>
 
     <div class="container">
         <div class="chart">
-            <button id="refreshBtn">刷新全部数据</button>
+            <button id="refreshBtn"><i class="fa-solid fa-paw"></i>刷新全部数据</button>
+
             <div class="chart-header">
                     <h2 class="chart-title">近7天收益图表</h2>
-                    <button id="refreshWeekBtn" onclick="refreshWeeklyChart()" >刷新本周数据</button>
+                    <button id="refreshWeekBtn" onclick="refreshWeeklyChart()" ><i class="fa-solid fa-paw"></i>刷新本周数据</button>
                     <span class="chart-desc">每日收益趋势</span>
                     <div class="chart-container">
-                    <canvas id="weeklyChart"></canvas>
-                </div>
+                        <canvas id="weeklyChart"></canvas>
+                    </div>
             </div>
+           
             <div class="chart-header">
                     <h2 class="chart-title">近30天收益图表</h2>
-                    <button id="refreshMonthBtn" onclick="refreshOneMonthChart()" >刷新本月数据</button>
+                    <button id="refreshMonthBtn" onclick="refreshOneMonthChart()" ><i class="fa-solid fa-paw"></i>刷新本月数据</button>
                     <span class="chart-desc">本月收益趋势</span>
                     <div class="chart-container">
                         <canvas id="oneMonthChart"></canvas>
@@ -45,7 +48,7 @@
             </div>
             <div class="chart-header">
                     <h2 class="chart-title">近12个月收益图表</h2>
-                    <button id="refreshYearBtn" onclick="refreshMonthlyChart()" >刷新本年度数据</button>
+                    <button id="refreshYearBtn" onclick="refreshMonthlyChart()" ><i class="fa-solid fa-paw"></i>刷新本年度数据</button>
                     <span class="chart-desc">年度收益趋势</span>
                     <div class="chart-container">
                     <canvas id="monthlyChart"></canvas>
@@ -53,7 +56,7 @@
             </div>
             <div class="chart-header">
                     <h2 class="chart-title">库存量分析</h2>
-                    <button id="refreshStockBtn" onclick="refreshStockChart()" >刷新库存数据</button>
+                    <button id="refreshStockBtn" onclick="refreshStockChart()" ><i class="fa-solid fa-paw"></i>刷新库存数据</button>
                     <span class="chart-desc">库存分析</span>
                     <div class="chart-container">
                         <canvas id="stockChart"></canvas>
@@ -61,7 +64,7 @@
             </div>
             <div class="chart-header">
                     <h2 class="chart-title">销售量分析</h2>
-                    <button id="refreshSellBtn" onclick="refreshSellChart()" >刷新销售量数据</button>
+                    <button id="refreshSellBtn" onclick="refreshSellChart()" ><i class="fa-solid fa-paw"></i>刷新销售量数据</button>
                     <span class="chart-desc">销售量分析</span>
                     <div class="chart-container">
                         <canvas id="sellChart"></canvas>

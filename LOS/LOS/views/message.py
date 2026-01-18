@@ -1,5 +1,6 @@
 from flask import Blueprint, render_template, request, redirect, url_for, session
 from ..utils import db
+from ..utils.message_type import message_type
 
 
 mes = Blueprint('message', __name__)
@@ -14,23 +15,23 @@ def show_message_list():
     role = user.get('role')
     if role == 'admin':
         sql = """
-            SELECT m.id , m.user_id, m.message,  u.user_name,m.time
+            SELECT m.id , m.user_id, u.user_name,m.time,m.type,m.message
             FROM message m 
             JOIN user u ON m.user_id = u.id
         """
         messages = db.fetchall(sql, [])
     else:
         sql = """
-            SELECT m.id , m.user_id, m.message,  u.user_name,m.time
+            SELECT m.id , m.user_id, u.user_name,m.time,m.type,m.message
             FROM message m 
             JOIN user u ON m.user_id = u.id
             WHERE m.user_id=%s
         """
         messages = db.fetchall(sql, [user['id']])
     
-    return render_template("admin/message_list.html", messages=messages or [])
+    return render_template("admin/message_list.html", messages=messages,message_type=message_type)
 
-@mes.route('/message/submit', methods=['GET', 'POST'])
+
 @mes.route('/message/submit', methods=['GET', 'POST'])
 def submit_message():
     user = session.get('user')
@@ -42,6 +43,7 @@ def submit_message():
     
     data = request.form
     message = data.get('message', '').strip()
+    type = 0
 
     if not message:
         return render_template("user/submit_message.html", user=user, error="消息内容不能为空！")
@@ -50,8 +52,8 @@ def submit_message():
     
  
     try:
-        sql = "INSERT INTO message (user_id, message, time) VALUES (%s, %s, NOW())"
-        params = (user['id'], message)
+        sql = "INSERT INTO message (user_id, message, time,type) VALUES (%s, %s, NOW(),%s)"
+        params = (user['id'], message,type)
         db.fetchone(sql, params)
         return redirect(url_for('message.show_message_list'))
     except Exception as e:
@@ -66,11 +68,11 @@ def receive_message():
     role = user.get('role')
     if role == 'admin':
         sql = """
-            SELECT m.id , m.user_id, m.message,  u.user_name,m.time
+            SELECT m.id , m.user_id, m.message,  u.user_name,m.time,m.type
             FROM message m 
             JOIN user u ON m.user_id = u.id
         """
         messages = db.fetchall(sql, [])
-        return render_template("admin/message.html", messages=messages or [])
+        return render_template("admin/message.html", messages=messages,message_type=message_type)
     
     return render_template("login.html", error="您没有权限查看消息")

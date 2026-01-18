@@ -6,6 +6,7 @@
     <title>创建订单</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/order_model.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/common.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <script src="{{ url_for('static', filename='js/order_modle.js') }}"></script>
 
 
@@ -14,8 +15,8 @@
     <nav class="nav">
         <ul class="nav-list">
             <li class="nav-label">导航菜单</li>
-            <li class="nav-item"><a href="{{ url_for('index.index') }}"><span>首页</span></a></li>
-            <li class="nav-item"><a href="{{ url_for('manage.admin_create') }}"><span>创建订单</span></a></li>
+            <li class="nav-item"><a href="{{ url_for('index.index') }}"><i class="fa-solid fa-house"></i><span>首页</span></a></li>
+            <li class="nav-item"><a href="{{ url_for('manage.admin_create') }}"><i class="fa-solid fa-plus"></i><span>创建订单</span></a></li>
             </ul>
     </nav>
     <form method="post" action="{{ url_for('manage.admin_create') }}">

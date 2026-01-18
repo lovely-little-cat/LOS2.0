@@ -6,17 +6,18 @@
     <title>订单列表</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/common.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
     <nav class="nav">
         <div class="container">
             <ul class="nav-list">
                 <li class="nav-label">导航菜单</li>
-                <li class="nav-item"><a href="{{ url_for('index.index') }}"><span>首页</span></a></li>
+                <li class="nav-item"><a href="{{ url_for('index.index') }}"><i class="fa-solid fa-house"></i><span>首页</span></a></li>
                 <li class="nav-item"><span>用户:{{ user['user_name'] }}</span></li>
                 <li class="nav-item"><span>ID:{{ user['id'] }}</span></li>
                 <li class="nav-item"><span>手机号:{{ user['phone'] }}</span></li>
-                <li class="nav-item"><a href="{{ url_for('login.logout') }}" ><span>退出登录</span></a></li> 
+                <li class="nav-item"><a href="{{ url_for('login.logout') }}" ><i class="fa-solid fa-xmark"></i><span>退出登录</span></a></li> 
                 
             </ul>
         </div>

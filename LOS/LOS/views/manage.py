@@ -2,6 +2,8 @@ from flask import Blueprint, render_template,  request, redirect, flash, session
 from ..utils import db
 from ..utils.STATUS_map import STATUS_MAP
 from ..utils.products import products
+from ..utils.manage import manage_order
+
 import datetime
 
 
@@ -27,7 +29,8 @@ def manage_order():
             status_map=STATUS_MAP, 
             orders=orders or [], 
             user=use, 
-            products=products
+            products=products,
+            
         )
 
     else:
@@ -43,35 +46,52 @@ def manage_order():
             status_map=STATUS_MAP, 
             orders=orders or [], 
             user=use, 
-            products=products
+            products=products,
+            
+        )
+    
+@man.route('/order/manage/user_list',methods=['GET','POST'])
+def user_manage():
+    user=session.get('user')
+    if not user:
+        return render_template("login.html", error="请先登录")
+    role = user.get('role')
+    if role != 'admin':
+        return render_template("login.html", error="您没有权限查看用户列表")
+    if request.method == 'GET':
+        sql = "SELECT * FROM user"
+        users = db.fetchall(sql, [])
+        return render_template(
+            "admin/user_manage.html", 
+            users=users
         )
 
-@man.route('/order/manage/update', methods=['POST'])
-def admin_update():
-    use = session.get('user')
 
-    if not use:
+@man.route('/order/manage/update', methods=['GET','POST'])
+def admin_update():
+    user = session.get('user')
+
+    if not user:
         return render_template("login.html", error="请先登录")
-    role = use.get('role')
+    role = user.get('role')
     if role != 'admin':
         return render_template("login.html", error="您没有权限更新订单")
 
     data = request.form
     allowed_fields = ['status', 'products_id', 'count']
     update_fields = {k: v for k, v in data.items() if k in allowed_fields and v}
-
-
+    
     if not update_fields:
         flash("未提供有效更新字段！", "error")
         return redirect("/order/manage")
 
     try:
 
-        with db.manage_order() as (conn, cursor):
+        with manage_order() as (cursor):
             set_clause = ', '.join([f"{k}=%s" for k in update_fields.keys()])
             sql = f"UPDATE `order` SET {set_clause} WHERE id=%s"
             cursor.execute(sql, list(update_fields.values()) + [data['id']])
-            conn.commit()
+
         flash("订单更新成功！", "success")
     except Exception as e:
         flash(f"更新失败：{str(e)}", "error") 
@@ -130,9 +150,8 @@ def admin_create():
         sell_res = db.fetchone(sql_sell, [products_id]) 
         if not sell_res:
             flash("产品不存在！", "error")
-            return render_template("admin/create_order.html", user=use)
-        sell_now = int(sell_res['sell'])  
-        with db.manage_order() as (conn, cursor):
+            return render_template("admin/create_order.html", user=use)  
+        with db.manage_order() as (cursor):
             sql_update_sell = "UPDATE price SET sell = sell + %s WHERE products_id = %s"
             cursor.execute(sql_update_sell, [count, products_id])
     except Exception as e:
@@ -151,16 +170,14 @@ def admin_create():
             flash(f"库存不足！当前库存：{stock_now}", "error")
             return render_template("admin/create_order.html", user=use)
 
-        with db.manage_order() as (conn, cursor):
+        with manage_order() as (cursor):
             sql_insert = """
                 INSERT INTO `order` (user_id, products_id, count, status, buy_time)
                 VALUES (%s, %s, %s, %s, %s)
             """
             cursor.execute(sql_insert, [user_id, products_id, count, status, buy_time])
 
-            sql_update_stock = "UPDATE price SET stock = stock - %s WHERE products_id = %s"
-            cursor.execute(sql_update_stock, [count, products_id])
-            print(sql_update_stock)
+
         flash("订单创建成功！", "success")
     except Exception as e:
         flash(f"创建失败：{str(e)}", "error")
@@ -188,10 +205,10 @@ def admin_delete():
         return redirect("/order/manage")
 
     try:
-        with db.manage_order() as (conn, cursor):
+        with manage_order() as (cursor):
             sql = "DELETE FROM `order` WHERE id=%s"
             cursor.execute(sql, [data['id']])
-            conn.commit()
+
         flash("订单删除成功！", "success")
     except Exception as e:
         flash(f"删除失败：{str(e)}", "error")
@@ -240,7 +257,7 @@ def user_submit():
             return render_template("user/submit_order.html", user=use)
 
         buy_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        with db.manage_order() as (conn, cursor):
+        with manage_order() as (cursor):
             # 创建订单
             sql = """
                 INSERT INTO `order`(user_id, products_id, count, buy_time, status)
@@ -251,7 +268,7 @@ def user_submit():
             # 更新库存
             sql_update_stock = "UPDATE price SET stock = stock - %s WHERE products_id = %s"
             cursor.execute(sql_update_stock, [count, products_id])
-            conn.commit()
+
         flash("订单提交成功！", "success")
     except Exception as e:
         flash(f"提交失败：{str(e)}", "error")
@@ -277,10 +294,10 @@ def user_cancel():
         return redirect("/order/manage")
 
     try:
-        with db.manage_order() as (conn, cursor):
+        with manage_order() as (cursor):
             sql = "DELETE FROM `order` WHERE id=%s AND user_id=%s"
             cursor.execute(sql, [data['id'], use['id']])
-            conn.commit()
+
         flash("订单取消成功！", "success")
     except Exception as e:
         flash(f"取消失败：{str(e)}", "error")

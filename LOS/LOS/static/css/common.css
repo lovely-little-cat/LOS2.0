@@ -1,6 +1,4 @@
-/* 全局CSS变量：保留半透明导航相关配置 */
 :root {
-  /* 主题色 */
   --color-primary: #d55f6d;
   --color-primary-light: #f4bac5;
   --color-dark: #111111;
@@ -8,23 +6,20 @@
   --color-bg-nav: rgba(255, 255, 255, 0.7); 
   --color-hover-bg: rgba(76, 175, 80, 0.1);
   
-  /* 间距 */
   --spacing-xs: 5px;
   --spacing-sm: 10px;
   --spacing-md: 15px;
   --spacing-lg: 20px;
   --spacing-xl: 30px;
   
-  /* 过渡/动画 */
-  --transition-duration: 0.6s;
+  --transition-duration: 1s;
   --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
   --shadow-hover: 0 4px 8px rgba(0, 0, 0, 0.15);
-  /* 新增边框变量，便于统一修改 */
   --border-width: 2px;
   --border-radius: 4px;
 }
 
-/* 全局重置 & 基础样式 */
+
 * {
   margin: 0;
   padding: 0;
@@ -33,14 +28,13 @@
 
 body {
   color: var(--color-dark);
-  background-color: var(--color-bg-body);
+  background-color: #f3d7d7; 
   line-height: 1.6;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 var(--spacing-lg);
   font-family: "Helvetica Neue", Arial, sans-serif;
 }
-
 
 .nav {
   background-color: var(--color-bg-nav);
@@ -51,7 +45,6 @@ body {
   padding: var(--spacing-md) 0;
   margin-bottom: var(--spacing-xl);
   transition: box-shadow var(--transition-duration);
-
 }
 
 .nav:hover {
@@ -73,7 +66,6 @@ body {
   color: var(--color-primary);
 }
 
-/* 导航列表 */
 .nav-list {
   display: flex;
   align-items: center;
@@ -81,37 +73,51 @@ body {
   list-style: none;
 }
 
-/* 导航菜单项：保留相对定位，为边框动画做准备 */
 .nav-item {
   position: relative;
 }
 
-/* 导航链接样式：核心调整边框相关 */
 .nav-item a {
-  display: inline-block;
+  display: inline-flex; 
+  align-items: center;
+  justify-content: center; 
   text-decoration: none;
   color: var(--color-dark);
   padding: var(--spacing-sm) var(--spacing-md);
   border-radius: var(--border-radius);
   transition: all var(--transition-duration);
   font-weight: 500;
-  /* 初始状态：透明边框，hover时显示 */
-  border: var(--border-width) solid transparent;
+  border: none; 
+  position: relative;
+  width: 120px;
+  white-space: nowrap;
 }
 
+.nav-item a i {
+  display: none; 
+  font-size: 18px; 
+  transition: all var(--transition-duration);
+}
+
+.nav-item a span {
+  display: inline-block; 
+  transition: all var(--transition-duration);
+}
+
+/* 核心：hover状态 - 显示图标，隐藏文字 */
+.nav-item a:hover i {
+    display: inline-block;
+}
+
+.nav-item a:hover span {
+    display: none;
+}
 
 .nav-item a:hover {
   color: var(--color-primary);
   background-color: var(--color-hover-bg);
   transform: translateY(-2px);
   box-shadow: 0 2px 6px rgba(76, 175, 80, 0.2);
-  /* hover时显示主题色边框 */
-  border-color: var(--color-primary-light);
-}
-
-.nav-item a {
-  border: none; 
-  position: relative;
 }
 
 .nav-item a::before {
@@ -125,16 +131,15 @@ body {
   border-radius: var(--border-radius);
   /* 初始状态：边框缩放为0，透明 */
   opacity: 0;
-  transform: scale(0.9);
+  transform: scale(0.9) rotate(0);
   transition: all var(--transition-duration);
-  pointer-events: none; /* 不影响点击 */
+  pointer-events: none; 
 }
 
 .nav-item a:hover::before {
   opacity: 1;
-  transform: scale(1); 
+  transform: scale(1) rotate(360deg); 
 }
-*/
 
 /* 提示文案样式 */
 .success {
@@ -151,6 +156,25 @@ body {
   font-weight: 500;
 }
 
+button {
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: var(--border-width) solid var(--color-primary);
+  border-radius: var(--border-radius);
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-duration);
+}
+
+button:hover {
+  background-color: var(--color-primary-light);
+  border-color: var(--color-primary-light);
+  transform: translateY(-2px);
+  box-shadow: 0 2px 6px rgba(76, 175, 80, 0.2);
+}
+
+
 /* 响应式适配 */
 @media (max-width: 768px) {
   .nav .container {
@@ -162,5 +186,10 @@ body {
     gap: var(--spacing-xs);
     flex-wrap: wrap;
     justify-content: center;
+  }
+
+  /* 响应式下保持固定宽度 */
+  .nav-item a {
+    width: 100px;
   }
 }
