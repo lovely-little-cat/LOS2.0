@@ -1,5 +1,12 @@
 
-      
+.message-table-header {
+    background-color: #f2f2f2;
+}
+.message-table-cell {
+    padding: 10px;
+    border: 1px solid #d7a7a7;
+    text-align: left;
+}
 .message-list {
     width: 80%;
     margin: 0 auto;

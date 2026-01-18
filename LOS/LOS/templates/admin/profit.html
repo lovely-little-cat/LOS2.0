@@ -17,7 +17,7 @@
                 <li class="nav-label">管理员导航</li>
                 <li class="nav-item"><a href="{{ url_for('index.index') }}"><i class="fa-solid fa-house"></i><span>首页</span></a></li>
                 <li class="nav-item"><a href="{{ url_for('order.show_order_list') }}"><i class="fa-solid fa-list"></i><span>订单查看</span></a></li>
-                <li class="nav-item"><a href="{{ url_for('manage.manage_order') }}"><i class="fa-solid fa-file-lines"></i><span>订单管理</span></a></li>
+                <li class="nav-item"><a href="{{ url_for('manage.manage_orders') }}"><i class="fa-solid fa-file-lines"></i><span>订单管理</span></a></li>
                 <li class="nav-item"><a href="{{ url_for('transform.transform_price') }}"><i class="fa-solid fa-download"></i><span>导出价格表</span></a></li>  
                 <li class="nav-item active"><a href="{{ url_for('analyse.show_analyse') }}" class="active"><i class="fa-solid fa-chart-line"></i><span>利润分析</span></a></li>
                 <li class="nav-item"><a href="{{ url_for('login.logout') }}"><i class="fa-solid fa-xmark"></i><span>退出登录</span></a></li>

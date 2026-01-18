@@ -33,22 +33,7 @@
     {% endif %}
 
     <form action="{{ url_for('manage.admin_update') }}" method="post" class="order-form">
-        <h2>更新订单</h2>
-        <input type="hidden" name="id" placeholder="订单ID" required>
-        <select name="status">
-            <option value="1">待发货</option>
-            <option value="2">装货中</option>
-            <option value="3">运输中</option>
-            <option value="4">已完成</option>
-            <option value="6">已取消</option>
-        </select>
-        <input type="number" name="products_id" placeholder="商品ID" min="1">
-        <input type="number" name="count" placeholder="数量" min="1">
-        <button type="submit">提交更新</button>
-    </form>
-
-
-    <h1>管理员订单管理</h1>
+        <h1>管理员订单管理</h1>
     <table class="order-table">
         <thead>
             <tr class="order-row">
@@ -92,6 +77,11 @@
             {% endfor %}
         </tbody>
     </table>
+        <button type="submit">提交更新</button>
+    </form>
+
+
+    
     <script src="{{ url_for('static', filename='js/manage.js') }}"></script>
 
 </body>
