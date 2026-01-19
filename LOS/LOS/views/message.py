@@ -39,15 +39,15 @@ def submit_message():
         return render_template("login.html", error="请先登录")
     
     if request.method == 'GET':
-        return render_template("user/submit_message.html", user=user)
+        return render_template("user/user_message.html", user=user)
     
     data = request.form
     message = data.get('message', '').strip()
 
     if not message:
-        return render_template("user/submit_message.html", user=user, error="消息内容不能为空！")
+        return render_template("user/user_message.html", user=user, error="消息内容不能为空！")
     if len(message) > 100:
-        return render_template("user/submit_message.html", user=user, error="消息长度不能超过100个字符！")
+        return render_template("user/user_message.html", user=user, error="消息长度不能超过100个字符！")
     
  
     try:

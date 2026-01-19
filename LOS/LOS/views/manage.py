@@ -2,16 +2,15 @@ from flask import Blueprint, render_template,  request, redirect, flash, session
 from ..utils import db
 from ..utils.STATUS_map import STATUS_MAP
 from ..utils.products import products
-from ..utils.manage import ManageOrder  # 导入修复后的上下文管理器类
+from ..utils.manage import ManageOrder  
 
 import datetime
 
 man = Blueprint('manage', __name__)
 
-# 修复：视图函数名改为manage_orders，避免和上下文管理器类名冲突
 @man.route('/order/manage', methods=['GET', 'POST'])
 def manage_orders():
-    user = session.get('user')  # 统一变量名：use → user（避免混用）
+    user = session.get('user')  
 
     if not user:
         return render_template("login.html", error="请先登录")
@@ -83,7 +82,7 @@ def admin_update():
         return redirect("/order/manage")
 
     try:
-        # 修复：正确解包(conn, cursor)，使用大写的ManageOrder类
+
         with ManageOrder() as (conn, cursor):
             set_clause = ', '.join([f"{k}=%s" for k in update_fields.keys()])
             sql = f"UPDATE `order` SET {set_clause} WHERE id=%s"
@@ -120,7 +119,7 @@ def admin_create():
             return render_template("admin/create_order.html", user=user)
         
         buy_time_input = request.form.get('buy_time').strip() if request.form.get('buy_time') else ''
-        # 处理时间格式
+
         if buy_time_input:
             try:
                 if len(buy_time_input) >= 6 and len(buy_time_input) <= 10:  
@@ -141,8 +140,7 @@ def admin_create():
         return render_template("admin/create_order.html", user=user)
     
     try:
-        # 修复逻辑：先检查库存，再更新销量（保证原子性）
-        # 1. 检查产品和库存
+
         sql_stock = "SELECT stock, sell FROM price WHERE products_id = %s"
         stock_res = db.fetchone(sql_stock, [products_id])  
         if not stock_res:
@@ -153,17 +151,15 @@ def admin_create():
         if count > stock_now:
             flash(f"库存不足！当前库存：{stock_now}", "error")
             return render_template("admin/create_order.html", user=user)
-        
-        # 2. 原子操作：创建订单 + 更新销量（用上下文管理器保证事务）
+
         with ManageOrder() as (conn, cursor):
-            # 插入订单
+
             sql_insert = """
                 INSERT INTO `order` (user_id, products_id, count, status, buy_time)
                 VALUES (%s, %s, %s, %s, %s)
             """
             cursor.execute(sql_insert, [user_id, products_id, count, status, buy_time])
             
-            # 更新销量
             sql_update_sell = "UPDATE price SET sell = sell + %s WHERE products_id = %s"
             cursor.execute(sql_update_sell, [count, products_id])
 
@@ -193,7 +189,7 @@ def admin_delete():
         return redirect("/order/manage")
 
     try:
-        # 修复：正确解包(conn, cursor)
+
         with ManageOrder() as (conn, cursor):
             sql = "DELETE FROM `order` WHERE id=%s"
             cursor.execute(sql, [data['id']])
@@ -232,30 +228,28 @@ def user_submit():
         return render_template("user/submit_order.html", user=user)
 
     try:
-        # 检查产品和库存
+
         sql_stock = "SELECT stock FROM price WHERE products_id = %s"
         stock_res = db.fetchone(sql_stock, [products_id])
         if not stock_res:
             flash("产品不存在！", "error")
             return render_template("user/submit_order.html", user=user)
         
-        # 修复：DictCursor返回字典，用键名访问而非索引
         stock_now = int(stock_res['stock'])
         if count > stock_now:
             flash(f"库存不足！当前库存：{stock_now}", "error")
             return render_template("user/submit_order.html", user=user)
 
         buy_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        # 修复：正确解包(conn, cursor)，原子操作创建订单+更新库存
+
         with ManageOrder() as (conn, cursor):
-            # 创建订单
+
             sql = """
                 INSERT INTO `order`(user_id, products_id, count, buy_time, status)
-                VALUES (%s, %s, %s, %s, 1)
+                VALUES (%s, %s, %s, %s, 5)
             """
             cursor.execute(sql, [user['id'], products_id, count, buy_time])
-            
-            # 更新库存
+
             sql_update_stock = "UPDATE price SET stock = stock - %s WHERE products_id = %s"
             cursor.execute(sql_update_stock, [count, products_id])
 
@@ -277,12 +271,14 @@ def user_cancel():
         return redirect("/order/manage")
 
     data = request.form
+    if 'status' not in data or data['status'] not in STATUS_MAP.values() or data['status'] == "已取消"or data['status'] == "已完成":
+        flash("无效的订单状态！", "error")
+        return redirect("/order/manage")
     if 'id' not in data or not data['id'].isdigit():
         flash("无效的订单ID！", "error")
         return redirect("/order/manage")
 
     try:
-        # 修复：正确解包(conn, cursor)
         with ManageOrder() as (conn, cursor):
             sql = "DELETE FROM `order` WHERE id=%s AND user_id=%s"
             cursor.execute(sql, [data['id'], user['id']])

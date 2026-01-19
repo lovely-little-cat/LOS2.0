@@ -16,54 +16,62 @@
                 <li class="nav-label">导航</li>
                 <li class="nav-item"><a href="{{ url_for('index.index') }}"><i class="fa-solid fa-house"></i><span>首页</span></a></li>
                 <li class="nav-item"><a href="{{ url_for('order.show_order_list') }}"><i class="fa-solid fa-file-lines"></i><span>订单查看</span></a></li>
-                <li class="nav-item"><a href="{{ url_for('manage.manage_order') }}"><i class="fa-solid fa-gear"></i><span>订单管理</span></a></li>
-                <li class="nav-item"><a href="{{ url_for('analyse.show_analyse') }}"><i class="fa-solid fa-chart-line"></i><span>利润分析</span></a></li>
+                <li class="nav-item"><a href="{{ url_for('manage.manage_orders') }}"><i class="fa-solid fa-gear"></i><span>订单管理</span></a></li>
                 <li class="nav-item"><a href="{{ url_for('login.logout') }}"><i class="fa-solid fa-xmark"></i><span>退出登录</span></a></li>
             </ul>
         </div>
     </nav>
-    <form action="{{ url_for('manage.user_submit') }}" method="post">
-    <h1>用户订单管理</h1>
+    <form action="{{ url_for('manage.admin_update') }}" method="post" class="order-form">
+        <h1>用户订单管理</h1>
     <table class="order-table">
-        <thead >
+        <thead class="order-header">
             <tr class="order-row">
-
                 <th>订单ID</th>
                 <th>用户ID</th>
-
                 <th>商品名称</th>
-                <th>商品数量</th>
-                <th>商品单价</th>
-                <th>订单金额</th>
-                <th>订单状态</th>
+                <th>数量</th>
+                <th>状态</th>
                 <th>订单时间</th>
+                <th>操作</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody class="order-body">
             {% for order in orders %}
             <tr class="order-row">
-                <td>{{ order.order_id }}</td>
+                <td >{{ order.id }}</td>  
                 <td>{{ order.user_id }}</td>
-
-                <td>{{ products[order.product_id] }}</td>
-                <td>{{ order.quantity }}</td>
-                <td>{{ order.unit_price }}</td>
-                <td>{{ order.total_price }}</td>
-                <td>{{ order.status }}</td>
-                <td>{{ order.order_time }}</td>
+                <td>{{ products[order.products_id] }}</td> 
+                <td>{{ order.count }}</td>
+                <td>{{ status_map[order.status] }}</td>
+                <td>{{ order.buy_time }}</td>
                 <td>
-                    {%if user['role'] == 'admin'%}
-                        <button type="submit" formaction="{{ url_for('manage.user_cancel') }}" name="action"  value="cancel_{{ order.order_id }}">取消订单</button>
-                        <button type="submit" name="action" value="submit_{{ order.order_id }}">提交订单</button>
-                    {%endif%}
-
+                    <h3>选择需要修改状态的订单</h3>
+                    <select id="{{ order.id }}">
+                        <option value="1" {% if order.status == 1 %}selected{% endif %}>待发货</option>
+                        <option value="4" {% if order.status == 4 %}selected{% endif %}>已完成</option>
+                        <option value="6" {% if order.status == 6 %}selected{% endif %}>已取消</option>
+                    </select>
+                    <button onclick="refreshBtn">刷新订单</button>
+                    <button onclick="fillUpdateForm('{{ order.id }}')">更新订单状态</button>
+                    <form action="{{ url_for('manage.admin_delete') }}" method="post" style="display:inline;">
+                        <input type="hidden" name="id" value="{{ order.id }}">
+                        <button type="submit" onclick="return confirm('确定删除？')">删除</button>
+                    </form>
                 </td>
             </tr>
+            {% else %}
+            <tr><td colspan="7">暂无订单</td></tr>
             {% endfor %}
-
-           
         </tbody>
     </table>
+        <button type="submit">提交更新</button>
     </form>
+    <script>
+        function fillUpdateForm(orderId) {
+            var select = document.getElementById(orderId);
+            var status = select.value;
+            document.getElementById('status_' + orderId).value = status;
+        }
+    </script>
 </body>
 </html>

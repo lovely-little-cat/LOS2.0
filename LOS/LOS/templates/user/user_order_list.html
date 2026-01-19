@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>订单列表</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/common.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
@@ -15,7 +16,7 @@
                 <li class="nav-label">导航菜单</li>
                 <li class="nav-item"><a href="{{ url_for('index.index') }}"><i class="fa-solid fa-house"></i><span>首页</span></a></li>
                 <li class="nav-item"><a href="{{ url_for('order.show_order_list') }}"><i class="fa-solid fa-file-lines"></i><span>订单查看</span></a></li>
-                <li class="nav-item"><a href="{{ url_for('manage.manage_order') }}"><i class="fa-solid fa-gear"></i><span>订单管理</span></a></li>
+                <li class="nav-item"><a href="{{ url_for('manage.manage_orders') }}"><i class="fa-solid fa-gear"></i><span>订单管理</span></a></li>
                 <li class="nav-item"><a href="{{ url_for('transform.transform_order') }}"><i class="fa-solid fa-file-excel"></i><span>导出Excel</span></a></li>  
                 <li class="nav-item"><a href="{{ url_for('login.logout') }}"><i class="fa-solid fa-xmark"></i><span>退出登录</span></a></li>
             </ul>
@@ -26,19 +27,19 @@
         <h1>订单列表</h1>
 
         <table class="order-table">
-            <thead>
+            <thead class="order-header">
                 <tr class="order-header">
-                    <th>用户名</th>
-                    <th>地址</th>
-                    <th>电话</th>
-                    <th>订单ID</th>
-                    <th>用户ID</th>
-                    <th>商品名称</th>
-                    <th>数量</th>
-                    <th>订单状态</th>
+                    <th class="order-header">用户名</th>
+                    <th class="order-header">地址</th>
+                    <th class="order-header">电话</th>
+                    <th class="order-header">订单ID</th>
+                    <th class="order-header">用户ID</th>
+                    <th class="order-header">商品名称</th>
+                    <th class="order-header">数量</th>
+                    <th class="order-header">订单状态</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody class="order-body">
                 {% for order in orders %}
                 <tr class="order-list">
                     <td>{{ order.user_name }}</td>
