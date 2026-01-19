@@ -1,4 +1,3 @@
-
 class ProfitChartManager {
   // ===== 初始化生命周期=====
   constructor() {
@@ -50,11 +49,8 @@ class ProfitChartManager {
     this.beforeInit();
     console.log('ProfitChartManager 初始化中...');
 
-  
     this._validateDOM();
-
     this._bindEvents();
-
     this.mount();
 
     this.afterInit();
@@ -64,7 +60,6 @@ class ProfitChartManager {
   // ===== 3. 挂载生命周期=====
   async mount() {
     console.log('图表挂载中...');
-   
     await Promise.all([
       this._renderWeeklyChart(),
       this._renderOneMonthChart(),
@@ -72,6 +67,7 @@ class ProfitChartManager {
       this._renderStockSellChart(),
       this._renderSellChart()
     ]);
+    await this._renderRestockReminder();
     console.log('图表挂载完成');
   }
 
@@ -93,6 +89,7 @@ class ProfitChartManager {
         break;
       case 'stockSell':
         await this._renderStockSellChart();
+        await this._renderRestockReminder(); 
         alert('库存数据已刷新！');
         break;
       case 'sell': 
@@ -113,7 +110,6 @@ class ProfitChartManager {
     this.beforeDestroy();
     console.log('ProfitChartManager 销毁中...');
 
-   
     Object.values(this.state.chartInstances).forEach(instance => {
       if (instance) instance.destroy();
     });
@@ -124,38 +120,37 @@ class ProfitChartManager {
     });
    
     this.state = { chartInstances: {}, eventHandlers: {} };
-
     this.afterDestroy();
     console.log('ProfitChartManager 销毁完成');
   }
 
   // ===== 私有辅助方法：校验DOM元素 =====
   _validateDOM() {
-  
     Object.values(this.config.chartIds).forEach(id => {
       if (!document.getElementById(id)) {
         throw new Error(`图表容器不存在：#${id}`);
       }
     });
-    // 校验按钮
     Object.values(this.config.buttonIds).forEach(id => {
       if (!document.getElementById(id)) {
         console.warn(`刷新按钮不存在：#${id}（部分刷新功能可能失效）`);
       }
     });
+
+    if (!document.getElementById('restockReminder')) {
+      console.warn('补货提醒容器不存在：#restockReminder');
+    }
   }
 
   // ===== 私有辅助方法：绑定按钮事件 =====
   _bindEvents() {
     const { buttonIds } = this.config;
 
- 
     this.state.eventHandlers[buttonIds.refreshAll] = () => this.update('all');
     document.getElementById(buttonIds.refreshAll)?.addEventListener(
       'click',
       this.state.eventHandlers[buttonIds.refreshAll]
     );
-
 
     this.state.eventHandlers[buttonIds.refreshWeek] = () => this.update('weekly');
     document.getElementById(buttonIds.refreshWeek)?.addEventListener(
@@ -163,28 +158,24 @@ class ProfitChartManager {
       this.state.eventHandlers[buttonIds.refreshWeek]
     );
 
-
     this.state.eventHandlers[buttonIds.refreshMonth] = () => this.update('oneMonth');
     document.getElementById(buttonIds.refreshMonth)?.addEventListener(
       'click',
       this.state.eventHandlers[buttonIds.refreshMonth]
     );
 
-   
     this.state.eventHandlers[buttonIds.refreshYear] = () => this.update('twelveMonths');
     document.getElementById(buttonIds.refreshYear)?.addEventListener(
       'click',
       this.state.eventHandlers[buttonIds.refreshYear]
     );
 
-  
     this.state.eventHandlers[buttonIds.refreshStock] = () => this.update('stockSell');
     document.getElementById(buttonIds.refreshStock)?.addEventListener(
       'click',
       this.state.eventHandlers[buttonIds.refreshStock]
     );
 
- 
     this.state.eventHandlers[buttonIds.refreshSell] = () => this.update('sell');
     document.getElementById(buttonIds.refreshSell)?.addEventListener(
       'click',
@@ -218,7 +209,6 @@ class ProfitChartManager {
       this.state.chartInstances.weekly.destroy();
     }
 
-  
     this.state.chartInstances.weekly = new Chart(ctx, {
       type: 'line',
       data: {
@@ -323,180 +313,167 @@ class ProfitChartManager {
   async _renderStockSellChart() {
     const result = await this._fetchData(this.config.apiUrls.stockSell);
     const ctx = document.getElementById(this.config.chartIds.stockSell).getContext('2d');
-    const sortedData = result.sorted_price || [];
+    const sortedByStock = result.sorted_by_stock || [];
     const warnThreshold = result.min_stock || 20;
 
     if (this.state.chartInstances.stockSell) {
       this.state.chartInstances.stockSell.destroy();
     }
 
-    // 提取数据：商品ID、库存、补货优先级
-    const labels = sortedData.map(item => `商品${item.products_id}`);
-    const stockData = sortedData.map(item => item.stock || 0);
-    const priorityData = sortedData.map(item => item.recommend_priority || 0);
-    // 标记需要补货的商品（库存<=20）
-    const backgroundColor = sortedData.map(item => 
-      item.need_restock ? 'rgba(255, 99, 132, 0.6)' : 'rgba(54, 162, 235, 0.6)'
+    const labels = sortedByStock.map(item => `商品${item.products_id}`);
+    //test
+    const stockData = sortedByStock.map(item => item.stock || 100);
+    const backgroundColors = stockData.map(stock => 
+      stock <= warnThreshold ? 'rgba(255, 99, 132, 0.5)' : 'rgba(75, 192, 192, 0.5)'
     );
 
     this.state.chartInstances.stockSell = new Chart(ctx, {
       type: 'bar',
       data: {
         labels: labels,
-        datasets: [
-          {
-            label: '库存量',
-            data: stockData,
-            backgroundColor: backgroundColor,
-            borderColor: item => item.need_restock ? 'rgba(255, 99, 132, 1)' : 'rgba(54, 162, 235, 1)',
-            borderWidth: 1,
-            yAxisID: 'y'
-          },
-          {
-            label: '补货优先级',
-            data: priorityData,
-            type: 'line',
-            backgroundColor: 'rgba(255, 206, 86, 0.2)',
-            borderColor: 'rgba(255, 206, 86, 1)',
-            borderWidth: 2,
-            yAxisID: 'y1'
-          }
-        ]
+        datasets: [{
+          label: '库存量',
+          data: stockData,
+          backgroundColor: backgroundColors,
+          borderColor: stockData.map(stock => 
+            stock <= warnThreshold ? 'rgba(255, 99, 132, 1)' : 'rgba(75, 192, 192, 1)'
+          ),
+          borderWidth: 1
+        }]
       },
       options: {
         responsive: true,
         maintainAspectRatio: false,
         scales: {
-          y: {
-            beginAtZero: true,
+          y: { 
+            beginAtZero: true, 
             title: { display: true, text: '库存量' },
-
-            plugins: {
-              annotation: {
-                annotations: {
-                  line1: {
-                    type: 'line',
-                    yMin: warnThreshold,
-                    yMax: warnThreshold,
-                    borderColor: 'rgb(255, 99, 132)',
-                    borderWidth: 2,
-                    label: { display: true, content: '库存预警线(20)' }
-                  }
+            annotations: {
+              line: {
+                value: warnThreshold,
+                borderColor: 'red',
+                borderWidth: 5,
+                label: {
+                  display: true,
+                  content: '库存预警阈值',
+                  position: 'end'
                 }
               }
             }
           },
-          y1: {
-            beginAtZero: true,
-            position: 'right',
-            title: { display: true, text: '补货优先级' },
-            grid: { drawOnChartArea: false }
-          },
           x: { title: { display: true, text: '商品ID' } }
         },
         plugins: {
-          tooltip: {
-            callbacks: {
+          tooltip: { 
+            callbacks: { 
               label: (ctx) => {
-                const item = sortedData[ctx.dataIndex];
-                return [
-                  `库存量：${item.stock}`,
-                  `出售量：${item.sell}`,
-                  `补货优先级：${item.recommend_priority}`,
-                  item.need_restock ? '需要补货' : '库存充足'
-                ];
-              }
-            }
-          },
-          legend: { position: 'top' }
+                const stock = ctx.raw;
+                const tip = `库存量：${stock}${stock <= warnThreshold ? '（需补货）' : ''}`;
+                return tip;
+              } 
+            } 
+          }
         }
       }
     });
   }
 
-  // ===== 渲染销售量分析图表 =====
+  // ===== 私有辅助方法：渲染销售量分析图表 =====
   async _renderSellChart() {
     const result = await this._fetchData(this.config.apiUrls.stockSell);
     const ctx = document.getElementById(this.config.chartIds.sell).getContext('2d');
-    const sortedData = result.sorted_price || [];
+    const sortedBySell = result.sorted_by_sell || [];
 
     if (this.state.chartInstances.sell) {
       this.state.chartInstances.sell.destroy();
     }
 
-    // 提取数据：商品ID、出售量、利润（售价-成本）
-    const labels = sortedData.map(item => `商品${item.products_id}`);
-    const sellData = sortedData.map(item => item.sell || 0);
-    const profitPerUnit = sortedData.map(item => (item.products_price - item.cost) || 0);
+   
+    const labels = sortedBySell.map(item => `商品${item.products_id}`);
+    const sellData = sortedBySell.map(item => item.sell || 0);
 
     this.state.chartInstances.sell = new Chart(ctx, {
       type: 'bar',
       data: {
         labels: labels,
-        datasets: [
-          {
-            label: '出售量',
-            data: sellData,
-            backgroundColor: 'rgba(75, 192, 192, 0.6)',
-            borderColor: 'rgba(75, 192, 192, 1)',
-            borderWidth: 1,
-            yAxisID: 'y'
-          },
-          {
-            label: '单位利润（元）',
-            data: profitPerUnit,
-            type: 'line',
-            backgroundColor: 'rgba(153, 102, 255, 0.2)',
-            borderColor: 'rgba(153, 102, 255, 1)',
-            borderWidth: 2,
-            yAxisID: 'y1'
-          }
-        ]
+        datasets: [{
+          label: '销售量',
+          data: sellData,
+          backgroundColor: 'rgba(255, 159, 64, 0.5)',
+          borderColor: 'rgba(255, 159, 64, 1)',
+          borderWidth: 1
+        }]
       },
       options: {
         responsive: true,
         maintainAspectRatio: false,
         scales: {
-          y: {
-            beginAtZero: true,
-            title: { display: true, text: '出售量' },
-          },
-          y1: {
-            beginAtZero: true,
-            position: 'right',
-            title: { display: true, text: '单位利润（元）' },
-            grid: { drawOnChartArea: false }
-          },
-          x: { title: { display: true, text: '商品ID（按出售量降序）' } }
+          y: { beginAtZero: true, title: { display: true, text: '销售量' } },
+          x: { title: { display: true, text: '商品ID' } }
         },
         plugins: {
-          tooltip: {
-            callbacks: {
-              label: (ctx) => {
-                const item = sortedData[ctx.dataIndex];
-                return [
-                  `出售量：${item.sell}`,
-                  `单位利润：${(item.products_price - item.cost).toFixed(2)} 元`,
-                  `总利润：${(item.sell * (item.products_price - item.cost)).toFixed(2)} 元`
-                ];
-              }
-            }
+          tooltip: { 
+            callbacks: { 
+              label: (ctx) => `销售量：${ctx.raw}` 
+            } 
           }
         }
       }
     });
   }
+
+  // ===== 私有辅助方法：渲染补货提醒列表 =====
+  async _renderRestockReminder() {
+    const result = await this._fetchData(this.config.apiUrls.stockSell);
+    const restockList = result.restock_list || [];
+    const container = document.getElementById('restockReminder');
+    
+    if (!container) return;
+
+    if (restockList.length === 0) {
+      container.innerHTML = `
+        <div class="restock-empty">
+          <i class="fa-solid fa-check-circle"></i>
+          <span>暂无需要补货的商品</span>
+        </div>
+      `;
+      return;
+    }
+
+    let html = `
+      <div class="restock-header">
+        <h3><i class="fa-solid fa-triangle-exclamation"></i> 补货推荐</h3>
+      </div>
+      <table class="restock-table">
+        <thead>
+          <tr>
+            <th>商品ID</th>
+            <th>当前库存</th>
+            <th>销售量</th>
+            <th>补货优先级</th>
+          </tr>
+        </thead>
+        <tbody>
+    `;
+    restockList.forEach(item => {
+      html += `
+        <tr>
+          <td>商品${item.products_id}</td>
+          <td class="stock-warning">${item.current_stock}</td>
+          <td>${item.sell_volume}</td>
+          <td>${item.priority}</td>
+        </tr>
+      `;
+    });
+    html += `
+        </tbody>
+      </table>
+    `;
+    container.innerHTML = html;
+  }
 }
 
-// 初始化图表管理器
 document.addEventListener('DOMContentLoaded', () => {
   const chartManager = new ProfitChartManager();
   chartManager.init();
-
-  // 暴露全局刷新函数
-  window.refreshWeeklyChart = () => chartManager.update('weekly');
-  window.refreshOneMonthChart = () => chartManager.update('oneMonth');
-  window.refreshMonthlyChart = () => chartManager.update('twelveMonths');
-  window.refreshStockChart = () => chartManager.update('stockSell');
-  window.refreshSellChart = () => chartManager.update('sell');
 });

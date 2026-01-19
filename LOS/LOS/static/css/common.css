@@ -104,7 +104,6 @@ body {
   transition: all var(--transition-duration);
 }
 
-/* 核心：hover状态 - 显示图标，隐藏文字 */
 .nav-item a:hover i {
     display: inline-block;
 }
@@ -129,7 +128,6 @@ body {
   height: 100%;
   border: var(--border-width) solid var(--color-primary-light);
   border-radius: var(--border-radius);
-  /* 初始状态：边框缩放为0，透明 */
   opacity: 0;
   transform: scale(0.9) rotate(0);
   transition: all var(--transition-duration);
@@ -141,7 +139,6 @@ body {
   transform: scale(1) rotate(360deg); 
 }
 
-/* 提示文案样式 */
 .success {
   color: var(--color-primary);
   margin-top: var(--spacing-sm);
@@ -175,7 +172,6 @@ button:hover {
 }
 
 
-/* 响应式适配 */
 @media (max-width: 768px) {
   .nav .container {
     flex-direction: column;
@@ -188,7 +184,6 @@ button:hover {
     justify-content: center;
   }
 
-  /* 响应式下保持固定宽度 */
   .nav-item a {
     width: 100px;
   }

@@ -3793,3 +3793,396 @@ jinja2.exceptions.TemplateNotFound: user/submit_message.html
 2026-01-19 15:14:11,941 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:14:11] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
 2026-01-19 15:14:11,942 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:14:11] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
 2026-01-19 15:14:11,943 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:14:11] "[36mGET /static/img/setting.png HTTP/1.1[0m" 304 -
+2026-01-19 15:27:14,458 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-01-19 15:27:14,458 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-01-19 15:27:15,947 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:27:15] "[32mGET / HTTP/1.1[0m" 302 -
+2026-01-19 15:27:16,014 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:27:16] "GET /login?error=ÇëÏÈµÇÂ¼ HTTP/1.1" 200 -
+2026-01-19 15:27:16,033 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:27:16] "[36mGET /static/css/login.css HTTP/1.1[0m" 304 -
+2026-01-19 15:27:16,034 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:27:16] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-19 15:27:16,107 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:27:16] "[32mGET /favicon.ico HTTP/1.1[0m" 302 -
+2026-01-19 15:27:16,113 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:27:16] "GET /login?error=ÇëÏÈµÇÂ¼ HTTP/1.1" 200 -
+2026-01-19 15:27:22,307 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:27:22] "[32mPOST /login HTTP/1.1[0m" 302 -
+2026-01-19 15:27:22,324 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:27:22] "GET / HTTP/1.1" 200 -
+2026-01-19 15:27:22,338 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:27:22] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-19 15:27:22,339 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:27:22] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+2026-01-19 15:27:22,387 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:27:22] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-01-19 15:27:27,163 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:27:27] "GET /analyse HTTP/1.1" 200 -
+2026-01-19 15:27:27,174 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:27:27] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-19 15:27:27,179 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:27:27] "[36mGET /static/css/profit.css HTTP/1.1[0m" 304 -
+2026-01-19 15:27:27,183 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:27:27] "GET /static/js/analyse.js HTTP/1.1" 200 -
+2026-01-19 15:27:27,272 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:27:27] "GET /analyse/stock_sell HTTP/1.1" 200 -
+2026-01-19 15:27:27,274 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:27:27] "GET /analyse/weekly HTTP/1.1" 200 -
+2026-01-19 15:27:27,274 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:27:27] "GET /analyse/onemonth HTTP/1.1" 200 -
+2026-01-19 15:27:27,275 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:27:27] "GET /analyse/monthly HTTP/1.1" 200 -
+2026-01-19 15:27:27,281 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:27:27] "GET /analyse/stock_sell HTTP/1.1" 200 -
+2026-01-19 15:27:27,329 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:27:27] "GET /analyse/stock_sell HTTP/1.1" 200 -
+2026-01-19 15:29:29,011 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-01-19 15:29:29,012 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-01-19 15:29:30,301 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:29:30] "GET / HTTP/1.1" 200 -
+2026-01-19 15:29:30,326 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:29:30] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-19 15:29:30,326 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:29:30] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+2026-01-19 15:29:35,850 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:29:35] "GET /analyse HTTP/1.1" 200 -
+2026-01-19 15:29:35,862 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:29:35] "[36mGET /static/css/profit.css HTTP/1.1[0m" 304 -
+2026-01-19 15:29:35,868 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:29:35] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-19 15:29:35,879 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:29:35] "[36mGET /static/js/analyse.js HTTP/1.1[0m" 304 -
+2026-01-19 15:29:35,924 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:29:35] "GET /analyse/weekly HTTP/1.1" 200 -
+2026-01-19 15:29:35,925 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:29:35] "GET /analyse/onemonth HTTP/1.1" 200 -
+2026-01-19 15:29:35,926 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:29:35] "GET /analyse/stock_sell HTTP/1.1" 200 -
+2026-01-19 15:29:35,926 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:29:35] "GET /analyse/monthly HTTP/1.1" 200 -
+2026-01-19 15:29:35,941 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:29:35] "GET /analyse/stock_sell HTTP/1.1" 200 -
+2026-01-19 15:29:35,989 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:29:35] "GET /analyse/stock_sell HTTP/1.1" 200 -
+2026-01-19 15:38:16,755 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-01-19 15:38:16,755 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-01-19 15:38:18,228 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:38:18] "GET / HTTP/1.1" 200 -
+2026-01-19 15:38:18,274 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:38:18] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-19 15:38:18,276 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:38:18] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+2026-01-19 15:38:21,858 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:38:21] "GET /analyse HTTP/1.1" 200 -
+2026-01-19 15:38:21,868 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:38:21] "[36mGET /static/css/profit.css HTTP/1.1[0m" 304 -
+2026-01-19 15:38:21,882 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:38:21] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-19 15:38:21,882 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:38:21] "GET /static/js/analyse.js HTTP/1.1" 200 -
+2026-01-19 15:38:21,905 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:38:21] "GET /analyse/onemonth HTTP/1.1" 200 -
+2026-01-19 15:38:21,906 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:38:21] "GET /analyse/weekly HTTP/1.1" 200 -
+2026-01-19 15:38:21,907 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:38:21] "GET /analyse/stock_sell HTTP/1.1" 200 -
+2026-01-19 15:38:21,908 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:38:21] "GET /analyse/monthly HTTP/1.1" 200 -
+2026-01-19 15:38:21,918 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:38:21] "GET /analyse/stock_sell HTTP/1.1" 200 -
+2026-01-19 15:38:21,985 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:38:21] "GET /analyse/stock_sell HTTP/1.1" 200 -
+2026-01-19 15:39:35,994 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:39:35] "GET /order/manage HTTP/1.1" 200 -
+2026-01-19 15:39:36,008 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:39:36] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-19 15:39:36,009 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:39:36] "[36mGET /static/css/manage.css HTTP/1.1[0m" 304 -
+2026-01-19 15:39:36,012 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:39:36] "[36mGET /static/js/manage.js HTTP/1.1[0m" 304 -
+2026-01-19 15:39:42,711 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:39:42] "GET /order/list/admin HTTP/1.1" 200 -
+2026-01-19 15:39:42,721 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:39:42] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+2026-01-19 15:39:42,721 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:39:42] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-19 15:40:28,596 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:40:28] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-19 15:40:28,597 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:40:28] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+2026-01-19 15:40:28,632 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:40:28] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2026-01-19 15:40:30,431 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:40:30] "GET /order/list/admin HTTP/1.1" 200 -
+2026-01-19 15:40:30,448 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:40:30] "GET /static/css/common.css HTTP/1.1" 200 -
+2026-01-19 15:40:30,449 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:40:30] "GET /static/css/index.css HTTP/1.1" 200 -
+2026-01-19 15:40:30,481 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:40:30] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2026-01-19 15:40:52,301 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:40:52] "GET /order/list/admin HTTP/1.1" 200 -
+2026-01-19 15:40:52,319 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:40:52] "GET /static/css/common.css HTTP/1.1" 200 -
+2026-01-19 15:40:52,325 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:40:52] "GET /static/css/index.css HTTP/1.1" 200 -
+2026-01-19 15:40:52,347 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:40:52] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2026-01-19 15:41:00,951 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:41:00] "GET /order/list/admin HTTP/1.1" 200 -
+2026-01-19 15:41:00,965 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:41:00] "GET /static/css/common.css HTTP/1.1" 200 -
+2026-01-19 15:41:00,965 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:41:00] "GET /static/css/index.css HTTP/1.1" 200 -
+2026-01-19 15:41:00,992 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:41:00] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2026-01-19 15:41:03,803 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:41:03] "GET / HTTP/1.1" 200 -
+2026-01-19 15:41:03,821 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:41:03] "GET /static/css/common.css HTTP/1.1" 200 -
+2026-01-19 15:41:03,823 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:41:03] "GET /static/css/index.css HTTP/1.1" 200 -
+2026-01-19 15:41:03,843 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:41:03] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2026-01-19 15:41:07,258 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:41:07] "GET / HTTP/1.1" 200 -
+2026-01-19 15:41:07,278 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:41:07] "GET /static/css/common.css HTTP/1.1" 200 -
+2026-01-19 15:41:07,281 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:41:07] "GET /static/css/index.css HTTP/1.1" 200 -
+2026-01-19 15:41:07,295 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:41:07] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2026-01-19 15:41:16,057 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:41:16] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-19 15:41:16,057 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:41:16] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+2026-01-19 15:41:16,071 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:41:16] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2026-01-19 15:41:17,937 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:41:17] "GET / HTTP/1.1" 200 -
+2026-01-19 15:41:17,951 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:41:17] "GET /static/css/common.css HTTP/1.1" 200 -
+2026-01-19 15:41:17,952 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:41:17] "GET /static/css/index.css HTTP/1.1" 200 -
+2026-01-19 15:41:17,975 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:41:17] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2026-01-19 15:41:44,010 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:41:44] "GET /analyse HTTP/1.1" 200 -
+2026-01-19 15:41:44,035 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:41:44] "GET /static/css/common.css HTTP/1.1" 200 -
+2026-01-19 15:41:44,037 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:41:44] "GET /static/css/profit.css HTTP/1.1" 200 -
+2026-01-19 15:41:44,052 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:41:44] "GET /static/js/analyse.js HTTP/1.1" 200 -
+2026-01-19 15:41:44,066 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:41:44] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2026-01-19 15:41:44,669 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:41:44] "GET /analyse/weekly HTTP/1.1" 200 -
+2026-01-19 15:41:44,671 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:41:44] "GET /analyse/onemonth HTTP/1.1" 200 -
+2026-01-19 15:41:44,678 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:41:44] "GET /analyse/monthly HTTP/1.1" 200 -
+2026-01-19 15:41:44,684 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:41:44] "GET /analyse/stock_sell HTTP/1.1" 200 -
+2026-01-19 15:41:44,685 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:41:44] "GET /analyse/stock_sell HTTP/1.1" 200 -
+2026-01-19 15:41:44,760 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:41:44] "GET /analyse/stock_sell HTTP/1.1" 200 -
+2026-01-19 15:42:50,905 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:42:50] "GET /transform/price HTTP/1.1" 200 -
+2026-01-19 15:48:09,365 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-01-19 15:48:09,365 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-01-19 15:48:10,724 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:48:10] "GET / HTTP/1.1" 200 -
+2026-01-19 15:48:10,778 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:48:10] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-19 15:48:10,779 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:48:10] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+2026-01-19 15:48:14,002 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:48:14] "GET /analyse HTTP/1.1" 200 -
+2026-01-19 15:48:14,017 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:48:14] "[36mGET /static/css/profit.css HTTP/1.1[0m" 304 -
+2026-01-19 15:48:14,020 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:48:14] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-19 15:48:14,023 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:48:14] "[36mGET /static/js/analyse.js HTTP/1.1[0m" 304 -
+2026-01-19 15:48:14,059 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:48:14] "GET /analyse/monthly HTTP/1.1" 200 -
+2026-01-19 15:48:14,061 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:48:14] "GET /analyse/weekly HTTP/1.1" 200 -
+2026-01-19 15:48:14,062 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:48:14] "GET /analyse/onemonth HTTP/1.1" 200 -
+2026-01-19 15:48:14,063 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:48:14] "GET /analyse/stock_sell HTTP/1.1" 200 -
+2026-01-19 15:48:14,069 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:48:14] "GET /analyse/stock_sell HTTP/1.1" 200 -
+2026-01-19 15:48:14,124 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:48:14] "GET /analyse/stock_sell HTTP/1.1" 200 -
+2026-01-19 15:48:17,376 - LOS.views.transform - ERROR - Éú³Éprice±íExcelÊ§°Ü: 'update_time'
+2026-01-19 15:48:17,380 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:48:17] "GET /transform/price HTTP/1.1" 200 -
+2026-01-19 15:48:17,388 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:48:17] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-19 15:50:51,792 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-01-19 15:50:51,792 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-01-19 15:50:53,160 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:50:53] "GET / HTTP/1.1" 200 -
+2026-01-19 15:50:53,189 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:50:53] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-19 15:50:53,189 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:50:53] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+2026-01-19 15:50:57,187 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:50:57] "GET /analyse HTTP/1.1" 200 -
+2026-01-19 15:50:57,201 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:50:57] "[36mGET /static/css/profit.css HTTP/1.1[0m" 304 -
+2026-01-19 15:50:57,205 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:50:57] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-19 15:50:57,213 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:50:57] "[36mGET /static/js/analyse.js HTTP/1.1[0m" 304 -
+2026-01-19 15:50:57,230 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:50:57] "GET /analyse/weekly HTTP/1.1" 200 -
+2026-01-19 15:50:57,236 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:50:57] "GET /analyse/onemonth HTTP/1.1" 200 -
+2026-01-19 15:50:57,240 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:50:57] "GET /analyse/monthly HTTP/1.1" 200 -
+2026-01-19 15:50:57,241 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:50:57] "GET /analyse/stock_sell HTTP/1.1" 200 -
+2026-01-19 15:50:57,262 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:50:57] "GET /analyse/stock_sell HTTP/1.1" 200 -
+2026-01-19 15:50:57,324 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:50:57] "GET /analyse/stock_sell HTTP/1.1" 200 -
+2026-01-19 15:50:59,150 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:50:59] "GET /transform/price HTTP/1.1" 200 -
+2026-01-19 16:02:48,197 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-01-19 16:02:48,211 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-01-19 16:02:49,696 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:02:49] "GET / HTTP/1.1" 200 -
+2026-01-19 16:02:49,878 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:02:49] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+2026-01-19 16:02:49,889 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:02:49] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-19 16:02:52,560 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:02:52] "[32mGET /logout HTTP/1.1[0m" 302 -
+2026-01-19 16:02:52,575 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:02:52] "GET /login HTTP/1.1" 200 -
+2026-01-19 16:02:52,587 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:02:52] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-19 16:02:52,588 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:02:52] "[36mGET /static/css/login.css HTTP/1.1[0m" 304 -
+2026-01-19 16:02:58,381 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:02:58] "[32mPOST /login HTTP/1.1[0m" 302 -
+2026-01-19 16:02:58,394 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:02:58] "GET / HTTP/1.1" 200 -
+2026-01-19 16:02:58,408 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:02:58] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+2026-01-19 16:02:58,409 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:02:58] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-19 16:04:57,494 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:04:57] "GET / HTTP/1.1" 200 -
+2026-01-19 16:04:57,508 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:04:57] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-19 16:04:57,509 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:04:57] "GET /static/css/index.css HTTP/1.1" 200 -
+2026-01-19 16:05:59,112 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-01-19 16:05:59,112 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-01-19 16:06:00,335 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:06:00] "GET / HTTP/1.1" 200 -
+2026-01-19 16:06:00,392 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:06:00] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-19 16:06:00,394 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:06:00] "GET /static/css/index.css HTTP/1.1" 200 -
+2026-01-19 16:06:29,548 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:06:29] "GET / HTTP/1.1" 200 -
+2026-01-19 16:06:29,556 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:06:29] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-19 16:06:29,556 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:06:29] "GET /static/css/index.css HTTP/1.1" 200 -
+2026-01-19 16:08:36,633 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:08:36] "GET / HTTP/1.1" 200 -
+2026-01-19 16:08:36,641 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:08:36] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-19 16:08:36,642 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:08:36] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+2026-01-19 16:08:48,542 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-01-19 16:08:48,542 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-01-19 16:08:50,162 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:08:50] "GET / HTTP/1.1" 200 -
+2026-01-19 16:08:50,210 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:08:50] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+2026-01-19 16:08:50,211 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:08:50] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-19 16:09:38,075 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:09:38] "GET /order/list/order/user HTTP/1.1" 200 -
+2026-01-19 16:09:38,083 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:09:38] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-19 16:09:38,084 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:09:38] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+2026-01-19 16:09:44,764 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:09:44] "GET /transform/order HTTP/1.1" 200 -
+2026-01-19 16:09:56,561 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:09:56] "GET /order/list/admin HTTP/1.1" 200 -
+2026-01-19 16:09:56,572 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:09:56] "[36mGET /static/css/login.css HTTP/1.1[0m" 304 -
+2026-01-19 16:09:56,573 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:09:56] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-19 16:10:02,608 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:10:02] "GET /order/list/admin HTTP/1.1" 200 -
+2026-01-19 16:10:02,618 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:10:02] "[36mGET /static/css/login.css HTTP/1.1[0m" 304 -
+2026-01-19 16:10:02,618 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:10:02] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-19 16:10:09,231 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:10:09] "GET / HTTP/1.1" 200 -
+2026-01-19 16:10:09,243 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:10:09] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-19 16:10:09,243 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:10:09] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+2026-01-19 16:10:12,154 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:10:12] "GET /order/list/order/user HTTP/1.1" 200 -
+2026-01-19 16:10:12,168 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:10:12] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-19 16:10:12,169 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:10:12] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+2026-01-19 16:11:34,097 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-01-19 16:11:34,097 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-01-19 16:11:40,764 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:11:40] "GET / HTTP/1.1" 200 -
+2026-01-19 16:11:40,846 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:11:40] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-19 16:11:40,849 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:11:40] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+2026-01-19 16:22:04,061 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-01-19 16:22:04,062 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-01-19 16:22:05,539 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:22:05] "GET / HTTP/1.1" 200 -
+2026-01-19 16:22:05,606 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:22:05] "GET /static/css/common.css HTTP/1.1" 200 -
+2026-01-19 16:22:05,609 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:22:05] "GET /static/css/index.css HTTP/1.1" 200 -
+2026-01-19 16:22:05,609 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:22:05] "GET /static/css/user_index.css HTTP/1.1" 200 -
+2026-01-19 16:23:38,524 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:23:38] "GET / HTTP/1.1" 200 -
+2026-01-19 16:23:38,580 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:23:38] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-19 16:23:38,580 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:23:38] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+2026-01-19 16:23:38,582 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:23:38] "GET /static/css/user_index.css HTTP/1.1" 200 -
+2026-01-19 16:23:56,034 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-01-19 16:23:56,034 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-01-19 16:23:57,223 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:23:57] "GET / HTTP/1.1" 200 -
+2026-01-19 16:23:57,280 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:23:57] "[36mGET /static/css/user_index.css HTTP/1.1[0m" 304 -
+2026-01-19 16:23:57,280 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:23:57] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-19 16:23:57,281 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:23:57] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+2026-01-19 16:25:29,458 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:25:29] "GET / HTTP/1.1" 200 -
+2026-01-19 16:25:29,467 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:25:29] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-19 16:25:29,468 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:25:29] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+2026-01-19 16:25:29,471 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:25:29] "GET /static/css/user_index.css HTTP/1.1" 200 -
+2026-01-19 16:26:05,706 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-01-19 16:26:05,706 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-01-19 16:26:09,201 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:26:09] "GET / HTTP/1.1" 200 -
+2026-01-19 16:26:09,244 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:26:09] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-19 16:26:09,245 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:26:09] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+2026-01-19 16:26:09,248 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:26:09] "GET /static/css/user_index.css HTTP/1.1" 200 -
+2026-01-19 16:28:26,502 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:28:26] "GET / HTTP/1.1" 200 -
+2026-01-19 16:28:26,512 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:28:26] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+2026-01-19 16:28:26,513 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:28:26] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-19 16:28:26,515 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:28:26] "GET /static/css/user_index.css HTTP/1.1" 200 -
+2026-01-19 16:28:50,460 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-01-19 16:28:50,460 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-01-19 16:28:51,736 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:28:51] "GET / HTTP/1.1" 200 -
+2026-01-19 16:28:51,795 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:28:51] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+2026-01-19 16:28:51,798 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:28:51] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-19 16:28:51,800 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:28:51] "GET /static/css/user_index.css HTTP/1.1" 200 -
+2026-01-19 16:30:32,624 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:30:32] "GET / HTTP/1.1" 200 -
+2026-01-19 16:30:32,634 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:30:32] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-19 16:30:32,634 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:30:32] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+2026-01-19 16:30:32,636 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:30:32] "GET /static/css/user_index.css HTTP/1.1" 200 -
+2026-01-19 16:33:39,388 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:33:39] "GET / HTTP/1.1" 200 -
+2026-01-19 16:33:39,398 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:33:39] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-19 16:33:39,398 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:33:39] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+2026-01-19 16:33:39,399 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:33:39] "GET /static/css/user_index.css HTTP/1.1" 200 -
+2026-01-19 16:33:59,824 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:33:59] "GET / HTTP/1.1" 200 -
+2026-01-19 16:33:59,835 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:33:59] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+2026-01-19 16:33:59,836 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:33:59] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-19 16:33:59,836 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:33:59] "GET /static/css/user_index.css HTTP/1.1" 200 -
+2026-01-19 16:34:21,521 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-01-19 16:34:21,521 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-01-19 16:34:23,008 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:34:23] "[32mGET / HTTP/1.1[0m" 302 -
+2026-01-19 16:34:23,121 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:34:23] "GET /login?error=ÇëÏÈµÇÂ¼ HTTP/1.1" 200 -
+2026-01-19 16:34:23,154 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:34:23] "[36mGET /static/css/login.css HTTP/1.1[0m" 304 -
+2026-01-19 16:34:23,156 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:34:23] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-19 16:34:23,224 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:34:23] "[32mGET /favicon.ico HTTP/1.1[0m" 302 -
+2026-01-19 16:34:23,247 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:34:23] "GET /login?error=ÇëÏÈµÇÂ¼ HTTP/1.1" 200 -
+2026-01-19 16:34:34,792 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:34:34] "[32mPOST /login HTTP/1.1[0m" 302 -
+2026-01-19 16:34:34,805 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:34:34] "GET / HTTP/1.1" 200 -
+2026-01-19 16:34:34,816 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:34:34] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-19 16:34:34,817 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:34:34] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+2026-01-19 16:34:34,818 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:34:34] "[36mGET /static/css/user_index.css HTTP/1.1[0m" 304 -
+2026-01-19 16:34:34,851 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:34:34] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-01-19 16:38:10,909 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:38:10] "GET / HTTP/1.1" 200 -
+2026-01-19 16:38:10,918 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:38:10] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+2026-01-19 16:38:10,919 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:38:10] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-19 16:38:10,921 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:38:10] "GET /static/css/user_index.css HTTP/1.1" 200 -
+2026-01-19 16:40:16,886 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:40:16] "GET / HTTP/1.1" 200 -
+2026-01-19 16:40:16,916 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:40:16] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+2026-01-19 16:40:16,916 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:40:16] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-19 16:40:16,917 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:40:16] "GET /static/css/user_index.css HTTP/1.1" 200 -
+2026-01-19 16:41:50,105 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:41:50] "GET / HTTP/1.1" 200 -
+2026-01-19 16:41:50,115 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:41:50] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-19 16:41:50,115 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:41:50] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+2026-01-19 16:41:50,118 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:41:50] "GET /static/css/user_index.css HTTP/1.1" 200 -
+2026-01-19 16:44:53,681 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:44:53] "GET / HTTP/1.1" 200 -
+2026-01-19 16:44:53,692 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:44:53] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-19 16:44:53,693 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:44:53] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+2026-01-19 16:44:53,695 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:44:53] "GET /static/css/user_index.css HTTP/1.1" 200 -
+2026-01-19 16:45:04,467 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-01-19 16:45:04,468 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-01-19 16:45:06,650 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:45:06] "[32mGET / HTTP/1.1[0m" 302 -
+2026-01-19 16:45:06,707 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:45:06] "GET /login?error=ÇëÏÈµÇÂ¼ HTTP/1.1" 200 -
+2026-01-19 16:45:06,823 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:45:06] "[36mGET /static/css/login.css HTTP/1.1[0m" 304 -
+2026-01-19 16:45:06,823 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:45:06] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-19 16:45:06,880 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:45:06] "[32mGET /favicon.ico HTTP/1.1[0m" 302 -
+2026-01-19 16:45:06,884 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:45:06] "GET /login?error=ÇëÏÈµÇÂ¼ HTTP/1.1" 200 -
+2026-01-19 16:45:14,085 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:45:14] "[32mPOST /login HTTP/1.1[0m" 302 -
+2026-01-19 16:45:14,096 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:45:14] "GET / HTTP/1.1" 200 -
+2026-01-19 16:45:14,110 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:45:14] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-19 16:45:14,111 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:45:14] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+2026-01-19 16:45:14,111 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:45:14] "[36mGET /static/css/user_index.css HTTP/1.1[0m" 304 -
+2026-01-19 16:45:14,149 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:45:14] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-01-19 16:46:04,806 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:46:04] "GET / HTTP/1.1" 200 -
+2026-01-19 16:46:04,816 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:46:04] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+2026-01-19 16:46:04,816 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:46:04] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-19 16:46:04,818 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:46:04] "GET /static/css/user_index.css HTTP/1.1" 200 -
+2026-01-19 16:46:18,161 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:46:18] "GET / HTTP/1.1" 200 -
+2026-01-19 16:46:18,171 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:46:18] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-19 16:46:18,171 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:46:18] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+2026-01-19 16:46:18,172 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:46:18] "GET /static/css/user_index.css HTTP/1.1" 200 -
+2026-01-19 16:46:45,882 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:46:45] "GET / HTTP/1.1" 200 -
+2026-01-19 16:46:45,892 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:46:45] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-19 16:46:45,894 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:46:45] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+2026-01-19 16:46:45,896 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:46:45] "GET /static/css/user_index.css HTTP/1.1" 200 -
+2026-01-19 16:47:08,659 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:47:08] "GET / HTTP/1.1" 200 -
+2026-01-19 16:47:08,671 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:47:08] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-19 16:47:08,672 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:47:08] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+2026-01-19 16:47:08,674 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:47:08] "GET /static/css/user_index.css HTTP/1.1" 200 -
+2026-01-19 16:47:26,225 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:47:26] "GET / HTTP/1.1" 200 -
+2026-01-19 16:47:26,235 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:47:26] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-19 16:47:26,236 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:47:26] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+2026-01-19 16:47:26,237 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:47:26] "GET /static/css/user_index.css HTTP/1.1" 200 -
+2026-01-19 16:47:50,119 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:47:50] "GET /order/list/order/user HTTP/1.1" 200 -
+2026-01-19 16:47:50,130 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:47:50] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+2026-01-19 16:47:50,130 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:47:50] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-19 16:47:55,286 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:47:55] "GET / HTTP/1.1" 200 -
+2026-01-19 16:47:55,296 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:47:55] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-19 16:47:55,297 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:47:55] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+2026-01-19 16:47:55,299 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:47:55] "[36mGET /static/css/user_index.css HTTP/1.1[0m" 304 -
+2026-01-19 16:47:58,078 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:47:58] "GET /user_index HTTP/1.1" 200 -
+2026-01-19 16:48:00,785 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:48:00] "GET / HTTP/1.1" 200 -
+2026-01-19 16:48:00,800 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:48:00] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-19 16:48:00,800 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:48:00] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+2026-01-19 16:48:00,802 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:48:00] "[36mGET /static/css/user_index.css HTTP/1.1[0m" 304 -
+2026-01-19 16:48:03,386 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:48:03] "GET /order/manage/submit HTTP/1.1" 200 -
+2026-01-19 16:48:03,396 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:48:03] "[33mGET /static/css/order_model.css HTTP/1.1[0m" 404 -
+2026-01-19 16:48:03,399 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:48:03] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-19 16:48:03,402 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:48:03] "[33mGET /static/js/order_modle.js HTTP/1.1[0m" 404 -
+2026-01-19 16:48:39,485 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:48:39] "GET / HTTP/1.1" 200 -
+2026-01-19 16:48:39,495 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:48:39] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-19 16:48:39,496 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:48:39] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+2026-01-19 16:48:39,498 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:48:39] "[36mGET /static/css/user_index.css HTTP/1.1[0m" 304 -
+2026-01-19 16:52:15,746 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:52:15] "GET / HTTP/1.1" 200 -
+2026-01-19 16:52:15,754 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:52:15] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-19 16:52:15,756 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:52:15] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+2026-01-19 16:52:15,758 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:52:15] "[36mGET /static/css/user_index.css HTTP/1.1[0m" 304 -
+2026-01-19 16:52:19,920 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:52:19] "GET /order/manage/submit HTTP/1.1" 200 -
+2026-01-19 16:52:19,930 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:52:19] "[33mGET /static/css/order_model.css HTTP/1.1[0m" 404 -
+2026-01-19 16:52:19,931 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:52:19] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-19 16:52:19,932 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:52:19] "[33mGET /static/js/order_modle.js HTTP/1.1[0m" 404 -
+2026-01-19 16:52:29,996 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-01-19 16:52:29,997 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-01-19 16:52:31,518 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:52:31] "[32mGET / HTTP/1.1[0m" 302 -
+2026-01-19 16:52:31,595 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:52:31] "GET /login?error=ÇëÏÈµÇÂ¼ HTTP/1.1" 200 -
+2026-01-19 16:52:31,645 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:52:31] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-19 16:52:31,646 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:52:31] "[36mGET /static/css/login.css HTTP/1.1[0m" 304 -
+2026-01-19 16:52:31,707 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:52:31] "[32mGET /favicon.ico HTTP/1.1[0m" 302 -
+2026-01-19 16:52:31,711 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:52:31] "GET /login?error=ÇëÏÈµÇÂ¼ HTTP/1.1" 200 -
+2026-01-19 16:52:36,961 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:52:36] "[32mPOST /login HTTP/1.1[0m" 302 -
+2026-01-19 16:52:36,974 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:52:36] "GET / HTTP/1.1" 200 -
+2026-01-19 16:52:36,996 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:52:36] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+2026-01-19 16:52:36,996 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:52:36] "[36mGET /static/css/user_index.css HTTP/1.1[0m" 304 -
+2026-01-19 16:52:36,996 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:52:36] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-19 16:52:37,033 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:52:37] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-01-19 16:52:40,333 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:52:40] "GET /order/list/order/user HTTP/1.1" 200 -
+2026-01-19 16:52:40,341 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:52:40] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-19 16:52:40,342 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:52:40] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+2026-01-19 16:52:43,527 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:52:43] "GET / HTTP/1.1" 200 -
+2026-01-19 16:52:43,537 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:52:43] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-19 16:52:43,537 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:52:43] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+2026-01-19 16:52:43,540 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:52:43] "[36mGET /static/css/user_index.css HTTP/1.1[0m" 304 -
+2026-01-19 16:52:45,840 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:52:45] "GET /order/manage/submit HTTP/1.1" 200 -
+2026-01-19 16:52:45,852 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:52:45] "[33mGET /static/css/order_model.css HTTP/1.1[0m" 404 -
+2026-01-19 16:52:45,853 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:52:45] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-19 16:52:45,855 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:52:45] "[33mGET /static/js/order_modle.js HTTP/1.1[0m" 404 -
+2026-01-19 16:53:01,037 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:53:01] "[32mPOST /order/manage/submit HTTP/1.1[0m" 302 -
+2026-01-19 16:53:01,053 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:53:01] "GET /order/manage HTTP/1.1" 200 -
+2026-01-19 16:53:01,065 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:53:01] "[36mGET /static/css/manage.css HTTP/1.1[0m" 304 -
+2026-01-19 16:53:01,066 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:53:01] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-19 16:53:14,341 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:53:14] "GET / HTTP/1.1" 200 -
+2026-01-19 16:53:14,354 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:53:14] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-19 16:53:14,354 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:53:14] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+2026-01-19 16:53:14,355 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:53:14] "[36mGET /static/css/user_index.css HTTP/1.1[0m" 304 -
+2026-01-19 16:53:16,207 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:53:16] "GET /order/list/order/user HTTP/1.1" 200 -
+2026-01-19 16:53:16,215 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:53:16] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-19 16:53:16,216 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:53:16] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+2026-01-19 16:55:00,287 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-01-19 16:55:00,288 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-01-19 16:55:01,816 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:55:01] "GET / HTTP/1.1" 200 -
+2026-01-19 16:55:01,869 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:55:01] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+2026-01-19 16:55:01,869 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:55:01] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-19 16:55:01,870 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:55:01] "[36mGET /static/css/user_index.css HTTP/1.1[0m" 304 -
+2026-01-19 16:55:04,138 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:55:04] "GET /order/manage/submit HTTP/1.1" 200 -
+2026-01-19 16:55:04,147 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:55:04] "[33mGET /static/css/order_model.css HTTP/1.1[0m" 404 -
+2026-01-19 16:55:04,150 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:55:04] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+2026-01-19 16:55:04,150 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:55:04] "[33mGET /static/js/order_modle.js HTTP/1.1[0m" 404 -
+2026-01-19 16:55:12,066 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:55:12] "GET /transform/price HTTP/1.1" 200 -

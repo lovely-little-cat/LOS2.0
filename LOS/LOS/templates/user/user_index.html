@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/common.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/user_index.css') }}">
 </head>
 <body>
     <nav class="nav">
@@ -23,17 +24,14 @@
         </div>
     </nav>
     <div class="head">
-        <div class="user-block">
-            <a href="{{ url_for('index.user_index') }}">个人信息</a>
-            <img src="{{ url_for('static', filename='img/setting.png') }}" title="设置" class="icon">
+        <div class="block">
+            <a href="{{ url_for('index.user_index') }}"><i class="fa-solid fa-file-invoice"><span>个人信息</span></i></a>
         </div>
-        <div>
-            <a href="{{ url_for('order.show_user_order_list') }}">查看订单</a>
-            <img src="" title="订单列表">
+        <div class="block">
+            <a href="{{ url_for('order.show_user_order_list') }}"><i class="fa-solid fa-file-lines"><span>查看订单</span></i></a>
         </div>
-        <div>
-            <a href="{{ url_for('manage.user_submit') }}">提交订单</a>
-            <img src="" title="提交订单">
+        <div class="block">
+            <a href="{{ url_for('manage.user_submit') }}"><i class="fa-solid fa-arrow-turn-up"><span>提交订单</span></i></a>
         </div>
     </div>
     <div class="foot">
@@ -41,7 +39,7 @@
             <p>联系我们：18035303382</p>
             <p>邮箱：a3115839287@qq.com</p>
             <p>联系管理员：</p>
-             <a href="{{ url_for('message.submit_message') }}">提交反馈</a>
+             <a href="{{ url_for('message.submit_message') }}"><i class="fa-solid fa-question"><span>联系管理员</span></i></a>
 
         </div>
 

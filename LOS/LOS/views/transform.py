@@ -6,7 +6,6 @@ from urllib.parse import quote
 from ..utils.STATUS_map import STATUS_MAP
 import logging
 
-# ====================== 基础配置 ======================
 logging.basicConfig(
     level=logging.ERROR,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
@@ -14,7 +13,6 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-# 表配置
 TABLE_CONFIG = {
     "order": {
         "headers": ["用户名", "地址", "电话", "订单ID", "用户ID", "商品ID", "数量", "订单状态"],
@@ -51,21 +49,21 @@ TABLE_CONFIG = {
     "price": {
         "headers": ["价格ID", "商品ID", "价格", "更新时间"],
         "sql": {
-            "admin": "SELECT p.id, p.products_id, p.price, o.buy_time FROM `price` p JOIN `order` o ON p.products_id=o.products_id",
+            "admin": "SELECT p.id, p.products_id, p.products_price, o.buy_time FROM `price` p JOIN `order` o ON p.products_id=o.products_id",
             "user": "SELECT p.*, o.buy_time FROM `price` p JOIN `order` o ON p.products_id=o.products_id WHERE o.user_id=%s"
         },
         "formatter": lambda row: [
-            row['id'], row['products_id'], row['price'], row['update_time'], row['buy_time']
+            row['id'], row['products_id'], row['products_price'], row['buy_time']
         ]
+        
     }
 }
 
 tra = Blueprint('transform', __name__)
 
-# ====================== 通用函数 ======================
 def query_table_data(table_name: str, user: dict) -> list:
     """
-    通用表数据查询（直接复用db.py的fetchall方法，无需手动处理连接）
+    通用表数据查询
     :param table_name: 表名（order/user/price）
     :param user: 会话用户信息
     :return: 查询结果列表（字典格式）
@@ -132,7 +130,6 @@ def check_login(user):
         return render_template("login.html", error="请先登录")
     return None
 
-# ====================== 路由函数 ======================
 @tra.route('/transform/order', methods=['GET','POST'])
 def transform_order():
     """订单表导出"""

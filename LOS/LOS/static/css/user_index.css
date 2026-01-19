@@ -1,0 +1,29 @@
+
+.head{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(40, 38, 38, 0.941);
+}
+
+.block {
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0 0 10px rgba(183, 159, 159, 0.941);
+    align-items: center;
+    padding: 20px;
+    background-color: #f3d1d1;
+    opacity: 0.8;
+}
+
+.foot {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20px;
+    background-color: #f2e2e2;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+

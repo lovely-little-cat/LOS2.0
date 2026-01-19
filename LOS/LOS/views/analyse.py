@@ -7,12 +7,27 @@ from dateutil.relativedelta import relativedelta
 
 ana = Blueprint('analyse', __name__)
 
-
-
-
 local_tz = pytz.timezone('Asia/Shanghai')
 
-
+def insertion_sort(arr, key, reverse=False):
+    """
+    插入排序实现
+    :param arr: 待排序数组
+    :param key: 排序依据的字段（如 'sell'/'stock'/'recommend_priority'）
+    :param reverse: 是否降序（默认升序）
+    :return: 排序后的数组
+    """
+    for i in range(1, len(arr)):
+        current_item = arr[i]
+        j = i - 1
+        while j >= 0 and (
+            (reverse and arr[j][key] < current_item[key]) or
+            (not reverse and arr[j][key] > current_item[key])
+        ):
+            arr[j + 1] = arr[j]
+            j -= 1
+        arr[j + 1] = current_item
+    return arr
 
 def check_admin_permission():
     user = session.get('user')
@@ -20,21 +35,26 @@ def check_admin_permission():
         return jsonify({"error": "无权限访问"}), 403
     return None  
 
-def recommend_sort(price_data, min_stock=20):
+def recommend_sort(price_data, min_stock=100):
+    """
+    插入排序：优先补货「缺货程度×销量」高的商品
+    :param price_data: 商品库存/销量数据
+    :param min_stock: 库存预警阈值
+    :return: 排序后数据 + 补货列表
+    """
     for item in price_data:
         stock = item.get('stock', 0)
         sell = item.get('sell', 0)
-
         shortage_degree = 1 - (stock / min_stock) if stock > 0 else 1
-
         item['recommend_priority'] = round(shortage_degree * sell, 2)
-
         item['need_restock'] = stock <= min_stock
 
-    sorted_data = sorted(
-    price_data,
-    key=lambda x: (x['recommend_priority'], x['sell']),
-    reverse=True
+    sorted_data = insertion_sort(price_data.copy(), 'recommend_priority', reverse=True)
+    
+    restock_list = insertion_sort(
+        [item for item in sorted_data if item['need_restock']],
+        'recommend_priority',
+        reverse=True
     )
     restock_list = [
         {
@@ -43,11 +63,17 @@ def recommend_sort(price_data, min_stock=20):
             'sell_volume': item['sell'],
             'priority': item['recommend_priority']
         }
-        for item in sorted_data if item['need_restock']
+        for item in restock_list
     ]
     return sorted_data, restock_list
 
+def sort_by_sell_desc(price_data):
+    """按销量从高到低排序（插入排序）"""
+    return insertion_sort(price_data.copy(), 'sell', reverse=True)
 
+def sort_by_stock_desc(price_data):
+    """按库存从高到低排序（插入排序）"""
+    return insertion_sort(price_data.copy(), 'stock', reverse=True)
 
 def dict_ss():
     sql = """
@@ -58,7 +84,10 @@ def dict_ss():
         price_data = db.fetchall(sql, [])
         if not price_data:
             return jsonify({"error": "查询失败：无数据", "status": "error"}), 500
+        
         sorted_price, restock_list = recommend_sort(price_data, min_stock=20)
+        sorted_by_sell = sort_by_sell_desc(price_data)
+        sorted_by_stock = sort_by_stock_desc(price_data)
         
         price_dict = {
             item['products_id']: {
@@ -72,7 +101,6 @@ def dict_ss():
             for item in price_data
         }
         
-
         sell_max = max(price_dict.items(), key=lambda x: x[1]['sell'])[0] if price_dict else None
         
         return {
@@ -80,7 +108,9 @@ def dict_ss():
             'sell_max': sell_max,
             'restock_list': restock_list, 
             'sorted_price': sorted_price, 
-            'min_stock': 20  
+            'sorted_by_sell': sorted_by_sell,  
+            'sorted_by_stock': sorted_by_stock,
+            'min_stock': 100  
         }
     except Exception as e:
         return jsonify({"error": f"查询失败：{str(e)}", "status": "error"}), 500
@@ -99,15 +129,11 @@ def get_time_range(period):
     else:
         raise ValueError("不支持的时间周期")
     
-    
     start_utc = start_date.astimezone(pytz.UTC)
     end_utc = end_date.astimezone(pytz.UTC)
     return start_utc, end_utc, date_format
 
-
-
 def query_profit(period):
-
     permission_error = check_admin_permission()
     if permission_error:
         return permission_error
@@ -130,13 +156,9 @@ def query_profit(period):
             [start_utc.strftime("%Y-%m-%d %H:%M:%S"), 
              end_utc.strftime("%Y-%m-%d %H:%M:%S")]
         )
-
-        return jsonify({"data": profits, "status": "4"})
+        return jsonify({"data": profits, "status": "success"})  
     except Exception as e:
-
         return jsonify({"error": f"查询失败：{str(e)}", "status": "error"}), 500
-
-
 
 @ana.route('/analyse/stock_sell')
 def ss_analyse():
@@ -153,6 +175,8 @@ def ss_analyse():
         'sell_max': result['sell_max'],
         'restock_list': result['restock_list'],  
         'sorted_price': result['sorted_price'], 
+        'sorted_by_sell': result['sorted_by_sell'], 
+        'sorted_by_stock': result['sorted_by_stock'], 
         'min_stock': result['min_stock'],  
         "status": "success"
     })
@@ -164,18 +188,14 @@ def show_analyse():
         return render_template("login.html", error="无权限访问，需管理员登录")
     return render_template("admin/profit.html")
 
-
 @ana.route('/analyse/weekly')
 def weekly_analyse():
     return query_profit('week')
-
 
 @ana.route('/analyse/onemonth')
 def one_month_analyse():  
     return query_profit('month')
 
-
 @ana.route('/analyse/monthly')
 def yearly_analyse(): 
     return query_profit('year')
-
